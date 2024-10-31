@@ -19,12 +19,12 @@ public class Player : MonoBehaviour
     }
 
     // State Variables  
-    private State _currentState;
-    private State _nextState;
+    private State currentState_;
+    private State nextState_;
 
     // Variables for the component
-    private Rigidbody2D _rb; // rigidbody
-    private Animator _anim; // Animator
+    private Rigidbody2D rb_; // rigidbody
+    private Animator anim_; // Animator
 
     //  state machine input variables
     private bool isAttacking;
@@ -66,12 +66,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         // Component initialization
-        _rb = GetComponent<Rigidbody2D>();
-        _anim = GetComponentInChildren<Animator>();
+        rb_ = GetComponent<Rigidbody2D>();
+        anim_ = GetComponentInChildren<Animator>();
 
         // State initialization
-        _currentState = State.GROUND;
-        _nextState = _currentState;
+        currentState_ = State.GROUND;
+        nextState_ = currentState_;
     }
 
     // Update is called once per frame
@@ -79,32 +79,32 @@ public class Player : MonoBehaviour
     {
 
 
-        if (_nextState != _currentState)
+        if (nextState_ != currentState_)
         {
             // TODO: Handle transition states
 
 
             // State transition
-            _currentState = _nextState;
+            currentState_ = nextState_;
         }
         else // Handle when in a stable state
         {
-            switch (_currentState)
+            switch (currentState_)
             {
                 case State.GROUND:
-                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref nextState_, currentState_))
                         GroundState();
                     break;
                 case State.ATTACK:
-                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref nextState_, currentState_))
                         AttackState();
                     break;
                 case State.AIR:
-                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref nextState_, currentState_))
                         AirState();
                     break;
                 case State.DASHING:
-                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref nextState_, currentState_))
                         DashingState();
                     break;
             }
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             case State.DASHING:
                 return CheckTransitionFromDashing(ref next, current);
             default:
-                Debug.LogError("CheckExitCondition(): " + _nextState + " State is not being handled");
+                Debug.LogError("CheckExitCondition(): " + nextState_ + " State is not being handled");
                 return false;
         }
     }
