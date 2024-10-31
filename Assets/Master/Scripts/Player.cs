@@ -92,19 +92,19 @@ public class Player : MonoBehaviour
             switch (_currentState)
             {
                 case State.GROUND:
-                    if (!CheckStateTransition(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
                         GroundState();
                     break;
                 case State.ATTACK:
-                    if (!CheckStateTransition(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
                         AttackState();
                     break;
                 case State.AIR:
-                    if (!CheckStateTransition(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
                         AirState();
                     break;
                 case State.DASHING:
-                    if (!CheckStateTransition(ref _nextState, _currentState))
+                    if (!CheckTransitionFromCurrentState(ref _nextState, _currentState))
                         DashingState();
                     break;
             }
@@ -113,25 +113,25 @@ public class Player : MonoBehaviour
 
     #region common function space
     // ----------------------------------------- common function space -----------------------------------------
-    private bool CheckStateTransition(ref State next, State current)
+    private bool CheckTransitionFromCurrentState(ref State next, State current)
     {
         switch (current)
         {
             case State.GROUND:
-                return CheckIfTransitionToGround(ref next, current);
+                return CheckTransitionFromGround(ref next, current);
             case State.ATTACK:
-                return CheckIfTransitionToAttack(ref next, current);
+                return CheckTransitionFromAttack(ref next, current);
             case State.AIR:
-                return CheckIfTransitionToAir(ref next, current);
+                return CheckTransitionFromAir(ref next, current);
             case State.DASHING:
-                return CheckIfTransitionToDashing(ref next, current);
+                return CheckTransitionFromDashing(ref next, current);
             default:
                 Debug.LogError("CheckExitCondition(): " + _nextState + " State is not being handled");
                 return false;
         }
     }
 
-    private bool CheckIfTransitionToGround(ref State next, State current)
+    private bool CheckTransitionFromGround(ref State next, State current)
     {
         if (isAttacking)
         {
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private bool CheckIfTransitionToAttack(ref State next, State current)
+    private bool CheckTransitionFromAttack(ref State next, State current)
     {
         if (!isAttacking)
         {
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private bool CheckIfTransitionToAir(ref State next, State current)
+    private bool CheckTransitionFromAir(ref State next, State current)
     {
         if (!isAir)
         {
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private bool CheckIfTransitionToDashing(ref State next, State current)
+    private bool CheckTransitionFromDashing(ref State next, State current)
     {
         if (!isDashing && isGround)
         {
