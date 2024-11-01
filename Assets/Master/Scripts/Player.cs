@@ -27,10 +27,10 @@ public class Player : MonoBehaviour
     private Animator anim_; // Animator
 
     //  state machine input variables
-    private bool isAttacking;
-    private bool isAir;
-    private bool isDashing;
-    private bool isGround;
+    private bool isAttacking_;
+    private bool isAir_;
+    private bool isDashing_;
+    private bool isGround_;
     #endregion
     #region free variable space
     // ----------------------------------------- free variable space -----------------------------------------
@@ -133,12 +133,12 @@ public class Player : MonoBehaviour
 
     private bool CheckTransitionFromGround(ref State next, State current)
     {
-        if (isAttacking)
+        if (isAttacking_)
         {
             next = State.ATTACK;
             return true;
         }
-        else if (isAir)
+        else if (isAir_)
         {
             next = State.AIR;
             return true;
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
 
     private bool CheckTransitionFromAttack(ref State next, State current)
     {
-        if (!isAttacking)
+        if (!isAttacking_)
         {
             next = State.GROUND;
             return true;
@@ -158,12 +158,12 @@ public class Player : MonoBehaviour
 
     private bool CheckTransitionFromAir(ref State next, State current)
     {
-        if (!isAir)
+        if (!isAir_)
         {
             next = State.GROUND;
             return true;
         }
-        else if (isDashing)
+        else if (isDashing_)
         {
             next = State.DASHING;
             return true;
@@ -173,12 +173,12 @@ public class Player : MonoBehaviour
 
     private bool CheckTransitionFromDashing(ref State next, State current)
     {
-        if (!isDashing && isGround)
+        if (!isDashing_ && isGround_)
         {
             next = State.GROUND;
             return true;
         }
-        else if (!isDashing && !isGround)
+        else if (!isDashing_ && !isGround_)
         {
             next = State.AIR;
             return true;

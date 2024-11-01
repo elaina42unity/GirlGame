@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class PlayerMoveStateAsh : PlayerGroundedStateAsh
         base.Update();
 
         player_.SetVelocity(xInput_*player_.moveSpeed_,rb_.velocity.y);
-        if (xInput_ == 0)
+        if (xInput_ == 0|| player_.IsWallDetected())
         {
             stateMachine_.ChangeState(player_.IdleState);
         }

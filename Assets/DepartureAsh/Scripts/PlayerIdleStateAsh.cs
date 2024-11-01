@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +12,8 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
     public override void Enter()
     {
         base.Enter();
+
+        rb_.velocity= new Vector2(0, 0);
     }
 
     public override void Exit()
