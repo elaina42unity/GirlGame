@@ -25,6 +25,9 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
     {
         base.Update();
 
+        if (xInput_ == player_.facingDir && player_.IsWallDetected())
+            return;
+
         if (xInput_!=0)
             stateMachine_.ChangeState(player_.MoveState);
     }

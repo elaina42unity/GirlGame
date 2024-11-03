@@ -12,7 +12,7 @@ public class PlayerWallJumpStateAsh : PlayerStateAsh
     {
         base.Enter();
 
-        stateTimer = .4f;
+        stateTimer = 1f;
         player_.SetVelocity(5 * -player_.facingDir, player_.jumpForce_);
     }
 
@@ -27,6 +27,9 @@ public class PlayerWallJumpStateAsh : PlayerStateAsh
 
         if (stateTimer < 0)
             stateMachine_.ChangeState(player_.AirState);
+
+        if (player_.IsWallDetected())
+            stateMachine_.ChangeState(player_.WallSlideState);
 
         if (player_.IsGroundDetected())
             stateMachine_.ChangeState(player_.IdleState);

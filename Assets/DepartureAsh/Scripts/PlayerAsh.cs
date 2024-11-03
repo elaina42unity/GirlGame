@@ -62,7 +62,7 @@ public class PlayerAsh : MonoBehaviour
 
     private void Start()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         Rb = GetComponent<Rigidbody2D>();
 
         StateMachine.Initialize(IdleState);
@@ -113,12 +113,12 @@ public class PlayerAsh : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck_.position, new Vector3(groundCheck_.position.x, groundCheck_.position.y - groundCheckDistance));
-        Gizmos.DrawLine(wallCheck_.position, new Vector3(wallCheck_.position.x + wallCheckDistance, wallCheck_.position.y));
+        Gizmos.DrawLine(wallCheck_.position, new Vector3(wallCheck_.position.x + wallCheckDistance*facingDir, wallCheck_.position.y));
 
     }
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck_.position, Vector2.down, groundCheckDistance, whatIsGround);
-    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right, wallCheckDistance, whatIsGround);
+    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right *facingDir, wallCheckDistance, whatIsGround);
 
     public void Flip()
     {
