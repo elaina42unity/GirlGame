@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerAsh : MonoBehaviour
 {
+
+    [Header("Attack details")]
+    public Vector2[] attackMovement;
+    public bool IsBusy { get;private set; }
     [Header("Move info")]
     public float moveSpeed_ = 12f;
     public float jumpForce_;
@@ -75,6 +79,15 @@ public class PlayerAsh : MonoBehaviour
         CheckForDashInput();
     }
 
+    public IEnumerator BusyFor(float seconds)
+    {
+        IsBusy = true;
+
+        yield return new WaitForSeconds(seconds);
+
+        IsBusy = false;
+    }
+
     public void AnimationTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
 
     private void CheckForDashInput()
@@ -104,22 +117,27 @@ public class PlayerAsh : MonoBehaviour
         }
     }
 
+    #region Velocity
+    public void ZeroVelocity() => Rb.velocity = new Vector2(0.0f, 0.0f);
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         Rb.velocity = new Vector2(xVelocity, yVelocity);
         FlipController(xVelocity);
     }
+    #endregion
 
+    #region Collision
+    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck_.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right *facingDir, wallCheckDistance, whatIsGround);
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck_.position, new Vector3(groundCheck_.position.x, groundCheck_.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck_.position, new Vector3(wallCheck_.position.x + wallCheckDistance*facingDir, wallCheck_.position.y));
 
     }
+    #endregion
 
-    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck_.position, Vector2.down, groundCheckDistance, whatIsGround);
-    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right *facingDir, wallCheckDistance, whatIsGround);
-
+    #region Flip
     public void Flip()
     {
         facingDir = facingDir * -1;
@@ -134,4 +152,5 @@ public class PlayerAsh : MonoBehaviour
         else if (x < 0 && facingRight)
             Flip();
     }
+    #endregion
 }

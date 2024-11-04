@@ -24,9 +24,6 @@ public class PlayerJumpStateAsh : PlayerStateAsh
     {
         base.Update();
 
-        if (player_.IsWallDetected())
-            stateMachine_.ChangeState(player_.WallSlideState);
-
         if (rb_.velocity.y < 0)
             stateMachine_.ChangeState(player_.AirState);
     }

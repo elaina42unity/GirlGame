@@ -13,7 +13,7 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
     {
         base.Enter();
 
-        rb_.velocity= new Vector2(0, 0);
+        player_.ZeroVelocity();
     }
 
     public override void Exit()
@@ -28,7 +28,7 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
         if (xInput_ == player_.facingDir && player_.IsWallDetected())
             return;
 
-        if (xInput_!=0)
+        if (xInput_!=0&&!player_.IsBusy)
             stateMachine_.ChangeState(player_.MoveState);
     }
 }
