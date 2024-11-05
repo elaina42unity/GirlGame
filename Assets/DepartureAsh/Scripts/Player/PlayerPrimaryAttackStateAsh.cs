@@ -26,14 +26,14 @@ public class PlayerPrimaryAttackStateAsh : PlayerStateAsh
         //player_.Anim.speed = 1.1f;
 
         #region Choose attack direction
-        float attackDir = player_.facingDir;
+        float attackDir = player_.FacingDir;
 
         if (xInput_ != 0)
             attackDir = xInput_;
 
         #endregion
 
-        player_.SetVelocity(player_.attackMovement[comboCounter].x* attackDir, player_.attackMovement[comboCounter].y);
+        player_.SetVelocity(player_.attackMovement_[comboCounter].x* attackDir, player_.attackMovement_[comboCounter].y);
 
         stateTimer = 0.1f; // 惯性
     }

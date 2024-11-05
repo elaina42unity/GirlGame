@@ -8,7 +8,8 @@ public class ParallaxBackgruondAsh : MonoBehaviour
 
     [SerializeField] private float parallaxEffect;
 
-    private float xPosition;
+    private float startX_;
+    private float tempX_;
     private float length;
 
 
@@ -18,20 +19,27 @@ public class ParallaxBackgruondAsh : MonoBehaviour
         cam = GameObject.Find("Main Camera");
 
         length = GetComponent<SpriteRenderer>().bounds.size.x;
-        xPosition = transform.position.x;
+        startX_ = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distanceMoved = cam.transform.position.x * (1 - parallaxEffect);
-        float distanceToMove = (cam.transform.position.x- xPosition) * parallaxEffect;
+        float distanceMoved = Mathf.Abs(cam.transform.position.x - startX_) * (1 - parallaxEffect);
+        float distanceToMove = Mathf.Abs(cam.transform.position.x - startX_) * parallaxEffect;
 
-        transform.position = new Vector3(xPosition + distanceToMove, transform.position.y);
+        if (cam.transform.position.x - tempX_ > 0)
+        {
+            transform.position = new Vector3(tempX_ + distanceToMove, transform.position.y);
+        }
+        else if (cam.transform.position.x - tempX_ < 0)
+        {
+            transform.position = new Vector3(tempX_ - distanceToMove, transform.position.y);
+        }
 
-        if (distanceMoved > xPosition + length)
-            xPosition = xPosition + length;
-        else if (distanceMoved < xPosition - length)
-            xPosition = xPosition - length;
+        if (distanceMoved > Mathf.Abs(tempX_) + length && cam.transform.position.x - tempX_ > 0)
+            tempX_ = tempX_ + length;
+        else if (distanceMoved > Mathf.Abs(tempX_) + length && cam.transform.position.x - tempX_ < 0)
+            tempX_ = tempX_ - length;
     }
 }

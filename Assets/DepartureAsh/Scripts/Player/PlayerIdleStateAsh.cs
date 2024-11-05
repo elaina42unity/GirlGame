@@ -25,7 +25,7 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
     {
         base.Update();
 
-        if (xInput_ == player_.facingDir && player_.IsWallDetected())
+        if (xInput_ == player_.FacingDir && player_.IsWallDetected())
             return;
 
         if (xInput_!=0&&!player_.IsBusy)

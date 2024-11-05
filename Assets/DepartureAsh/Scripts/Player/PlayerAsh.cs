@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAsh : MonoBehaviour
+public class PlayerAsh : EntityAsh
 {
 
     [Header("Attack details")]
-    public Vector2[] attackMovement;
+    public Vector2[] attackMovement_;
     public bool IsBusy { get;private set; }
     [Header("Move info")]
     public float moveSpeed_ = 12f;
@@ -18,22 +18,6 @@ public class PlayerAsh : MonoBehaviour
     public float dashSpeed_;
     public float dashDuration_;
     public float DashDir { get; private set; }
-
-    [Header("Collision info")]
-    [SerializeField] private Transform groundCheck_;
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private Transform wallCheck_;
-    [SerializeField] private float wallCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
-
-    public int facingDir { get; private set; } = 1;
-    private bool facingRight = true;
-
-    #region Components
-    public Animator Anim { get; private set; }
-
-    public Rigidbody2D Rb { get; private set; }
-    #endregion
 
     #region States
     public PlayerStateMachineAsh StateMachine { get; private set; }
@@ -49,7 +33,7 @@ public class PlayerAsh : MonoBehaviour
     #endregion
 
 
-    private void Awake()
+    protected override void Awake()
     {
         StateMachine = new PlayerStateMachineAsh();
 
@@ -64,16 +48,15 @@ public class PlayerAsh : MonoBehaviour
         PrimaryAttackState = new PlayerPrimaryAttackStateAsh(this, StateMachine, "Attack");
     }
 
-    private void Start()
+    protected override void Start()
     {
-        Anim = GetComponentInChildren<Animator>();
-        Rb = GetComponent<Rigidbody2D>();
-
+        base.Start();
         StateMachine.Initialize(IdleState);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update(); 
         StateMachine.CurrentState.Update();
 
         CheckForDashInput();
@@ -107,7 +90,7 @@ public class PlayerAsh : MonoBehaviour
             DashDir = Input.GetAxisRaw("Horizontal");
 
             if (DashDir == 0)
-                DashDir = facingDir;
+                DashDir = FacingDir;
 
             // 如果没有输入方向就不进行冲刺的处理方法
             //if (DashDir!=0)
@@ -117,40 +100,5 @@ public class PlayerAsh : MonoBehaviour
         }
     }
 
-    #region Velocity
-    public void ZeroVelocity() => Rb.velocity = new Vector2(0.0f, 0.0f);
-    public void SetVelocity(float xVelocity, float yVelocity)
-    {
-        Rb.velocity = new Vector2(xVelocity, yVelocity);
-        FlipController(xVelocity);
-    }
-    #endregion
 
-    #region Collision
-    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck_.position, Vector2.down, groundCheckDistance, whatIsGround);
-    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right *facingDir, wallCheckDistance, whatIsGround);
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(groundCheck_.position, new Vector3(groundCheck_.position.x, groundCheck_.position.y - groundCheckDistance));
-        Gizmos.DrawLine(wallCheck_.position, new Vector3(wallCheck_.position.x + wallCheckDistance*facingDir, wallCheck_.position.y));
-
-    }
-    #endregion
-
-    #region Flip
-    public void Flip()
-    {
-        facingDir = facingDir * -1;
-        facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
-    }
-
-    public void FlipController(float x)
-    {
-        if (x > 0 && !facingRight)
-            Flip();
-        else if (x < 0 && facingRight)
-            Flip();
-    }
-    #endregion
 }

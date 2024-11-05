@@ -13,7 +13,7 @@ public class PlayerWallJumpStateAsh : PlayerStateAsh
         base.Enter();
 
         stateTimer = 1f;
-        player_.SetVelocity(5 * -player_.facingDir, player_.jumpForce_);
+        player_.SetVelocity(5 * -player_.FacingDir, player_.jumpForce_);
     }
 
     public override void Exit()

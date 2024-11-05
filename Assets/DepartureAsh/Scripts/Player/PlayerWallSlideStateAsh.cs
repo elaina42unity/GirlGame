@@ -27,7 +27,7 @@ public class PlayerWallSlideStateAsh : PlayerStateAsh
             return;
         }
 
-        if (xInput_ != 0 && player_.facingDir != xInput_)
+        if (xInput_ != 0 && player_.FacingDir != xInput_)
             stateMachine_.ChangeState(player_.IdleState);
 
         if (yInput_ < 0)
