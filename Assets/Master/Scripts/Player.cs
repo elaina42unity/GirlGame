@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : MonoBehaviour
 {
@@ -27,10 +28,12 @@ public class Player : MonoBehaviour
     private Animator anim_; // Animator
 
     //  state machine input variables
-    private bool isAttacking_;
-    private bool isAir_;
-    private bool isDashing_;
-    private bool isGround_;
+    private bool isAttacking_ = false;
+    private bool isAir_ = false;
+    private bool isDashing_ = false;
+    private bool isGround_ =true;
+
+    private float xInput_; // input value of x axis
     #endregion
     #region free variable space
     // ----------------------------------------- free variable space -----------------------------------------
@@ -47,7 +50,21 @@ public class Player : MonoBehaviour
     #region Ash variable space
     // ----------------------------------------- Ash variable space -----------------------------------------
     // TODO: Ash's variable workspace
+    private enum StateInGroundState
+    {
+        NONE = -1,
+        IDLE,
+        MOVE
+    }
 
+    private StateInGroundState currentGroundState_;
+    private StateInGroundState nextGroundState_;
+
+    [Header("Move Info")]
+    [SerializeField]private float moveSpeed_ = 10f;
+
+    private int facingDir_ = 1;
+    private bool facingRight_ = true;
     #endregion
 
     #region NeroSaika variable space
@@ -72,17 +89,24 @@ public class Player : MonoBehaviour
         // State initialization
         currentState_ = State.GROUND;
         nextState_ = currentState_;
+
+        currentGroundState_ = StateInGroundState.IDLE;
+        nextGroundState_ = StateInGroundState.IDLE;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        xInput_ = Input.GetAxisRaw("Horizontal");
 
         if (nextState_ != currentState_)
         {
             // TODO: Handle transition states
-
+            if (nextState_ == State.GROUND)
+            {
+                currentGroundState_ = StateInGroundState.IDLE;
+                nextGroundState_ = StateInGroundState.IDLE;
+            }
 
             // State transition
             currentState_ = nextState_;
@@ -143,12 +167,17 @@ public class Player : MonoBehaviour
             next = State.AIR;
             return true;
         }
+        else if (isDashing_)
+        {
+            next = State.DASHING;
+            return true;
+        }
         return false;
     }
 
     private bool CheckTransitionFromAttack(ref State next, State current)
     {
-        if (!isAttacking_)
+        if (!isAttacking_&&isGround_)
         {
             next = State.GROUND;
             return true;
@@ -158,7 +187,7 @@ public class Player : MonoBehaviour
 
     private bool CheckTransitionFromAir(ref State next, State current)
     {
-        if (!isAir_)
+        if (!isAir_&&isGround_)
         {
             next = State.GROUND;
             return true;
@@ -178,7 +207,7 @@ public class Player : MonoBehaviour
             next = State.GROUND;
             return true;
         }
-        else if (!isDashing_ && !isGround_)
+        else if (!isDashing_ && isAir_)
         {
             next = State.AIR;
             return true;
@@ -202,7 +231,74 @@ public class Player : MonoBehaviour
     // TODO: Ash's function workspace
     private void GroundState()
     {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            isAttacking_ = true;
+            return;
+        }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isGround_ = false;
+            isAir_ = true;
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isDashing_ = true;
+            return;
+        }
+
+        if (nextGroundState_!=currentGroundState_)
+        {
+
+            currentGroundState_ = nextGroundState_;
+        }
+        else
+        {
+            switch (currentGroundState_)
+            {
+                case StateInGroundState.IDLE:
+                    rb_.velocity = Vector3.zero;
+                    if (xInput_!=0)
+                    {
+                       
+                        nextGroundState_ = StateInGroundState.MOVE;
+                    }
+                    break;
+                case StateInGroundState.MOVE:
+
+                    FlipController(xInput_);
+                    rb_.velocity = new Vector3(xInput_ * moveSpeed_, rb_.velocity.y);
+
+                    if (xInput_ == 0)
+                    {
+                        nextGroundState_ = StateInGroundState.IDLE;
+                    }
+                    break;
+
+            }
+        }
+    }
+
+    private void FlipController(float x)
+    {
+        if (x > 0 && !facingRight_)
+        {
+            Flip();
+        }
+        else if (x < 0 && facingRight_)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        facingDir_ = facingDir_ * -1;
+        facingRight_ = !facingRight_;
+        transform.Rotate(0, 180, 0);
     }
 
     #endregion
