@@ -303,9 +303,10 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region NeroSaika function space
+
+    #region Renne function space
     // ----------------------------------------- NeroSaika function space -----------------------------------------
-    // TODO: NeroSaika's function workspace
+    // TODO: Renne's function workspace
     private void AttackState()
     {
 
@@ -313,9 +314,9 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    #region Renne function space
+    #region NeroSaika function space
     // ----------------------------------------- Renne function space -----------------------------------------
-    // TODO: Renne's function workspace
+    // TODO: NeroSaika's function workspace
     private void DashingState()
     {
 
