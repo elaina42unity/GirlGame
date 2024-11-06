@@ -8,20 +8,38 @@ public class ParallaxBackgruondAsh : MonoBehaviour
 
     [SerializeField] private float parallaxEffect;
 
-    private float xPosition;
+    private float startX_;
+    private float tempX_;
+    private float length;
+
+
     // Start is called before the first frame update
     void Start()
     {
         cam = GameObject.Find("Main Camera");
 
-        xPosition = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        startX_ = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distanceToMove = (cam.transform.position.x- xPosition) * parallaxEffect;
+        float distanceMoved = Mathf.Abs(cam.transform.position.x - startX_) * (1 - parallaxEffect);
+        float distanceToMove = Mathf.Abs(cam.transform.position.x - startX_) * parallaxEffect;
 
-        transform.position = new Vector3(xPosition + distanceToMove, transform.position.y);
+        if (cam.transform.position.x - tempX_ > 0)
+        {
+            transform.position = new Vector3(tempX_ + distanceToMove, transform.position.y);
+        }
+        else if (cam.transform.position.x - tempX_ < 0)
+        {
+            transform.position = new Vector3(tempX_ - distanceToMove, transform.position.y);
+        }
+
+        if (distanceMoved > Mathf.Abs(tempX_) + length && cam.transform.position.x - tempX_ > 0)
+            tempX_ = tempX_ + length;
+        else if (distanceMoved > Mathf.Abs(tempX_) + length && cam.transform.position.x - tempX_ < 0)
+            tempX_ = tempX_ - length;
     }
 }
