@@ -20819,7 +20819,10 @@ MonoBehaviour:
   whatIsGround_:
     serializedVersion: 2
     m_Bits: 8
-  attackMovement_: []
+  attackMovement_:
+  - {x: 3, y: 1.5}
+  - {x: 1, y: 2.5}
+  - {x: 4, y: 1.5}
   moveSpeed_: 8
   jumpForce_: 12
   dashCooldown_: 1
