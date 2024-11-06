@@ -76,7 +76,12 @@ public class Player : MonoBehaviour
     #region Renne variable space
     // ----------------------------------------- Renne variable space -----------------------------------------
     // TODO: Renne's variable workspace
-
+    //combo番号 0～2
+    private int comboCounter_ = 0;
+    //comboを維持する時間
+    private float comboTime_ = 1.0f;
+    //comboを維持する時間の減算
+    private float comboTimeWindow_;
     #endregion
 
     // Start is called before the first frame update
@@ -98,6 +103,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         xInput_ = Input.GetAxisRaw("Horizontal");
+
+        ComboTimeReduce();
 
         if (nextState_ != currentState_)
         {
@@ -309,7 +316,32 @@ public class Player : MonoBehaviour
     // TODO: Renne's function workspace
     private void AttackState()
     {
+        //維持する時間に経ったらcombo数をリセット
+        if (comboTimeWindow_ < 0)
+        {
+            comboCounter_ = 0;
+        }
 
+        comboTimeWindow_ = comboTime_;
+    }
+
+    private void ComboTimeReduce()
+    {
+        comboTimeWindow_ -= Time.deltaTime;
+    }
+
+    //アニメーターイベント関数
+    public void AttackOver()
+    {
+        comboCounter_++;
+
+        //三段攻撃終わったらCounter数をリセット 攻撃状態終わる
+        if (comboCounter_ > 2)
+        {
+            comboCounter_ = 0;
+            isAttacking_ = false;
+            isGround_ = true;
+        }
     }
 
     #endregion
