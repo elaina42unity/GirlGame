@@ -58,7 +58,6 @@ public class PlayerAsh : EntityAsh
     {
         base.Update();
 
-        Debug.Log("工作完成");
         StateMachine.CurrentState.Update();
 
         CheckForDashInput();

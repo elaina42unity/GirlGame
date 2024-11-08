@@ -5,17 +5,18 @@ using UnityEngine;
 public class EnemyStateAsh
 {
     protected EnemyStateMachineAsh stateMachine_;
-    protected EnemyAsh enemy_;
+    protected EnemyAsh enemyBase_;
+    protected Rigidbody2D rb_;
 
     protected bool triggerCalled_;
     private string animBoolName_;
 
     protected float stateTimer_;
 
-    public EnemyStateAsh(EnemyStateMachineAsh stateMachine, EnemyAsh enemy, string animBoolName)
+    public EnemyStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName)
     {
         stateMachine_ = stateMachine;
-        enemy_ = enemy;
+        enemyBase_ = enemyBase;
         animBoolName_ = animBoolName;
     }
 
@@ -33,11 +34,17 @@ public class EnemyStateAsh
     public virtual void Enter()
     {
         triggerCalled_ = false;
-        enemy_.Anim.SetBool(animBoolName_,true);
+        rb_ = enemyBase_.Rb;
+        enemyBase_.Anim.SetBool(animBoolName_,true);
     }
 
     public virtual void Exit()
     {
-        enemy_.Anim.SetBool(animBoolName_, false);
+        enemyBase_.Anim.SetBool(animBoolName_, false);
+    }
+
+    public virtual void AnimationFinishTrigger()
+    {
+        triggerCalled_ = true;
     }
 }

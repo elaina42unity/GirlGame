@@ -13,7 +13,7 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
     {
         base.Enter();
 
-        player_.ZeroVelocity();
+        player_.SetZeroVelocity();
     }
 
     public override void Exit()

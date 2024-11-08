@@ -55,7 +55,7 @@ public class PlayerPrimaryAttackStateAsh : PlayerStateAsh
         base.Update();
 
         if (stateTimer < 0)
-            player_.ZeroVelocity();
+            player_.SetZeroVelocity();
 
         if (triggerCalled)
             stateMachine_.ChangeState(player_.IdleState);

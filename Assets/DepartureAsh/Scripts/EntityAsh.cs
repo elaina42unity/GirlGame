@@ -35,7 +35,7 @@ public class EntityAsh : MonoBehaviour
 
     }
     #region Velocity
-    public void ZeroVelocity() => Rb.velocity = new Vector2(0.0f, 0.0f);
+    public void SetZeroVelocity() => Rb.velocity = new Vector2(0.0f, 0.0f);
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         Rb.velocity = new Vector2(xVelocity, yVelocity);
