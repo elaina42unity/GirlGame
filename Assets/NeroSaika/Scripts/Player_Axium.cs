@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class Player_Axium : EntityAxium
+public class Player_Axium : Entity_Axium
 {
 
     [Header("Move info")]

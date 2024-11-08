@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityAxium : MonoBehaviour
+public class Entity_Axium : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected Animator anim;

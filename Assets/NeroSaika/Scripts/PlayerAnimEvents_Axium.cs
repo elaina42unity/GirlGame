@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerAnimEvents : MonoBehaviour
+public class PlayerAnimEvents_Axium : MonoBehaviour
 {
     private Player_Axium player;
     // Start is called before the first frame update
