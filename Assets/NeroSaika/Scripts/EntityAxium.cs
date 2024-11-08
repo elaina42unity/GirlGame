@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class EntityAxium : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected Animator anim;
