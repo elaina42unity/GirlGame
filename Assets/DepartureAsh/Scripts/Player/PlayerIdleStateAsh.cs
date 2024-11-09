@@ -23,6 +23,7 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
 
     public override void Update()
     {
+
         base.Update();
 
         if (xInput_ == player_.FacingDir && player_.IsWallDetected())
@@ -30,5 +31,6 @@ public class PlayerIdleStateAsh : PlayerGroundedStateAsh
 
         if (xInput_!=0&&!player_.IsBusy)
             stateMachine_.ChangeState(player_.MoveState);
+
     }
 }

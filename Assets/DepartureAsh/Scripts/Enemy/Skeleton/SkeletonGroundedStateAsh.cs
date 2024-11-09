@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SkeletonGroundedStateAsh : EnemyStateAsh
 {
-    protected Enemy_Skeleton enemy_;
+    protected Enemy_SkeletonAsh enemy_;
 
     protected Transform player_;
 
-    public SkeletonGroundedStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(enemyBase, stateMachine, animBoolName)
+    public SkeletonGroundedStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_SkeletonAsh enemy) : base(enemyBase, stateMachine, animBoolName)
     {
         enemy_ = enemy;
     }

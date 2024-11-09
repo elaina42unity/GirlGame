@@ -5,9 +5,9 @@ using UnityEngine;
 public class SkeletonBattleStateAsh : EnemyStateAsh
 {
     private Transform player_;
-    private Enemy_Skeleton enemy_;
+    private Enemy_SkeletonAsh enemy_;
     private int moveDir_;
-    public SkeletonBattleStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(enemyBase, stateMachine, animBoolName)
+    public SkeletonBattleStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_SkeletonAsh enemy) : base(enemyBase, stateMachine, animBoolName)
     {
         enemy_ = enemy;
     }

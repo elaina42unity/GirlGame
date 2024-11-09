@@ -5,6 +5,12 @@ using UnityEngine;
 public class EnemyAsh : EntityAsh
 {
     [SerializeField]public LayerMask whatIsPlayer_;
+
+    [Header("Stunned Info")]
+    public float stunDuration_;
+    public Vector2 stunDirection_;
+    protected bool canBeStunned_;
+    [SerializeField] protected GameObject counterImage_;
     [Header("Move info")]
     public float moveSpeed_;
     public float idleTime_;
@@ -27,6 +33,28 @@ public class EnemyAsh : EntityAsh
         base.Update();
         StateMachine.CurrentState.Update();
 
+    }
+
+    public virtual void OpenCounterAttackWindow()
+    {
+        canBeStunned_ = true;
+        counterImage_.SetActive(true);
+    }
+
+    public virtual void CloseCounterAttackWindow()
+    {
+        canBeStunned_ = false;
+        counterImage_.SetActive(false);
+    }
+
+    protected virtual bool CanBeStunned()
+    {
+        if (canBeStunned_)
+        {
+            CloseCounterAttackWindow();
+            return true;
+        }
+        return false;
     }
 
     public virtual void AnimationFinishTrigger()=>StateMachine.CurrentState.AnimationFinishTrigger();

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SkeletonIdleStateAsh : SkeletonGroundedStateAsh
 {
-    public SkeletonIdleStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(enemyBase, stateMachine, animBoolName, enemy)
+    public SkeletonIdleStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_SkeletonAsh enemy) : base(enemyBase, stateMachine, animBoolName, enemy)
     {
     }
 
     public override void Enter()
     {
         base.Enter();
-
+        enemy_.SetZeroVelocity();
         stateTimer_ = enemy_.idleTime_;
     }
 

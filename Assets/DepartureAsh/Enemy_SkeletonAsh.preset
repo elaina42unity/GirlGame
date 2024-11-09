@@ -6,10 +6,10 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerAsh
+  m_Name: Enemy_SkeletonAsh
   m_TargetType:
     m_NativeTypeID: 114
-    m_ManagedTypePPtr: {fileID: 11500000, guid: 1e7642cf52742a54e96e8b515d4ff1a7, type: 3}
+    m_ManagedTypePPtr: {fileID: 11500000, guid: fbdc6cdfdf993f940b8fd26415a91d6e, type: 3}
     m_ManagedTypeFallback: 
   m_Properties:
   - target: {fileID: 0}
@@ -26,11 +26,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: knockbackDirection_.x
-    value: 0
+    value: 7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: knockbackDirection_.y
-    value: 0
+    value: 12
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: knockbackDuration_
@@ -42,7 +42,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: attackCheckRadius_
-    value: 0.73
+    value: 0.8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: groundCheck_
@@ -50,7 +50,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: groundCheckDistance_
-    value: 0.14
+    value: 0.4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: wallCheck_
@@ -58,58 +58,38 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: wallCheckDistance_
-    value: 0.15
+    value: 0.8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: whatIsGround_.m_Bits
     value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.size
-    value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[0].x
-    value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[0].y
-    value: 1.5
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[1].x
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[1].y
-    value: 2.5
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[2].x
-    value: 4
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: attackMovement_.Array.data[2].y
-    value: 1.5
+    propertyPath: whatIsPlayer_.m_Bits
+    value: 64
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: moveSpeed_
-    value: 8
+    value: 1.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: jumpForce_
-    value: 12
+    propertyPath: idleTime_
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: dashCooldown_
-    value: 1
+    propertyPath: battleTime_
+    value: 6
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: dashSpeed_
-    value: 25
+    propertyPath: attackDistance_
+    value: 1.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: dashDuration_
-    value: 0.2
+    propertyPath: attackCooldown_
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: lastTimeAttacked_
+    value: 0
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

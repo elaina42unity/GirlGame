@@ -29,6 +29,7 @@ public class PlayerGroundedStateAsh : PlayerStateAsh
         if (Input.GetKeyDown(KeyCode.J))
             stateMachine_.ChangeState(player_.PrimaryAttackState);
 
+
         if (!player_.IsGroundDetected())
             stateMachine_.ChangeState(player_.AirState);
 

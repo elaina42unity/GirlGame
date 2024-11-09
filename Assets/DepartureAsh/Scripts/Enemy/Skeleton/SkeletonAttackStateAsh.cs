@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SkeletonAttackStateAsh : EnemyStateAsh
 {
-    private Enemy_Skeleton enemy_;
+    private Enemy_SkeletonAsh enemy_;
 
-    public SkeletonAttackStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(enemyBase, stateMachine, animBoolName)
+    public SkeletonAttackStateAsh(EnemyAsh enemyBase, EnemyStateMachineAsh stateMachine, string animBoolName, Enemy_SkeletonAsh enemy) : base(enemyBase, stateMachine, animBoolName)
     {
         enemy_ = enemy;
     }
