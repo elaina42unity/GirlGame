@@ -151,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 430312980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -2.1, z: 0}
+  m_LocalPosition: {x: -2.53, y: -4.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -197,8 +197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9627a1def7cc634d8da045f6fbc923f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 7
   jumpForce: 12
+  dashSpeed: 25
+  dashDuration: 0.25
+  dashTime: 0
+  dashCooldown: 0
   groundCheckDistance: 1.4
   whatIsGround:
     serializedVersion: 2
@@ -317,8 +321,8 @@ Transform:
   m_GameObject: {fileID: 907353726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7945, y: -4.15, z: 0}
-  m_LocalScale: {x: 12.587216, y: 1.3537, z: 1}
+  m_LocalPosition: {x: -3.0597, y: -6.54, z: 0}
+  m_LocalScale: {x: 21.47754, y: 1.3537, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -429,7 +433,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -584,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 1594727754}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.77, y: -2.11, z: 0}
+  m_LocalPosition: {x: 9.07, y: -4.5, z: 0}
   m_LocalScale: {x: 6.1728683, y: 5.3840995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -601,6 +605,7 @@ GameObject:
   - component: {fileID: 1811877435}
   - component: {fileID: 1811877436}
   - component: {fileID: 1811877437}
+  - component: {fileID: 1811877438}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -696,6 +701,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1811877438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811877434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d72069acdc36a041aacaab5d9f0eb51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
