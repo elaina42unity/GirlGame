@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAsh : EntityAsh
 {
-    [SerializeField]public LayerMask whatIsPlayer_;
+    [SerializeField]private LayerMask whatIsPlayer_;
 
     [Header("Stunned Info")]
     public float stunDuration_;
