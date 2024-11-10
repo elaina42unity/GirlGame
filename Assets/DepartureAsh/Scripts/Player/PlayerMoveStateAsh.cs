@@ -20,7 +20,6 @@ public class PlayerMoveStateAsh : PlayerGroundedStateAsh
     public override void Update()
     {
         base.Update();
-
         player_.SetVelocity(xInput_*player_.moveSpeed_,rb_.velocity.y);
         if (xInput_ == 0|| player_.IsWallDetected())
         {

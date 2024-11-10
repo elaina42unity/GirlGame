@@ -56,7 +56,8 @@ public class PlayerAsh : EntityAsh
 
     protected override void Update()
     {
-        base.Update(); 
+        base.Update();
+       
         StateMachine.CurrentState.Update();
 
         CheckForDashInput();

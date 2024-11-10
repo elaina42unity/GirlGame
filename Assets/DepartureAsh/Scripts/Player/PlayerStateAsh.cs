@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class PlayerStateAsh
 
     protected Rigidbody2D rb_;
 
-    protected float xInput_;
-    protected float yInput_;
+    public float xInput_;
+    public float yInput_;
     private string animBoolName_;
 
     protected float stateTimer;
@@ -25,6 +26,7 @@ public class PlayerStateAsh
 
     public virtual void Enter()
     {
+
         player_.Anim.SetBool(animBoolName_, true);
         rb_ = player_.Rb;
         triggerCalled = false;
@@ -33,15 +35,14 @@ public class PlayerStateAsh
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
-        if (stateTimer<-10000.0f)
+        if (stateTimer < -10000.0f)
         {
             stateTimer = -0.1f;
         }
-
         xInput_ = Input.GetAxisRaw("Horizontal");
         yInput_ = Input.GetAxisRaw("Vertical");
-        
-        player_.Anim.SetFloat("yVelocity", rb_.velocity.y); 
+
+        player_.Anim.SetFloat("yVelocity", rb_.velocity.y);
     }
 
     public virtual void Exit()
