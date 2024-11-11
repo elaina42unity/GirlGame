@@ -7,14 +7,13 @@ public class PlayerAsh : EntityAsh
 
     [Header("Attack details")]
     public Vector2[] attackMovement_;
+    public float counterAttackDuration_=0.2f;
     public bool IsBusy { get;private set; }
     [Header("Move info")]
     public float moveSpeed_ = 12f;
     public float jumpForce_;
 
     [Header("Dash info")]
-    [SerializeField] private float dashCooldown_;
-    private float dashUsageTime_;
     public float dashSpeed_;
     public float dashDuration_;
     public float DashDir { get; private set; }
@@ -28,8 +27,8 @@ public class PlayerAsh : EntityAsh
     public PlayerWallSlideStateAsh WallSlideState { get; private set; }
     public PlayerWallJumpStateAsh WallJumpState { get; private set; }
     public PlayerDashStateAsh DashState { get; private set; }
-
     public PlayerPrimaryAttackStateAsh PrimaryAttackState { get; private set; }
+    public PlayerCounterAttackStateAsh CounterAttackState { get; private set; }
     #endregion
 
 
@@ -44,8 +43,8 @@ public class PlayerAsh : EntityAsh
         DashState = new PlayerDashStateAsh(this, StateMachine, "Dash");
         WallSlideState = new PlayerWallSlideStateAsh(this, StateMachine, "WallSlide");
         WallJumpState = new PlayerWallJumpStateAsh(this, StateMachine, "Jump");
-
         PrimaryAttackState = new PlayerPrimaryAttackStateAsh(this, StateMachine, "Attack");
+        CounterAttackState = new PlayerCounterAttackStateAsh(this, StateMachine,"CounterAttack");
     }
 
     protected override void Start()
@@ -79,15 +78,9 @@ public class PlayerAsh : EntityAsh
         if (IsWallDetected())
             return;
 
-        dashUsageTime_ -= Time.deltaTime;
-        if (dashUsageTime_ < -10000.0f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAsh.instance_.Dash.CanUseSkill())
         {
-            dashUsageTime_ = -0.1f;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTime_ < 0)
-        {
-            dashUsageTime_ = dashCooldown_;
+            
             DashDir = Input.GetAxisRaw("Horizontal");
 
             if (DashDir == 0)

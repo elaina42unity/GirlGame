@@ -12,7 +12,7 @@ public class PlayerDashStateAsh : PlayerStateAsh
     {
         base.Enter();
 
-        stateTimer = player_.dashDuration_;
+        stateTimer_ = player_.dashDuration_;
     }
 
     public override void Exit()
@@ -31,7 +31,7 @@ public class PlayerDashStateAsh : PlayerStateAsh
 
         player_.SetVelocity(player_.dashSpeed_ * player_.DashDir, 0);
 
-        if (stateTimer < 0)
+        if (stateTimer_ < 0)
             stateMachine_.ChangeState(player_.IdleState);
 
     }
