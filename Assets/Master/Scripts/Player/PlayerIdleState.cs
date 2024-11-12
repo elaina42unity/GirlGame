@@ -12,7 +12,7 @@ public class PlayerIdleState : PlayerState
     {
         base.Enter();
 
-        player_.ZeroVelocity();
+        PlayerObject.SetZeroVelocity();
     }
 
     public override void Exit()
@@ -24,10 +24,10 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
-        if (xInput_ == player_.FacingDir && player_.IsWallDetected()) // do nothing if the direction the player wants to move towards is a wall
+        if (XInput == PlayerObject.FacingDir && PlayerObject.IsWallDetected()) // do nothing if the direction the player wants to move towards is a wall
             return;
-        else if (xInput_ != 0 ) // if the player wants to move, then change the state to move
-            stateMachine_.ChangeState(player_.MoveState);
+        else if (XInput != 0 ) // if the player wants to move, then change the state to move
+            stateMachine_.ChangeState(PlayerObject.MoveState);
            
     }
 }

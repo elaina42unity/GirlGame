@@ -21,10 +21,10 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Update();
 
-        player_.SetVelocity(xInput_ * player_.moveSpeed_, rb_.velocity.y);
+        PlayerObject.SetVelocityWithFlipCheck(XInput * PlayerObject.moveSpeed_, rb_.velocity.y);
 
         // if player is not moving or player is touching wall then change the state to idle
-        if (xInput_ == 0 || player_.IsWallDetected()) 
-            stateMachine_.ChangeState(player_.IdleState);
+        if (XInput == 0 || PlayerObject.IsWallDetected()) 
+            stateMachine_.ChangeState(PlayerObject.IdleState);
     }
 }

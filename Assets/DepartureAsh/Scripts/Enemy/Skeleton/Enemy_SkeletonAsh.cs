@@ -38,7 +38,7 @@ public class Enemy_SkeletonAsh : EnemyAsh
         }
     }
 
-    protected override bool CanBeStunned()
+    public override bool CanBeStunned()
     {
         if (base.CanBeStunned())
         {

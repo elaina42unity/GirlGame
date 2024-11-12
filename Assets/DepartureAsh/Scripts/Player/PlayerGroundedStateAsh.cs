@@ -26,6 +26,9 @@ public class PlayerGroundedStateAsh : PlayerStateAsh
     {
         base.Update();
 
+        if (Input.GetKeyDown(KeyCode.Q))
+            stateMachine_.ChangeState(player_.CounterAttackState);
+
         if (Input.GetKeyDown(KeyCode.J))
             stateMachine_.ChangeState(player_.PrimaryAttackState);
 

@@ -2,53 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState 
+
+public class PlayerState : State
 {
-    protected PlayerStateMachine stateMachine_;
-    protected Player player_;
 
-    protected Rigidbody2D rb_;
+    protected float XInput { get; private set; }
+    protected float YInput { get; private set; }
 
-    protected float xInput_;
-    protected float yInput_;
-    private string animBoolName_;
-
-    protected float stateTimer_;
-    protected bool triggerCalled_;
-
-    public PlayerState(Player player, PlayerStateMachine stateMachine, string animBoolName)
+    public Player PlayerObject
     {
-        player_ = player;
-        stateMachine_ = stateMachine;
-        animBoolName_ = animBoolName;
+        get { return base.Entity as Player; }
+        protected set { base.Entity = value; }
     }
 
-    public virtual void Enter()
+    public PlayerState(Entity entity, StateMachine stateMachine, string animBoolName) : base(entity, stateMachine, animBoolName)
     {
-        player_.Anim.SetBool(animBoolName_, true);
-        rb_ = player_.Rb;
-        triggerCalled_ = false;
     }
 
-    public virtual void Update()
+    public override void Enter()
     {
-        stateTimer_ -= Time.deltaTime;
-        if (stateTimer_ < -10000.0f)
-        {
-            stateTimer_ = -0.1f;
-        }
-
-        xInput_ = Input.GetAxisRaw("Horizontal");
-
+        base.Enter();
+    }
+    public override void Update()
+    {
+        base.Update();
+        XInput = Input.GetAxisRaw("Horizontal");
+    }
+    public override void Exit()
+    {
+        base.Exit();
     }
 
-    public virtual void Exit()
+    public override void CopyInfoFromOtherState(State otherState)
     {
-        player_.Anim.SetBool(animBoolName_, false);
-    }
+        if (null==otherState)
+            Debug.LogError("Other state is null");
+        else if(otherState is not PlayerState)
+            Debug.LogError("Other state is not PlayerState");
 
-    public virtual void AnimationFinishTrigger()
-    {
-        triggerCalled_ = true;
+        PlayerState otherPlayerState = otherState as PlayerState;
+        XInput = otherPlayerState.XInput;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAsh : EntityAsh
 {
-    [SerializeField]public LayerMask whatIsPlayer_;
+    [SerializeField]private LayerMask whatIsPlayer_;
 
     [Header("Stunned Info")]
     public float stunDuration_;
@@ -47,7 +47,7 @@ public class EnemyAsh : EntityAsh
         counterImage_.SetActive(false);
     }
 
-    protected virtual bool CanBeStunned()
+    public virtual bool CanBeStunned()
     {
         if (canBeStunned_)
         {
