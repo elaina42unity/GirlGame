@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +12,8 @@ public class PlayerIdleStateRenne : PlayerGroundedStateRenne
     public override void Enter()
     {
         base.Enter();
+
+        player.ZeroVelocity();
     }
 
     public override void Exit()
@@ -23,7 +25,12 @@ public class PlayerIdleStateRenne : PlayerGroundedStateRenne
     {
         base.Update();
 
-        if (xInput != 0)
+        if (xInput == player.facingDir && player.IsWallDetected())
+        {
+            return;
+        }
+
+        if (xInput != 0 && !player.isBusy)
         {
             stateMachine.ChangesState(player.moveState);
         }

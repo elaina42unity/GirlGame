@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +25,7 @@ public class PlayerMoveStateRenne : PlayerGroundedStateRenne
 
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        if (xInput == 0)
+        if (xInput == 0 || player.IsWallDetected())
         {
             stateMachine.ChangesState(player.idleState);
         }
