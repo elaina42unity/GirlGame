@@ -20848,7 +20848,6 @@ MonoBehaviour:
   counterAttackDuration_: 0.2
   moveSpeed_: 8
   jumpForce_: 12
-  dashCooldown_: 1
   dashSpeed_: 25
   dashDuration_: 0.2
 --- !u!114 &222576077
@@ -33681,6 +33680,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 878985586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1546008416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546008419}
+  - component: {fileID: 1546008418}
+  - component: {fileID: 1546008417}
+  - component: {fileID: 1546008420}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1546008417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546008416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d830e54411468a4087680c6593e2315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown_: 1
+--- !u!114 &1546008418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546008416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2097a3a406aad4883e0a43d18b372b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1546008419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546008416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3407254, y: -3.0908518, z: 0.067947}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1546008420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546008416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044f33d0ee1a871439e8f2ec0767fcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown_: 0
+  clonePrefab_: {fileID: 4540605942251403315, guid: db6d842f93422ab4aa2b531fc492184f, type: 3}
+  cloneDuration_: 1.5
+  canAttack_: 1
 --- !u!1 &1614223813
 GameObject:
   m_ObjectHideFlags: 0
@@ -33953,3 +34027,4 @@ SceneRoots:
   - {fileID: 1629629983}
   - {fileID: 878985586}
   - {fileID: 2022279704}
+  - {fileID: 1546008419}

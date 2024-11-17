@@ -12,6 +12,8 @@ public class PlayerDashStateAsh : PlayerStateAsh
     {
         base.Enter();
 
+        player_.SkillManager.Clone.CreateClone(player_.transform);
+
         stateTimer_ = player_.dashDuration_;
     }
 
