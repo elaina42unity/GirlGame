@@ -14,8 +14,8 @@ public class PlayerStateAsh
     public float yInput_;
     private string animBoolName_;
 
-    protected float stateTimer;
-    protected bool triggerCalled;
+    protected float stateTimer_;
+    protected bool triggerCalled_;
 
     public PlayerStateAsh(PlayerAsh player, PlayerStateMachineAsh stateMachine, string animBoolName)
     {
@@ -29,15 +29,15 @@ public class PlayerStateAsh
 
         player_.Anim.SetBool(animBoolName_, true);
         rb_ = player_.Rb;
-        triggerCalled = false;
+        triggerCalled_ = false;
     }
 
     public virtual void Update()
     {
-        stateTimer -= Time.deltaTime;
-        if (stateTimer < -10000.0f)
+        stateTimer_ -= Time.deltaTime;
+        if (stateTimer_ < -10000.0f)
         {
-            stateTimer = -0.1f;
+            stateTimer_ = -0.1f;
         }
         xInput_ = Input.GetAxisRaw("Horizontal");
         yInput_ = Input.GetAxisRaw("Vertical");
@@ -52,6 +52,6 @@ public class PlayerStateAsh
 
     public virtual void AnimationFinishTrigger()
     {
-        triggerCalled = true;
+        triggerCalled_ = true;
     }
 }

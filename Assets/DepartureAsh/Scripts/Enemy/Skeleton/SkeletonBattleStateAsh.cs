@@ -16,7 +16,7 @@ public class SkeletonBattleStateAsh : EnemyStateAsh
     {
         base.Enter();
         
-        player_ = GameObject.Find("Player").transform;
+        player_ = PlayerManagerAsh.instance_.player_.transform;
     }
 
     public override void Exit()

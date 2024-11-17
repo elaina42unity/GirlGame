@@ -32,7 +32,7 @@ public class PlayerPrimaryAttackStateAsh : PlayerStateAsh
         #endregion
         player_.SetVelocity(player_.attackMovement_[comboCounter_].x * attackDir, player_.attackMovement_[comboCounter_].y);
 
-        stateTimer = 0.1f; // 惯性
+        stateTimer_ = 0.1f; // 惯性
 
     }
 
@@ -52,10 +52,10 @@ public class PlayerPrimaryAttackStateAsh : PlayerStateAsh
     {
         base.Update();
 
-        if (stateTimer < 0)
+        if (stateTimer_ < 0)
             player_.SetZeroVelocity();
 
-        if (triggerCalled)
+        if (triggerCalled_)
             stateMachine_.ChangeState(player_.IdleState);
     }
 }

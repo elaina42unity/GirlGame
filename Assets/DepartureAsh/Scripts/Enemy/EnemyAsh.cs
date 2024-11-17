@@ -47,7 +47,7 @@ public class EnemyAsh : EntityAsh
         counterImage_.SetActive(false);
     }
 
-    protected virtual bool CanBeStunned()
+    public virtual bool CanBeStunned()
     {
         if (canBeStunned_)
         {
