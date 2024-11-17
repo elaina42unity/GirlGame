@@ -31,6 +31,7 @@ public class PlayerAsh : EntityAsh
     public PlayerCounterAttackStateAsh CounterAttackState { get; private set; }
     #endregion
 
+    public SkillManagerAsh SkillManager { get; private set; }
 
     protected override void Awake()
     {
@@ -50,6 +51,9 @@ public class PlayerAsh : EntityAsh
     protected override void Start()
     {
         base.Start();
+
+        SkillManager = SkillManagerAsh.instance_;
+
         StateMachine.Initialize(IdleState);
     }
 
