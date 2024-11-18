@@ -218,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1095893942, guid: 21b31072fdb2a0d47b11bda5e2215548, type: 3}
+  m_Sprite: {fileID: 95408814, guid: 9c7355b0cb8a5024bba44738f70d9e74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -636,8 +636,12 @@ MonoBehaviour:
   whatIsGround_:
     serializedVersion: 2
     m_Bits: 8
+  attackMovement_: []
   moveSpeed_: 12
   jumpForce_: 0
+  dashCooldown_: 0
+  dashSpeed_: 0
+  dashDuration_: 0
 --- !u!61 &759372985
 BoxCollider2D:
   m_ObjectHideFlags: 0
