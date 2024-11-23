@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState_F : PlayerGroundedState_F
+public class PlayerAirState_F : PlayerState_F
 {
-    public PlayerIdleState_F(Player_F _player, PlayerStateMachine_F _stateMachine, global::System.String _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerAirState_F(Player_F _player, PlayerStateMachine_F _stateMachine, global::System.String _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -22,9 +22,9 @@ public class PlayerIdleState_F : PlayerGroundedState_F
     {
         base.Update();
 
-        if (xInput != 0)
+        if (player.IsGroundDected())
         {
-            stateMachine.ChangeState(player.moveState);
+            stateMachine.ChangeState(player.idleState);
         }
     }
 }
