@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21b31072fdb2a0d47b11bda5e2215548
+guid: a13edc7a037b4fb41bfd15e1f35af498
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,76 +93,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch-idle_0
+      name: witch-move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -176,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33618d2681687224199a99750e4db947
-      internalID: -1095893942
+      spriteID: 11f170df652dede4e83d4545bcd675c6
+      internalID: 1413013190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_1
+      name: witch-move_1
       rect:
         serializedVersion: 2
         x: 128
@@ -197,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b1a7e7a74b48d4797b7da77c173d7a
-      internalID: 1455706228
+      spriteID: 8bf2e21e482f49d4698a5398bde14f22
+      internalID: -2027981399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_2
+      name: witch-move_2
       rect:
         serializedVersion: 2
         x: 256
@@ -218,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6865cd2417ab7994b93d915dd7fdf6f4
-      internalID: 1391942645
+      spriteID: ebab29ccbf8129b41936b77bfbfee769
+      internalID: -1648315337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_3
+      name: witch-move_3
       rect:
         serializedVersion: 2
         x: 384
@@ -239,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3447d1c0382531a4c8dccfedddecf8c0
-      internalID: 1216739941
+      spriteID: 1e846a8a00d764647aac5783e8aee601
+      internalID: 2123196376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_4
+      name: witch-move_4
       rect:
         serializedVersion: 2
         x: 512
@@ -260,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 866f0d9e64cd176428d46faf215a04e4
-      internalID: -1695029066
+      spriteID: 9442e473fdf83064fa2ef0fb09f7a864
+      internalID: -1616964871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_5
+      name: witch-move_5
       rect:
         serializedVersion: 2
         x: 640
@@ -281,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70868b6ce18ef7646b6f57adb94c59ee
-      internalID: 2026103504
+      spriteID: 08cc7261440b5114d8aca257db21f503
+      internalID: 462446616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_6
+      name: witch-move_6
       rect:
         serializedVersion: 2
         x: 768
@@ -302,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1053056b7a5da54cb0c9d55a1ce1fb5
-      internalID: 342811451
+      spriteID: 652acc528d575b448beeeafccbc1cec7
+      internalID: -1288555198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_7
+      name: witch-move_7
       rect:
         serializedVersion: 2
         x: 896
@@ -323,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 115f1a0815f8e8746af4ab3108c8bd29
-      internalID: -1133100430
+      spriteID: a078c359ff827f644bc22b53fc365c1d
+      internalID: 1980864454
       vertices: []
       indices: 
       edges: []
@@ -340,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch-idle_0: -1095893942
-      witch-idle_1: 1455706228
-      witch-idle_2: 1391942645
-      witch-idle_3: 1216739941
-      witch-idle_4: -1695029066
-      witch-idle_5: 2026103504
-      witch-idle_6: 342811451
-      witch-idle_7: -1133100430
+      witch-move_0: 1413013190
+      witch-move_1: -2027981399
+      witch-move_2: -1648315337
+      witch-move_3: 2123196376
+      witch-move_4: -1616964871
+      witch-move_5: 462446616
+      witch-move_6: -1288555198
+      witch-move_7: 1980864454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
