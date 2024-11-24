@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerRenne : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerRenne : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask whatIsHalfGround;
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = true;
@@ -31,6 +33,7 @@ public class PlayerRenne : MonoBehaviour
     #region Components
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
+    public Collider2D rbHalfGround { get; private set; }
     #endregion
     #region States
 
@@ -122,6 +125,7 @@ public class PlayerRenne : MonoBehaviour
     #region Collision
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public bool IsHalfGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsHalfGround);
     public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
 
     private void OnDrawGizmos()
@@ -155,3 +159,60 @@ public class PlayerRenne : MonoBehaviour
 
     #endregion
 }
+
+#region TUKAENAI
+//public bool IsHalfGroundHeadHit() => Physics2D.Raycast(halfGroundCheck.position, Vector2.up, halfGroundCheckDistance, whatIsHalfGround);
+
+//private void OnTriggerStay2D(Collider2D other)
+//{
+//    SwitchHalfGround(other);
+//}
+//private void OnTriggerEnter2D(Collider2D other)
+//{
+//    SwitchHalfGround(other);
+//}
+
+//private void SwitchHalfGround(Collider2D other)
+//{
+//    if (other.gameObject.CompareTag("HalfGround"))
+//    {
+//        Debug.Log("trigger halfground");
+//        //頭から接触したら HalfGroundとプレイヤーのコリジョン無効化にする
+//        if (IsHalfGroundHeadHit())
+//        {
+//            Debug.Log("trigger headhit");
+//            //Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), other, true);
+//            ToggleCollision(false);
+//            dropFlag = false;
+//        }
+//        //脚から接触したら HalfGroundとプレイヤーのコリジョン有効にする
+//        if (IsHalfGroundFootHit() && !dropFlag)
+//        {
+//            Debug.Log("trigger foothit");
+//            //Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), other, false);
+//            ToggleCollision(true);
+//        }
+//    }
+//}
+
+//private void ToggleCollision(bool enableCollision)
+//{
+
+//    int newLayer = enableCollision ? LayerMask.NameToLayer("Default") : LayerMask.NameToLayer("InCrossingHalfGround");
+//    gameObject.layer = newLayer;
+//}
+
+//if (Input.GetKeyDown(KeyCode.Space) && (Input.GetKey(KeyCode.DownArrow)) && IsHalfGroundFootHit())
+//{
+//    Collider2D[] collidersArray = new Collider2D[1];
+//    ContactFilter2D contactFilter = new();
+//    Collider2D playerCollider = this.GetComponent<Collider2D>();
+//    Physics2D.OverlapCollider(playerCollider, contactFilter, collidersArray);
+//    if (collidersArray[0])
+//    {
+//        //Physics2D.IgnoreCollision(collidersArray[0], playerCollider, true);
+//        ToggleCollision(false);
+//        dropFlag = true;
+//    }
+//}
+#endregion

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerGroundedStateRenne : PlayerStateRenne
 {
@@ -28,12 +26,12 @@ public class PlayerGroundedStateRenne : PlayerStateRenne
             stateMachine.ChangesState(player.primaryAttackState);
         }
 
-        if (!player.IsGroundDetected())
+        if (!(player.IsGroundDetected() || player.IsHalfGroundDetected()))
         {
             stateMachine.ChangesState(player.airState);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
+        if (Input.GetKeyDown(KeyCode.Space) && !(Input.GetKey(KeyCode.DownArrow)) && (player.IsGroundDetected() || player.IsHalfGroundDetected()))
         {
             stateMachine.ChangesState(player.jumpState);
         }

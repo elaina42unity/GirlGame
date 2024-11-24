@@ -28,7 +28,7 @@ public class PlayerAirStateRenne : PlayerStateRenne
             stateMachine.ChangesState(player.wallSlideState);
         }
 
-        if (player.IsGroundDetected())
+        if (player.IsGroundDetected() || player.IsHalfGroundDetected())
         {
             stateMachine.ChangesState(player.idleState);
         }
