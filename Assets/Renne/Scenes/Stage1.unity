@@ -8654,11 +8654,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-<<<<<<< HEAD
-      m_TileSpriteIndex: 57
-=======
       m_TileSpriteIndex: 24
->>>>>>> develop
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15808,11 +15804,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 27
-<<<<<<< HEAD
-      m_TileSpriteIndex: 56
-=======
       m_TileSpriteIndex: 27
->>>>>>> develop
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -40092,11 +40084,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 20
-<<<<<<< HEAD
-      m_TileSpriteIndex: 27
-=======
       m_TileSpriteIndex: 21
->>>>>>> develop
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -62116,11 +62104,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-<<<<<<< HEAD
-      m_TileSpriteIndex: 24
-=======
       m_TileSpriteIndex: 5
->>>>>>> develop
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -93557,8 +93541,6 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 57681defe31da3747a502846191f9c82, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 21300000, guid: 744dbe626ed63d4459752bad264adc73, type: 3}
-<<<<<<< HEAD
-=======
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 2fbcb17fbf768d14c89ac7b8ab6c1180, type: 3}
   - m_RefCount: 3128
@@ -93661,116 +93643,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 636d43db49409984bb6c26af74278d31, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 31bf658f91ee0a3448193b48f80b7503, type: 3}
->>>>>>> develop
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 3128
-    m_Data: {fileID: 21300000, guid: 040f48108d434e942aa051e194f7af7a, type: 3}
-  - m_RefCount: 5077
-    m_Data: {fileID: 21300000, guid: 012466a9e66c54641a0e88e0b5d4d33d, type: 3}
-  - m_RefCount: 21
-    m_Data: {fileID: 21300000, guid: d71019cc67aee9649908a3ec00481116, type: 3}
-  - m_RefCount: 13
-    m_Data: {fileID: 21300000, guid: 734cff3d334c21d4fb05bde8ecd88af2, type: 3}
-  - m_RefCount: 5
-    m_Data: {fileID: -754155813, guid: 4e2b70ad66b897844b10203b5c6b71fb, type: 3}
-  - m_RefCount: 17
-    m_Data: {fileID: 21300000, guid: 4fcf943f37827b240b199bbd13b49c6a, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 8d0175973985d104dad9533e6d06c4bf, type: 3}
-  - m_RefCount: 40
-    m_Data: {fileID: 21300000, guid: 30e067ac12922c9459f43420a1a9b784, type: 3}
-  - m_RefCount: 20
-    m_Data: {fileID: 21300000, guid: 5188f6b3dbd3d8b44a3dd95b3c2580cc, type: 3}
-  - m_RefCount: 20
-    m_Data: {fileID: 21300000, guid: 9766537c54c445c48af63db6a8b9639a, type: 3}
-  - m_RefCount: 32
-    m_Data: {fileID: 21300000, guid: 6f96e51e35b1f5843add46383d9ea0c4, type: 3}
-  - m_RefCount: 32
-    m_Data: {fileID: 21300000, guid: a74e7db62a1363949b5015c4779759d7, type: 3}
-  - m_RefCount: 6
-    m_Data: {fileID: 21300000, guid: f68480ff96a44bc448159a5a580fb362, type: 3}
-  - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 667a0cfe5f65b5e41a378f8dc0fe16df, type: 3}
-  - m_RefCount: 24
-    m_Data: {fileID: 21300000, guid: 842c90d596abfb2419d2e90240b7ecda, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-<<<<<<< HEAD
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: e304f0905b9817145925173225717182, type: 3}
-  - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 2ff1ab1e04276884eb1de48be63d6cce, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 2fbcb17fbf768d14c89ac7b8ab6c1180, type: 3}
-  - m_RefCount: 8
-    m_Data: {fileID: 21300000, guid: ea0d14634f3229545bf579347c52f9c0, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 31022487749cca44ba2fde5fe461abd7, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1476248333, guid: 4e2b70ad66b897844b10203b5c6b71fb, type: 3}
-  - m_RefCount: 171
-    m_Data: {fileID: 21300000, guid: 2756cc9e3198ace4882018e4c0253357, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: c2766a89a431b95418d630f5d8296400, type: 3}
-  - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: f394e73efc6131b4c98282f029586f39, type: 3}
-  - m_RefCount: 21
-    m_Data: {fileID: 21300000, guid: 4ff9d0a2ce1f0ab4b8313491e636a5a2, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -495835152, guid: 4e2b70ad66b897844b10203b5c6b71fb, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1749442589, guid: 4e2b70ad66b897844b10203b5c6b71fb, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1834265644, guid: 4e2b70ad66b897844b10203b5c6b71fb, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 84bfb29c52247e5499705bcc37ba6e86, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 4e3022ab0a03c124baf4a1ee9c5f570e, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: a3036aee198b81844b0cd72f1d750767, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: e5db2e6269cab6942b3c1a074c187b31, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 90d10d4ec25a7e54f9becdea0c8dfef1, type: 3}
-  - m_RefCount: 8
-    m_Data: {fileID: 21300000, guid: 5cb467aafc67c8f4e9963f2054de8f6b, type: 3}
-  - m_RefCount: 30
-    m_Data: {fileID: 21300000, guid: 1d2573e5870e5d345b59f6bf93168139, type: 3}
-  - m_RefCount: 5
-    m_Data: {fileID: 21300000, guid: 84a154988fd18bf419241ccacb7417d0, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: a803e9b186e1f9e489029e2e75b281ff, type: 3}
-  - m_RefCount: 3
-    m_Data: {fileID: 21300000, guid: 4e2da48b5e1016949bda3d6c29a82d6a, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 743064e3458dfdc40b25b4335d18c5e9, type: 3}
-  - m_RefCount: 18
-    m_Data: {fileID: 21300000, guid: d33234c48850b3448b80a1775dc6c8fd, type: 3}
-  - m_RefCount: 71
-    m_Data: {fileID: 21300000, guid: 3d37671fca8981043bd3b568ead09e5b, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: dbd55f869feae2249a4bd1a408a0d275, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 563d1250740862745a66adf4a4a27a96, type: 3}
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: f316485197615cc42945d983a3466e4d, type: 3}
-  - m_RefCount: 6
-    m_Data: {fileID: 21300000, guid: 1e9c76bb3db07ba4b8a626a9bda93021, type: 3}
-  - m_RefCount: 16
-    m_Data: {fileID: 21300000, guid: 586cf872d1c8fb9488c2e1ff49527a7d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: d6625cc0f8b24574aa9876f246638bd8, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 636d43db49409984bb6c26af74278d31, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 31bf658f91ee0a3448193b48f80b7503, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: b9f4667dd135ffb41bdaa37f4af99a86, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 78c2bd7a0d13e5649802575cbf4dcae9, type: 3}
-=======
->>>>>>> develop
   - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 2f207e3ad6ac13c49aa6ff7e5969f89e, type: 3}
   m_TileMatrixArray:
@@ -94012,11 +93888,7 @@ Transform:
   m_GameObject: {fileID: 789075280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -40.78, y: -1.1699996, z: -10}
-=======
   m_LocalPosition: {x: -45.9, y: -2.1599994, z: -10}
->>>>>>> develop
   m_LocalScale: {x: 11.262187, y: 1.9125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94227,11 +94099,7 @@ Transform:
   m_GameObject: {fileID: 1068775960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -40.78, y: -3.17, z: 0}
-=======
   m_LocalPosition: {x: -45.9, y: -4.16, z: 0}
->>>>>>> develop
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -94451,11 +94319,7 @@ Transform:
   m_GameObject: {fileID: 1220028814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -40.78, y: -1.1699996, z: -10}
-=======
   m_LocalPosition: {x: -45.9, y: -2.1599994, z: -10}
->>>>>>> develop
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
