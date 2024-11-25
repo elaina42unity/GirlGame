@@ -134,6 +134,13 @@ public class PlayerRenne : MonoBehaviour
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        IInteractable iInterface;
+        iInterface = collision.GetComponent<IInteractable>();
+        iInterface.TriggerAction();
+    }
+
     #endregion
 
     #region Flip
