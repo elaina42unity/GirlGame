@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 分离技能类和技能对象，技能类只负责创建，之后的交互等等逻辑交给控制器类
+/// </summary>
 public class SkillAsh : MonoBehaviour
 {
     [SerializeField] protected float cooldown_;
 
     protected float cooldownTimer_;
+
+    protected PlayerAsh player_;
+
+    protected virtual void Start()
+    {
+        player_ = PlayerManagerAsh.instance_.player_;
+    }
 
     protected virtual void Update()
     {

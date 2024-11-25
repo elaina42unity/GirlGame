@@ -23,4 +23,9 @@ public class PlayerAnimationTriggersAsh : MonoBehaviour
             }
         }
     }
+
+    private void ThrowSword()
+    {
+        SkillManagerAsh.instance_.Sword.CreateSword();
+    }
 }
