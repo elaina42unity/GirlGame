@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleStateAX : PlayerGroundedState_AX
+public class PlayerAirStateAX : PlayerStateAX
 {
-    public PlayerIdleStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerAirStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -17,13 +17,10 @@ public class PlayerIdleStateAX : PlayerGroundedState_AX
     {
         base.Exit();
     }
-
     public override void Update()
     {
         base.Update();
-
-        if(xInput!=0)
-            stateMachine.ChangeState(player.moveState);
-
+        if(rb.velocity.y==0)
+            stateMachine.ChangeState(player.idleState);
     }
 }
