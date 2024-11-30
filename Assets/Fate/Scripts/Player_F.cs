@@ -1,111 +1,98 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_F : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Animator anim;
-
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float jumpForce;
-
-    private float xInput; // key input
-
-    private int facingDir = 1; // facing Direction
-    private bool facingRight = true; // facing Direction is right
+    [Header("Move info")]
+    public float moveSpeed = 8.0f;
+    public float jumpForce;
 
     [Header("Collision info")]
-    [SerializeField] private float groundCheckDistance; // check ground disance
-    [SerializeField] private LayerMask whatIsGround; 
-    private bool isGrounded; // is grounded or not
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckDistance;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private float wallCheckDistance;
+    [SerializeField] private LayerMask whatIsGround;
 
-    void Start()
+    public int facingDir { get; private set; } = 1;
+    private bool facingRight = true;
+
+    #region Components
+    public Animator anim { get; private set; }
+    public Rigidbody2D rb { get; private set; }
+
+    #endregion
+
+    #region States
+    public PlayerStateMachine_F stateMachine { get; private set; }
+
+    public PlayerIdleState_F idleState { get; private set; }
+    public PlayerMoveState_F moveState { get; private set; }
+    public PlayerJumpState_F jumpState { get; private set; }    
+    public PlayerAirState_F airState { get; private set; }  
+
+    #endregion
+
+
+
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        stateMachine = new PlayerStateMachine_F();
+
+        idleState = new PlayerIdleState_F(this, stateMachine, "Idle");
+        moveState = new PlayerMoveState_F(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState_F(this, stateMachine, "Jump");
+        airState = new PlayerAirState_F(this, stateMachine, "Jump");
+    }
+
+    private void Start()
+    {
         anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
+        stateMachine.Initialize(idleState);
+
     }
 
-    void Update()
+    private void Update()
     {
-        Movement();
-        CheckInput();
-        CollisionChecks();
-
-        FlipController();
-        AnimatorControllers();
+        stateMachine.currentState.Update();
+        
     }
 
-    // move
-    private void Movement()
+    public void SetVelocity(float _xVelocity, float _yVelocity)
     {
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(_xVelocity, _yVelocity);
+        FlipController(_xVelocity);
     }
 
-    // check if input space or not
-    private void CheckInput()
+    public bool IsGroundDected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance,whatIsGround);
+
+
+    private void OnDrawGizmos()
     {
-        xInput = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+        Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
 
-    // jump
-    private void Jump()
-    {
-        if (isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-    }
-
-    // moving animation
-    private void AnimatorControllers()
-    {
-        bool isMoving = rb.velocity.x != 0;
-
-        anim.SetFloat("yVelocity",rb.velocity.y);
-        anim.SetBool("isMoving", isMoving);
-        anim.SetBool("isGrounded", isGrounded);
-
-
-    }
-
-    // do facing direction change
-    private void Flip()
+    public void Flip()
     {
         facingDir = facingDir * -1;
         facingRight = !facingRight;
         transform.Rotate(0,180,0);
-
     }
 
-    // judge facing direction(right/left)
-    private void FlipController()
+    public void FlipController(float _x)
     {
-        if (rb.velocity.x > 0 && !facingRight)
+        if (_x > 0 && !facingRight)
         {
             Flip();
         }
-        else if (rb.velocity.x < 0 && facingRight)
+        else if (_x < 0 && facingRight)
         {
             Flip();
         }
     }
 
-    // draw line
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawLine(transform.position,new Vector3(transform.position.x,transform.position.y - groundCheckDistance));
-    //}
-
-    // check is grounded
-    private void CollisionChecks()
-    {
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-
-    }
 }
