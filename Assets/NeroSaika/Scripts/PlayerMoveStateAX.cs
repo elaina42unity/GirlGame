@@ -21,5 +21,9 @@ public class PlayerMoveStateAX : PlayerStateAX
     public override void Update()
     {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
     }
 }

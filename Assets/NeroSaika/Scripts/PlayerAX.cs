@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class PlayerAX : MonoBehaviour
 {
+    #region Components
+    public Animator anim {  get; private set; }
+
+    #endregion
+
+
+    #region States
     public PlayerStateMachineAX stateMachine {  get; private set; }
 
     public PlayerIdleStateAX idleState { get; private set; }
 
     public PlayerMoveStateAX moveState { get; private set; }
+
+    #endregion
+
 
     private void Awake()
     {
@@ -20,6 +30,8 @@ public class PlayerAX : MonoBehaviour
 
     private void Start()
     {
+        anim=GetComponentInChildren<Animator>();
+
         stateMachine.Initialize(idleState);
     }
 
