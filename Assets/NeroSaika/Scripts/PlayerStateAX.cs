@@ -20,7 +20,7 @@ public class PlayerStateAX
     // Enter is called only once 
     public virtual void Enter()
     {
-        Debug.Log("i ENTER " + animBoolName);
+        player.anim.SetBool(animBoolName, true);
     }
     // Update is called once per frame
     public virtual void Update()
@@ -31,7 +31,7 @@ public class PlayerStateAX
     // Exit is called only once
     public virtual void Exit()
     {
-        Debug.Log("i exit" + animBoolName);
+        player.anim.SetBool(animBoolName, false);
 
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d276f13db5742ed44bc14444afe9a3fc
+guid: 9d2dcfb6984ecb54e96bed3444ceab31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch-idle_0
+      name: witch-move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2db4fbe90b34ba4296cac572e5e7648
-      internalID: -1934033208
+      spriteID: 0757e98f19b992c4d95d93472306370d
+      internalID: 1977343426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_1
+      name: witch-move_1
       rect:
         serializedVersion: 2
         x: 128
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cb0f6f0d37f0c945961dfce94c310d2
-      internalID: 243395999
+      spriteID: 898e447a4c94e534a82d5052d90e06e1
+      internalID: 146322323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_2
+      name: witch-move_2
       rect:
         serializedVersion: 2
         x: 256
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9ae868fb8cc79418a3014a1105fb7d
-      internalID: -442116869
+      spriteID: 96770b3d8881b454da797b19ffce5e83
+      internalID: -442454149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_3
+      name: witch-move_3
       rect:
         serializedVersion: 2
         x: 384
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2062e04291d5924b9d63ecde4ab1e9e
-      internalID: 1756627706
+      spriteID: e4c3b9acaba9ec54daa9636ec370afba
+      internalID: 1391926017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_4
+      name: witch-move_4
       rect:
         serializedVersion: 2
         x: 512
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ae20c714cc305a40a49aa91e25fd0d2
-      internalID: -311697353
+      spriteID: 7a046b2e0f0a47440b62ea64714fa5df
+      internalID: -1087535836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_5
+      name: witch-move_5
       rect:
         serializedVersion: 2
         x: 640
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46f3d5e9dbf78154a9331d1cf0a04310
-      internalID: 1712867276
+      spriteID: 4c9f5754afdd6fe44949bdccdfb2f288
+      internalID: 1852870983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_6
+      name: witch-move_6
       rect:
         serializedVersion: 2
         x: 768
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78dde8f40cc48f54d9a85d76e0a0d9d7
-      internalID: 577706708
+      spriteID: 77b57c00e071e8245b92a0d2400a5d18
+      internalID: -2101619360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_7
+      name: witch-move_7
       rect:
         serializedVersion: 2
         x: 896
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b5879fdf2e28ca4e9e4ee362f0c532b
-      internalID: 1304207690
+      spriteID: 2711af2d36afc7d4d938aa335409bc74
+      internalID: 371885
       vertices: []
       indices: 
       edges: []
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch-idle_0: -1934033208
-      witch-idle_1: 243395999
-      witch-idle_2: -442116869
-      witch-idle_3: 1756627706
-      witch-idle_4: -311697353
-      witch-idle_5: 1712867276
-      witch-idle_6: 577706708
-      witch-idle_7: 1304207690
+      witch-move_0: 1977343426
+      witch-move_1: 146322323
+      witch-move_2: -442454149
+      witch-move_3: 1391926017
+      witch-move_4: -1087535836
+      witch-move_5: 1852870983
+      witch-move_6: -2101619360
+      witch-move_7: 371885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
