@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveStateAX : PlayerGroundedState_AX
+public class PlayerMoveStateAX : PlayerGroundedStateAX
 {
     public PlayerMoveStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {

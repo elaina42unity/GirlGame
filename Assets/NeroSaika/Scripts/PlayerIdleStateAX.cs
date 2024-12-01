@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleStateAX : PlayerGroundedState_AX
+public class PlayerIdleStateAX : PlayerGroundedStateAX
 {
     public PlayerIdleStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
