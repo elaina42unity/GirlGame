@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4a7c4ed46dcc1d4bbf81c95dbab9b58
+guid: 3b5aad371d6cb5f419b0dc562232a582
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_chant_0
+      name: "\u653B\u51FB2-Sheet_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f7a7415b36524345a09890140e4e566
-      internalID: -1427581616
+      spriteID: e19491b6a022c9a44a6c99a8aed60c9b
+      internalID: -1571057486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_1
+      name: "\u653B\u51FB2-Sheet_1"
       rect:
         serializedVersion: 2
-        x: 128
+        x: 118
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03bf15198f95a844485c316d305dcbb0
-      internalID: -1253607553
+      spriteID: c78d5328464282142bc5d588d4fa65fc
+      internalID: -1117408961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_2
+      name: "\u653B\u51FB2-Sheet_2"
       rect:
         serializedVersion: 2
-        x: 256
+        x: 236
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd57cb3f996508549ad8d477cd23a707
-      internalID: -1154318617
+      spriteID: afece635aa2909740a1ec21b4b7fa61c
+      internalID: -656528628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_3
+      name: "\u653B\u51FB2-Sheet_3"
       rect:
         serializedVersion: 2
-        x: 384
+        x: 354
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a62caf70319e1054588b4ac963a3d2dd
-      internalID: -332386962
+      spriteID: 5189b8e1cb10a1c4b8b86f491dcffa42
+      internalID: 333238155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_4
+      name: "\u653B\u51FB2-Sheet_4"
       rect:
         serializedVersion: 2
-        x: 512
+        x: 472
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5d14f4c313b0b42aebc378e4baa2cd
-      internalID: 253506264
+      spriteID: 57e6ae8a59e66a24797c47ca45426416
+      internalID: 197583347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_5
+      name: "\u653B\u51FB2-Sheet_5"
       rect:
         serializedVersion: 2
-        x: 640
+        x: 590
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e241d6402b17a7b4a97749a994cbaf7b
-      internalID: -1032956417
+      spriteID: 016537804fb5bd9409f6e1dbefe3df20
+      internalID: 1470280330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_6
+      name: "\u653B\u51FB2-Sheet_6"
       rect:
         serializedVersion: 2
-        x: 768
+        x: 708
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4746354ee164244ca8351d0f8446033
-      internalID: 198669422
+      spriteID: 139457a8290d82f4db1e9220bdf67e98
+      internalID: -1470414371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_7
+      name: "\u653B\u51FB2-Sheet_7"
       rect:
         serializedVersion: 2
-        x: 896
+        x: 826
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,29 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b90765b5b72a334fb2eff3bee58c006
-      internalID: 1553951885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_chant_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb017c63ca9264d40b1cd40f55bc6d01
-      internalID: 2016683150
+      spriteID: c3b0a6a56100c344abb69eedb8191f36
+      internalID: -312935613
       vertices: []
       indices: 
       edges: []
@@ -296,15 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch_chant_0: -1427581616
-      witch_chant_1: -1253607553
-      witch_chant_2: -1154318617
-      witch_chant_3: -332386962
-      witch_chant_4: 253506264
-      witch_chant_5: -1032956417
-      witch_chant_6: 198669422
-      witch_chant_7: 1553951885
-      witch_chant_8: 2016683150
+      "\u653B\u51FB2-Sheet_0": -1571057486
+      "\u653B\u51FB2-Sheet_1": -1117408961
+      "\u653B\u51FB2-Sheet_2": -656528628
+      "\u653B\u51FB2-Sheet_3": 333238155
+      "\u653B\u51FB2-Sheet_4": 197583347
+      "\u653B\u51FB2-Sheet_5": 1470280330
+      "\u653B\u51FB2-Sheet_6": -1470414371
+      "\u653B\u51FB2-Sheet_7": -312935613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

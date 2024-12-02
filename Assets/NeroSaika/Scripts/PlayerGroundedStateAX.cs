@@ -22,17 +22,20 @@ public class PlayerGroundedStateAX : PlayerStateAX
     {
         base.Update();
 
+        player.chantUsageTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            stateMachine.ChangeState(player.primaryAttack);
+
         if (!player.IsGroundDetected())
             stateMachine.ChangeState(player.airState);
 
-        if(Input.GetKeyDown(KeyCode.Space)&&player.IsGroundDetected())
+        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
             stateMachine.ChangeState(player.jumpState);
 
         if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
-        {
-            player.SetVelocity(0, 0);
             player.CheckforChantInput();
-        }
+
     }
 
 

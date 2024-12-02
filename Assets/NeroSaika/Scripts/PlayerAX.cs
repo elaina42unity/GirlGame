@@ -5,6 +5,11 @@ using UnityEngine.UIElements;
 
 public class PlayerAX : MonoBehaviour
 {
+    [Header("Attack details")]
+    public Vector2[] attackMovement;
+
+
+    public bool isBusy {  get; private set; }
     [Header("Move info")]
     public float moveSpeed = 12f;
     public float jumpForce;
@@ -25,7 +30,7 @@ public class PlayerAX : MonoBehaviour
 
     [Header("Dash info")]
     [SerializeField] private float chantCooldown;
-    private float chantUsageTimer;
+    public float chantUsageTimer;
     //public float dashSpeed;
     public float chantDuration;
     public float chantDir { get; private set; }
@@ -41,7 +46,6 @@ public class PlayerAX : MonoBehaviour
 
     #endregion
 
-
     #region States
     public PlayerStateMachineAX stateMachine {  get; private set; }
 
@@ -55,11 +59,16 @@ public class PlayerAX : MonoBehaviour
 
     public PlayerWallSlideStateAX wallSlide { get; private set; }
 
+    public PlayerWallJumpStateAX wallJump { get; private set; }
+
     public PlayerDashStateAX dashState { get; private set; }
 
     public PlayerChantStateAX chantState { get; private set; }
-    #endregion
 
+    public PlayerPrimaryAttackStateAX primaryAttack { get; private set; }
+
+    public PlayerEnchantStateAX enchant{ get; private set; }
+    #endregion
 
     private void Awake()
     {
@@ -71,7 +80,10 @@ public class PlayerAX : MonoBehaviour
         airState = new PlayerAirStateAX(this, stateMachine, "Jump");
         dashState = new PlayerDashStateAX(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlideStateAX(this, stateMachine, "WallSlide");
-        chantState = new PlayerChantStateAX(this, stateMachine, "Chant");
+        chantState = new PlayerChantStateAX(this, stateMachine, "ChantAttack");
+        wallJump = new PlayerWallJumpStateAX(this, stateMachine, "Jump");
+        primaryAttack = new PlayerPrimaryAttackStateAX(this, stateMachine, "Attack");
+        enchant = new PlayerEnchantStateAX(this, stateMachine, "ChantAttack");
     }
 
     private void Start()
@@ -89,14 +101,25 @@ public class PlayerAX : MonoBehaviour
 
         CheckforDashInput();
 
-        
-
-        Debug.Log(IsWallDetected());
-
     }
 
+    public IEnumerator BusyFor(float _seconds)
+    {
+        isBusy = true;
+
+        yield return new WaitForSeconds(_seconds);
+
+        isBusy = false; 
+    }
+
+    public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
+
+    #region check
     private void CheckforDashInput()
     {
+        if (IsWallDetected())
+            return;
+
         dashUsageTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0 )
@@ -113,7 +136,7 @@ public class PlayerAX : MonoBehaviour
 
     public void CheckforChantInput()
     {
-        chantUsageTimer -= Time.deltaTime;
+        
 
         if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
         {
@@ -126,12 +149,19 @@ public class PlayerAX : MonoBehaviour
             stateMachine.ChangeState(chantState);
         }
     }
+    #endregion 
+
+    #region velocity
+    public void ZeroVelocity() => rb.velocity = new Vector2(0, 0);
+        
     public void SetVelocity(float _xVelocity,float _yVelocity)
     {
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
         FlipController(rb.velocity.x);
     }
-    
+    #endregion
+
+    #region collision
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     private void OnDrawGizmos()
@@ -139,6 +169,9 @@ public class PlayerAX : MonoBehaviour
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
+    #endregion
+
+    #region flip
     public void Flip()
     {
         facingDir = facingDir * -1;
@@ -153,4 +186,5 @@ public class PlayerAX : MonoBehaviour
         else if (_x > 0 && facingRight)
             Flip();
     }
+    #endregion
 }

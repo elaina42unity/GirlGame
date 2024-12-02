@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4a7c4ed46dcc1d4bbf81c95dbab9b58
+guid: 0cc2ff56ce9ba0a4ea7ccc5aae6fcc31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_chant_0
+      name: "\u541F\u55312_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f7a7415b36524345a09890140e4e566
-      internalID: -1427581616
+      spriteID: 72e463e9a242b7a458b99f0d444b3b92
+      internalID: 845713788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_1
+      name: "\u541F\u55312_1"
       rect:
         serializedVersion: 2
         x: 128
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03bf15198f95a844485c316d305dcbb0
-      internalID: -1253607553
+      spriteID: d5f952269c5b0a84886dbe178e7bacea
+      internalID: -1630755152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_2
+      name: "\u541F\u55312_2"
       rect:
         serializedVersion: 2
         x: 256
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd57cb3f996508549ad8d477cd23a707
-      internalID: -1154318617
+      spriteID: e722f40bdc1ace34e9f66506bee42906
+      internalID: 880470678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_3
+      name: "\u541F\u55312_3"
       rect:
         serializedVersion: 2
         x: 384
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a62caf70319e1054588b4ac963a3d2dd
-      internalID: -332386962
+      spriteID: bbf398e083985d44abe6ab36babdcc27
+      internalID: 514654598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_4
+      name: "\u541F\u55312_4"
       rect:
         serializedVersion: 2
         x: 512
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5d14f4c313b0b42aebc378e4baa2cd
-      internalID: 253506264
+      spriteID: 9c032f5a72248924f9b660d95fefc295
+      internalID: -753058556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_5
+      name: "\u541F\u55312_5"
       rect:
         serializedVersion: 2
         x: 640
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e241d6402b17a7b4a97749a994cbaf7b
-      internalID: -1032956417
+      spriteID: e50067d6ee8eea74aac59c4ad75f682d
+      internalID: 650500935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_6
+      name: "\u541F\u55312_6"
       rect:
         serializedVersion: 2
         x: 768
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4746354ee164244ca8351d0f8446033
-      internalID: 198669422
+      spriteID: 90fd621b8cc08ab41a584ee3849d1170
+      internalID: -94703472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_7
+      name: "\u541F\u55312_7"
       rect:
         serializedVersion: 2
         x: 896
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b90765b5b72a334fb2eff3bee58c006
-      internalID: 1553951885
+      spriteID: 55c7f040f5e6b324eb61daaee2443c92
+      internalID: 690561478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_chant_8
+      name: "\u541F\u55312_8"
       rect:
         serializedVersion: 2
         x: 1024
@@ -279,8 +279,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb017c63ca9264d40b1cd40f55bc6d01
-      internalID: 2016683150
+      spriteID: 5ffffb5f18f00504db9fc3263211e31e
+      internalID: -1868854774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u541F\u55312_9"
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050b18498be57dd4c9d068f4d5e1d647
+      internalID: 778131545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u541F\u55312_10"
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2b55396eb672549a9d32a82b9c992e
+      internalID: -518404270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u541F\u55312_11"
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9378e50b5b8b7419a71b7c50931c5f
+      internalID: 315177253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u541F\u55312_12"
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ea5b1adc606b834fbd76154478fd3f0
+      internalID: 163561060
       vertices: []
       indices: 
       edges: []
@@ -296,15 +380,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch_chant_0: -1427581616
-      witch_chant_1: -1253607553
-      witch_chant_2: -1154318617
-      witch_chant_3: -332386962
-      witch_chant_4: 253506264
-      witch_chant_5: -1032956417
-      witch_chant_6: 198669422
-      witch_chant_7: 1553951885
-      witch_chant_8: 2016683150
+      "\u541F\u55312_0": 845713788
+      "\u541F\u55312_1": -1630755152
+      "\u541F\u55312_10": -518404270
+      "\u541F\u55312_11": 315177253
+      "\u541F\u55312_12": 163561060
+      "\u541F\u55312_2": 880470678
+      "\u541F\u55312_3": 514654598
+      "\u541F\u55312_4": -753058556
+      "\u541F\u55312_5": 650500935
+      "\u541F\u55312_6": -94703472
+      "\u541F\u55312_7": 690561478
+      "\u541F\u55312_8": -1868854774
+      "\u541F\u55312_9": 778131545
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

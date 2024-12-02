@@ -15,6 +15,7 @@ public class PlayerStateAX
     private string animBoolName;
 
     protected float stateTimer;
+    protected bool triggerCalled;
 
     // Start is called before the first frame update
     public PlayerStateAX(PlayerAX _player,PlayerStateMachineAX _stateMachine,string _animBoolName)
@@ -29,6 +30,7 @@ public class PlayerStateAX
     {
         player.anim.SetBool(animBoolName, true);
         rb = player.rb;
+        triggerCalled = false;
     }
     // Update is called once per frame
     public virtual void Update()
@@ -46,6 +48,10 @@ public class PlayerStateAX
     public virtual void Exit()
     {
         player.anim.SetBool(animBoolName, false);
+    }
 
+    public virtual void AnimationFinishTrigger()
+    {
+        triggerCalled = true;
     }
 }

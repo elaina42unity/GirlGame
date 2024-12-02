@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveStateAX : PlayerGroundedStateAX
+public class PlayerEnchantStateAX : PlayerStateAX
 {
-    public PlayerMoveStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    public PlayerEnchantStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -22,11 +22,7 @@ public class PlayerMoveStateAX : PlayerGroundedStateAX
     {
         base.Update();
 
-        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
-
-        if (xInput == 0 || player.IsWallDetected())
         stateMachine.ChangeState(player.idleState);
-
-        }
+       
     }
-
+}
