@@ -27,5 +27,13 @@ public class PlayerGroundedStateAX : PlayerStateAX
 
         if(Input.GetKeyDown(KeyCode.Space)&&player.IsGroundDetected())
             stateMachine.ChangeState(player.jumpState);
+
+        if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
+        {
+            player.SetVelocity(0, 0);
+            player.CheckforChantInput();
+        }
     }
+
+
 }

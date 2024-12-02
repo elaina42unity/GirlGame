@@ -23,6 +23,13 @@ public class PlayerAX : MonoBehaviour
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private LayerMask whatIsGround;
 
+    [Header("Dash info")]
+    [SerializeField] private float chantCooldown;
+    private float chantUsageTimer;
+    //public float dashSpeed;
+    public float chantDuration;
+    public float chantDir { get; private set; }
+
 
     public int facingDir { get; private set; } = 1;
     private bool facingRight = false;
@@ -49,6 +56,8 @@ public class PlayerAX : MonoBehaviour
     public PlayerWallSlideStateAX wallSlide { get; private set; }
 
     public PlayerDashStateAX dashState { get; private set; }
+
+    public PlayerChantStateAX chantState { get; private set; }
     #endregion
 
 
@@ -62,6 +71,7 @@ public class PlayerAX : MonoBehaviour
         airState = new PlayerAirStateAX(this, stateMachine, "Jump");
         dashState = new PlayerDashStateAX(this, stateMachine, "Dash");
         wallSlide = new PlayerWallSlideStateAX(this, stateMachine, "WallSlide");
+        chantState = new PlayerChantStateAX(this, stateMachine, "Chant");
     }
 
     private void Start()
@@ -78,6 +88,8 @@ public class PlayerAX : MonoBehaviour
         stateMachine.currentState.Update();
 
         CheckforDashInput();
+
+        
 
         Debug.Log(IsWallDetected());
 
@@ -96,6 +108,22 @@ public class PlayerAX : MonoBehaviour
                 dashDir = facingDir;
 
             stateMachine.ChangeState(dashState);
+        }
+    }
+
+    public void CheckforChantInput()
+    {
+        chantUsageTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
+        {
+            chantUsageTimer = chantCooldown;
+            chantDir = Input.GetAxisRaw("Horizontal");
+
+            if (chantDir == 0)
+                chantDir = facingDir;
+
+            stateMachine.ChangeState(chantState);
         }
     }
     public void SetVelocity(float _xVelocity,float _yVelocity)

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a13edc7a037b4fb41bfd15e1f35af498
+guid: df4bd5870cc8354459eef088869d9775
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch-move_0
+      name: witch_enchant_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11f170df652dede4e83d4545bcd675c6
-      internalID: 1413013190
+      spriteID: 74f342d5fa30f5d40818d7dc1a63a80c
+      internalID: 1937914101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_1
+      name: witch_enchant_1
       rect:
         serializedVersion: 2
         x: 128
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bf2e21e482f49d4698a5398bde14f22
-      internalID: -2027981399
+      spriteID: 9e0e2ed3cfcaaf946b4ad549795ba9cf
+      internalID: 1629689424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_2
+      name: witch_enchant_2
       rect:
         serializedVersion: 2
         x: 256
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebab29ccbf8129b41936b77bfbfee769
-      internalID: -1648315337
+      spriteID: 8da9b4c87fe6ee041970820ca1cc656d
+      internalID: 98569136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_3
+      name: witch_enchant_3
       rect:
         serializedVersion: 2
         x: 384
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e846a8a00d764647aac5783e8aee601
-      internalID: 2123196376
+      spriteID: abc9775129dc5344f97ecb027635c8cd
+      internalID: -1734648556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_4
+      name: witch_enchant_4
       rect:
         serializedVersion: 2
         x: 512
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9442e473fdf83064fa2ef0fb09f7a864
-      internalID: -1616964871
+      spriteID: c4bbcfeb8e6f957448378dcd54227d72
+      internalID: -1759619867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_5
+      name: witch_enchant_5
       rect:
         serializedVersion: 2
         x: 640
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08cc7261440b5114d8aca257db21f503
-      internalID: 462446616
+      spriteID: 4babcd3fe3a131445bfde994b58fc2f2
+      internalID: -1998332320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_6
+      name: witch_enchant_6
       rect:
         serializedVersion: 2
         x: 768
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 652acc528d575b448beeeafccbc1cec7
-      internalID: -1288555198
+      spriteID: e15d563eb7bd6664186325380f4ed75a
+      internalID: -966536184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-move_7
+      name: witch_enchant_7
       rect:
         serializedVersion: 2
         x: 896
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a078c359ff827f644bc22b53fc365c1d
-      internalID: 1980864454
+      spriteID: 2b497e826b8db0a4cb13956d3f6834c6
+      internalID: 1376907907
       vertices: []
       indices: 
       edges: []
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch-move_0: 1413013190
-      witch-move_1: -2027981399
-      witch-move_2: -1648315337
-      witch-move_3: 2123196376
-      witch-move_4: -1616964871
-      witch-move_5: 462446616
-      witch-move_6: -1288555198
-      witch-move_7: 1980864454
+      witch_enchant_0: 1937914101
+      witch_enchant_1: 1629689424
+      witch_enchant_2: 98569136
+      witch_enchant_3: -1734648556
+      witch_enchant_4: -1759619867
+      witch_enchant_5: -1998332320
+      witch_enchant_6: -966536184
+      witch_enchant_7: 1376907907
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
