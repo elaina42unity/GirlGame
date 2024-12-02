@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - HalfGround
   - InCrossingHalfGround
-  - 
-  - 
+  - Wall
+  - whatIsGround
   - 
   - 
   - 

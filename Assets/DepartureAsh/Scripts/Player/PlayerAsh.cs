@@ -29,6 +29,8 @@ public class PlayerAsh : EntityAsh
     public PlayerDashStateAsh DashState { get; private set; }
     public PlayerPrimaryAttackStateAsh PrimaryAttackState { get; private set; }
     public PlayerCounterAttackStateAsh CounterAttackState { get; private set; }
+    public PlayerAimSwordStateAsh AimSwordState { get; private set; }
+    public PlayerCatchSwordStateAsh CatchSwordState { get; private set; }
     #endregion
 
     public SkillManagerAsh SkillManager { get; private set; }
@@ -46,6 +48,8 @@ public class PlayerAsh : EntityAsh
         WallJumpState = new PlayerWallJumpStateAsh(this, StateMachine, "Jump");
         PrimaryAttackState = new PlayerPrimaryAttackStateAsh(this, StateMachine, "Attack");
         CounterAttackState = new PlayerCounterAttackStateAsh(this, StateMachine,"CounterAttack");
+        AimSwordState = new PlayerAimSwordStateAsh(this, StateMachine, "AimSword");
+        CatchSwordState = new PlayerCatchSwordStateAsh(this, StateMachine, "CatchSword");
     }
 
     protected override void Start()

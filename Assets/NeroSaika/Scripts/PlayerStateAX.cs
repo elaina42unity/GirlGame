@@ -7,7 +7,14 @@ public class PlayerStateAX
     protected PlayerStateMachineAX stateMachine;
     protected PlayerAX player;
 
+    protected Rigidbody2D rb;
+
+    protected float xInput;
+    protected float yInput;
+
     private string animBoolName;
+
+    protected float stateTimer;
 
     // Start is called before the first frame update
     public PlayerStateAX(PlayerAX _player,PlayerStateMachineAX _stateMachine,string _animBoolName)
@@ -20,18 +27,25 @@ public class PlayerStateAX
     // Enter is called only once 
     public virtual void Enter()
     {
-        Debug.Log("i ENTER " + animBoolName);
+        player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
     }
     // Update is called once per frame
     public virtual void Update()
     {
-        Debug.Log("i am in" + animBoolName);
+        stateTimer -= Time.deltaTime; 
+
+        xInput=Input.GetAxisRaw("Horizontal");
+        yInput = Input.GetAxisRaw("Vertical");
+
+
+        player.anim.SetFloat("yVelocity",rb.velocity.y);
 
     }
     // Exit is called only once
     public virtual void Exit()
     {
-        Debug.Log("i exit" + animBoolName);
+        player.anim.SetBool(animBoolName, false);
 
     }
 }
