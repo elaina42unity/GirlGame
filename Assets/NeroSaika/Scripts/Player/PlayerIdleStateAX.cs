@@ -12,7 +12,7 @@ public class PlayerIdleStateAX : PlayerGroundedStateAX
     {
         base.Enter();
 
-        player.ZeroVelocity();
+        player.SetZeroVelocity();
 
     }
 

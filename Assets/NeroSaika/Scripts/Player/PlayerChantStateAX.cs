@@ -37,7 +37,7 @@ public class PlayerChantStateAX : PlayerStateAX
     {
         base.Update();
 
-        player.ZeroVelocity();
+        player.SetZeroVelocity();
 
         if (triggerCalled || Input.GetKeyDown(KeyCode.X) || stateTimer < 0)
         {

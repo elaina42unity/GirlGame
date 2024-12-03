@@ -8,7 +8,7 @@ public class PlayerAnimationTriggersAX : MonoBehaviour
 
     private void AnimationTrigger()
     {
-        player.AnimationTrigger();
+        player.AnimationFinishTrigger();
     }
 
 }

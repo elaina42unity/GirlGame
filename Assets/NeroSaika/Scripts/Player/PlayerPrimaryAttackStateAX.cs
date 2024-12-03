@@ -51,7 +51,7 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
         base.Update();
 
         if (stateTimer < 0)
-            player.ZeroVelocity();
+            player.SetZeroVelocity();
 
         if(triggerCalled)
         {

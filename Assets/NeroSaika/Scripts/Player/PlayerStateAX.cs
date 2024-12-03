@@ -25,6 +25,7 @@ public class PlayerStateAX
         this.animBoolName = _animBoolName;
     }
 
+
     // Enter is called only once 
     public virtual void Enter()
     {
