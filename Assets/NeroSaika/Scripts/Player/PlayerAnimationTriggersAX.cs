@@ -10,5 +10,18 @@ public class PlayerAnimationTriggersAX : MonoBehaviour
     {
         player.AnimationFinishTrigger();
     }
+    
+    private void AttackTrigger()
+    {
+
+
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(player.attackCheck.position, new Vector2(player.attackCheckHeight, player.attackCheckWidth), 0);
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponent<EnemyAX>() != null)
+                hit.GetComponent<EnemyAX>().Damage();
+        }
+    }
 
 }

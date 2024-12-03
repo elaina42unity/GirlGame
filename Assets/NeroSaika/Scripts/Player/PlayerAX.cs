@@ -7,7 +7,7 @@ public class PlayerAX : EntityAX
 {
     [Header("Attack details")]
     public Vector2[] attackMovement;
-
+    public float counterAttackDuration = .2f;
 
     public bool isBusy {  get; private set; }
     [Header("Move info")]
@@ -57,6 +57,8 @@ public class PlayerAX : EntityAX
     public PlayerPrimaryAttackStateAX primaryAttack { get; private set; }
 
     public PlayerEnchantStateAX enchant{ get; private set; }
+
+    public PlayerCounterAttackStateAX counterAttack { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -75,6 +77,7 @@ public class PlayerAX : EntityAX
         wallJump = new PlayerWallJumpStateAX(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackStateAX(this, stateMachine, "Attack");
         enchant = new PlayerEnchantStateAX(this, stateMachine, "ChantAttack");
+        counterAttack = new PlayerCounterAttackStateAX(this, stateMachine, "CounterAttack");
     }
 
     protected override void Start()
