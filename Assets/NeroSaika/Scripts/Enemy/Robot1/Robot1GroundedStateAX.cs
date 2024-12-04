@@ -15,7 +15,7 @@ public class Robot1GroundedStateAX : EnemyStateAX
     public override void Enter()
     {
         base.Enter();
-        player = GameObject.Find("Player").transform;
+        player = PlayerManagerAX.instance.player.transform;
     }
 
     public override void Exit()

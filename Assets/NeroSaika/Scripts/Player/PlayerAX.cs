@@ -15,25 +15,24 @@ public class PlayerAX : EntityAX
     public float jumpForce;
 
     [Header("Dash info")]
-    [SerializeField] private float dashCooldown;
-    private float dashUsageTimer;
     public float dashSpeed;
     public float dashDuration;
-    public float dashDir {  get; private set; }
+    public float dashDir { get; private set; }
 
-    
+    [Header("BombFlash info")]
+    public float bombFlashSpeed;
+    public float bombFlashDuration;
+    public float bombFlashDir { get; private set; }
+
 
     [Header("Dash info")]
     [SerializeField] private float chantCooldown;
     public float chantUsageTimer;
     //public float dashSpeed;
     public float chantDuration;
-    public float chantDir { get; private set; }
+    public float chantDir { get; private set; } 
 
-
-    
-
-    
+    public SkillManagerAX skill {  get; private set; }
 
     #region States
     public PlayerStateMachineAX stateMachine {  get; private set; }
@@ -59,6 +58,8 @@ public class PlayerAX : EntityAX
     public PlayerEnchantStateAX enchant{ get; private set; }
 
     public PlayerCounterAttackStateAX counterAttack { get; private set; }
+
+    public PlayerBombFlashStateAX bombFlashState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -78,11 +79,14 @@ public class PlayerAX : EntityAX
         primaryAttack = new PlayerPrimaryAttackStateAX(this, stateMachine, "Attack");
         enchant = new PlayerEnchantStateAX(this, stateMachine, "ChantAttack");
         counterAttack = new PlayerCounterAttackStateAX(this, stateMachine, "CounterAttack");
+        bombFlashState = new PlayerBombFlashStateAX(this, stateMachine, "BombFlash");
     }
 
     protected override void Start()
     {
         base.Start();
+
+        skill = SkillManagerAX.instance;
 
         stateMachine.Initialize(idleState);
     }
@@ -94,6 +98,8 @@ public class PlayerAX : EntityAX
         stateMachine.currentState.Update();
 
         CheckforDashInput();
+
+        CheckforBombFlashInput();
 
     }
 
@@ -114,17 +120,28 @@ public class PlayerAX : EntityAX
         if (IsWallDetected())
             return;
 
-        dashUsageTimer -= Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0 )
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAX.instance.dash.CanUseSkill() )
         {
-            dashUsageTimer = dashCooldown;
             dashDir = Input.GetAxisRaw("Horizontal");
 
             if (dashDir == 0)
                 dashDir = facingDir;
 
             stateMachine.ChangeState(dashState);
+        }
+    }
+
+    private void CheckforBombFlashInput()
+    {
+
+        if (Input.GetKeyDown(KeyCode.V) && SkillManagerAX.instance.dash.CanUseSkill())
+        {
+            bombFlashDir = Input.GetAxisRaw("Horizontal");
+
+            if (bombFlashDir == 0)
+                bombFlashDir = facingDir;
+
+            stateMachine.ChangeState(bombFlashState);
         }
     }
 

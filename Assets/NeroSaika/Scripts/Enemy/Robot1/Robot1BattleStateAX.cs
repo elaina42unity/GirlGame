@@ -17,7 +17,8 @@ public class Robot1BattleStateAX : EnemyStateAX
     {
         base.Enter();
 
-        player = GameObject.Find("Player").transform;
+        player = PlayerManagerAX.instance.player.transform;
+
     }
     public override void Update()
     {
