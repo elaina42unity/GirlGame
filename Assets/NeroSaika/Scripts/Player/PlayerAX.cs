@@ -31,6 +31,7 @@ public class PlayerAX : EntityAX
     //public float dashSpeed;
     public float chantDuration;
     public float chantDir { get; private set; } 
+    public GameObject waterBall;
 
     public SkillManagerAX skill {  get; private set; }
 
@@ -60,6 +61,10 @@ public class PlayerAX : EntityAX
     public PlayerCounterAttackStateAX counterAttack { get; private set; }
 
     public PlayerBombFlashStateAX bombFlashState { get; private set; }
+
+    public PlayerAimStateAX aimState { get; private set; }
+
+    public PlayerCatchStateAX catchState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -80,6 +85,8 @@ public class PlayerAX : EntityAX
         enchant = new PlayerEnchantStateAX(this, stateMachine, "ChantAttack");
         counterAttack = new PlayerCounterAttackStateAX(this, stateMachine, "CounterAttack");
         bombFlashState = new PlayerBombFlashStateAX(this, stateMachine, "BombFlash");
+        aimState = new PlayerAimStateAX(this, stateMachine, "Aim");
+        catchState = new PlayerCatchStateAX(this, stateMachine, "Catch");
     }
 
     protected override void Start()
@@ -103,6 +110,16 @@ public class PlayerAX : EntityAX
 
     }
 
+
+    public void AssignNewWaterBall(GameObject _newWaterBall)
+    {
+        waterBall = _newWaterBall;
+    }
+
+    public void ClearTheWaterBall() 
+    { 
+        Destroy(waterBall);
+    }
     public IEnumerator BusyFor(float _seconds)
     {
         isBusy = true;

@@ -22,6 +22,9 @@ public class PlayerGroundedStateAX : PlayerStateAX
     {
         base.Update();
 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoWaterBall())
+            stateMachine.ChangeState(player.aimState);
+
         player.chantUsageTimer -= Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.Q))
@@ -41,5 +44,14 @@ public class PlayerGroundedStateAX : PlayerStateAX
 
     }
 
+    private bool HasNoWaterBall()
+    {
+        if (!player.waterBall)
+        {
+            return true;
+        }
 
+        player.waterBall.GetComponent<WaterBallSkillControllerAX>().ReturnWaterBall();
+        return false;
+    }
 }

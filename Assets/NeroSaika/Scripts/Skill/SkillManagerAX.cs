@@ -9,6 +9,8 @@ public class SkillManagerAX : MonoBehaviour
     public DashSkillAX dash {  get; private set; }
 
     public CloneSkillAX clone { get; private set; }
+
+    public AimAttackAX aimAttack { get; private set; }
     private void Awake()
     {
         if (instance != null)
@@ -21,5 +23,6 @@ public class SkillManagerAX : MonoBehaviour
     {
         dash = GetComponent<DashSkillAX>();
         clone = GetComponent<CloneSkillAX>();
+        aimAttack = GetComponent<AimAttackAX>();
     }
 }

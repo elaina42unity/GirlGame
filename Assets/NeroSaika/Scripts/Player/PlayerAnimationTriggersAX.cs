@@ -24,4 +24,8 @@ public class PlayerAnimationTriggersAX : MonoBehaviour
         }
     }
 
+    private void AimAttackSuccess()
+    {
+        SkillManagerAX.instance.aimAttack.CreateWaterBall();
+    }
 }
