@@ -23,8 +23,6 @@ public class EntityFXAX : MonoBehaviour
 
         yield return new WaitForSeconds(flashDuration);
 
-        Debug.Log("11");
-
         sr.material = originalMat;
     }
 

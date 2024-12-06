@@ -1,13 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+
+public enum magicType
+{
+    magicBall,
+    waterBall,
+    flashBall,
+    fireBall
+}
 
 public class AimAttackAX : SkillAX
 {
+    public magicType magicType=magicType.waterBall;
+
+    [Header("waterBall(bounce) info")]
+    [SerializeField] private int bounceAmount;
+    [SerializeField] private float waterBallGravity;
+    [SerializeField] private float bounceSpeed;
+
+
+    [Header("fireBall(peirce) info")]
+    [SerializeField] private int fireBallAmount;
+    [SerializeField] private float FireBallGravity;
+
     [Header("Skill info")]
     [SerializeField] private GameObject waterBallPrefab;
     [SerializeField] private Vector2 launchForce;
-    [SerializeField] private float waterBallGravity;
+    [SerializeField] private float magicGravity;
+    [SerializeField] private float freezeTimeDuration;
+    [SerializeField] private float returnSpeed;
+
+    [Header("FlashBall(Spin) info")]
+    [SerializeField] private float hitCooldown = .35f;
+    [SerializeField] private float maxTravelDistance = 7;
+    [SerializeField] private float spinDuration = 2;
+    [SerializeField] private float flashBallGravity = 1;
 
     private Vector2 finalDir;
 
@@ -17,6 +44,7 @@ public class AimAttackAX : SkillAX
     [SerializeField] private GameObject dotPrefab;
     [SerializeField] private Transform dotsParent;
 
+
     private GameObject[] dots;
 
     protected override void Start()
@@ -24,16 +52,36 @@ public class AimAttackAX : SkillAX
         base.Start();
 
         GenerateDots();
+
+        SetupGravity();
+    }
+
+    private void SetupGravity()
+    {
+        switch (magicType)
+        {
+            case magicType.magicBall:
+                break;
+            case magicType.waterBall:
+                magicGravity = waterBallGravity;
+                break;
+            case magicType.flashBall:
+                magicGravity = flashBallGravity;
+                break;
+            case magicType.fireBall:
+                magicGravity = FireBallGravity;
+                break;
+        }
     }
 
     protected override void Update()
     {
         if (Input.GetKeyUp(KeyCode.Mouse1))
             finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
-        
+
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            for(int i = 0; i < dots.Length; i++)
+            for (int i = 0; i < dots.Length; i++)
             {
                 dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
             }
@@ -43,19 +91,36 @@ public class AimAttackAX : SkillAX
     public void CreateWaterBall()
     {
         GameObject newWaterBall = Instantiate(waterBallPrefab, player.transform.position, transform.rotation);
-        WaterBallSkillControllerAX newWaterBallScript = newWaterBall.GetComponent<WaterBallSkillControllerAX>();
+        MagicBallSkillController newMagicScript = newWaterBall.GetComponent<MagicBallSkillController>();
 
-        newWaterBallScript.SetupWaterBall(finalDir, waterBallGravity, player);   
+        switch (magicType)
+        {
+            case magicType.magicBall:
+                break;
+            case magicType.waterBall:
+                magicGravity = waterBallGravity;
+                newMagicScript.SetupWaterBall(true, bounceAmount,bounceSpeed);
+                break;
+            case magicType.flashBall:
+                newMagicScript.SetupFlashBall(true, maxTravelDistance, spinDuration,hitCooldown);
+                break;
+            case magicType.fireBall:
+                newMagicScript.SetupFireBall(fireBallAmount);
+                break;
+        }
+
+        newMagicScript.SetupMagic(finalDir, magicGravity, player, freezeTimeDuration, returnSpeed);
 
         player.AssignNewWaterBall(newWaterBall);
 
         DotsActive(false);
     }
 
+    #region Aim
     public Vector2 AimDirection()
     {
         Vector2 playerPosition = player.transform.position;
-        Vector2 mousePosition  = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = mousePosition - playerPosition;
 
         return direction;
@@ -63,7 +128,7 @@ public class AimAttackAX : SkillAX
 
     public void DotsActive(bool _isActive)
     {
-        for(int i = 0; i < dots.Length; i++)
+        for (int i = 0; i < dots.Length; i++)
         {
             dots[i].SetActive(_isActive);
         }
@@ -72,7 +137,7 @@ public class AimAttackAX : SkillAX
     private void GenerateDots()
     {
         dots = new GameObject[numberOfDots];
-        for(int i = 0;i<numberOfDots;i++)
+        for (int i = 0; i < numberOfDots; i++)
         {
             dots[i] = Instantiate(dotPrefab, player.transform.position, Quaternion.identity, dotsParent);
             dots[i].SetActive(false);
@@ -83,10 +148,9 @@ public class AimAttackAX : SkillAX
     {
         Vector2 position = (Vector2)player.transform.position + new Vector2(
             AimDirection().normalized.x * launchForce.x,
-            AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity * waterBallGravity) * (t * t);
+            AimDirection().normalized.y * launchForce.y) * t + .5f * (Physics2D.gravity * magicGravity) * (t * t);
 
         return position;
     }
-
-  
+    #endregion
 }

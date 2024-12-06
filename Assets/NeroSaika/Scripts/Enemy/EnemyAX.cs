@@ -16,6 +16,7 @@ public class EnemyAX : EntityAX
     public float movespeed;
     public float idleTime;
     public float battleTime;
+    private float defaultMoveSpeed;
 
     [Header("Attack info")]
     public float attackDistance;
@@ -30,6 +31,8 @@ public class EnemyAX : EntityAX
 
         stateMachine = new EnemyStateMachineAX();
 
+        defaultMoveSpeed = movespeed;
+
     }
 
     protected override void Update()
@@ -40,6 +43,29 @@ public class EnemyAX : EntityAX
 
     }
 
+    public virtual void FreezeTime(bool _timeFrozen)
+    {
+        if (_timeFrozen)
+        {
+            movespeed = 0;
+            anim.speed = 0;
+        }
+        else
+        {
+            movespeed = defaultMoveSpeed;
+            anim.speed = 1;
+        }
+    }
+
+    protected virtual IEnumerator FreezeTimeFor(float _seconds)
+    {
+        FreezeTime(true);
+        yield return new WaitForSeconds(_seconds);
+
+        FreezeTime(false);
+    }
+
+    #region
     public virtual void OpenCounterAttackWindow()
     {
         canBeStunned = true;
@@ -51,6 +77,7 @@ public class EnemyAX : EntityAX
         canBeStunned=false;
         counterImage.SetActive(false);
     }
+    #endregion
 
     public virtual bool CanBeStunned()
     {

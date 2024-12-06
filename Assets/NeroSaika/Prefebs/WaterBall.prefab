@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5058632324974913311}
   - component: {fileID: 6177773449595264549}
   - component: {fileID: 5000820124988797956}
-  - component: {fileID: 8414340189826483033}
+  - component: {fileID: 5056891866872112425}
   m_Layer: 12
   m_Name: WaterBall
   m_TagString: Untagged
@@ -96,8 +96,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
---- !u!114 &8414340189826483033
+  m_Radius: 0.1
+--- !u!114 &5056891866872112425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,10 +106,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2659755531885309046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f5b118aaa72e4e45ae7269812a42599, type: 3}
+  m_Script: {fileID: 11500000, guid: d76e4806b2633a945ae605dc45d0917b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  returnSpeed: 30
+  returnSpeed: 50
+  bounceSpeed: 50
+  enemyTarget: []
 --- !u!1 &2858958065187814163
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: -316092581
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 5fbdadc193d04ff448830a4d0290898b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc4da7a6d7722054b8b8e091fb91d93a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

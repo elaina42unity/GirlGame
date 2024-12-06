@@ -51,7 +51,7 @@ public class PlayerGroundedStateAX : PlayerStateAX
             return true;
         }
 
-        player.waterBall.GetComponent<WaterBallSkillControllerAX>().ReturnWaterBall();
+        player.waterBall.GetComponent<MagicBallSkillController>().ReturnWaterBall();
         return false;
     }
 }

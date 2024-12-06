@@ -29,8 +29,6 @@ public class PlayerChantStateAX : PlayerStateAX
         base.Exit();
         comboCounter++;
 
-        Debug.Log(comboCounter);
-
     }
 
     public override void Update()

@@ -13,6 +13,7 @@ public class PlayerAX : EntityAX
     [Header("Move info")]
     public float moveSpeed = 12f;
     public float jumpForce;
+    public float waterBallReturnImpact;
 
     [Header("Dash info")]
     public float dashSpeed;
@@ -31,7 +32,7 @@ public class PlayerAX : EntityAX
     //public float dashSpeed;
     public float chantDuration;
     public float chantDir { get; private set; } 
-    public GameObject waterBall;
+    public GameObject waterBall { get; private set; }
 
     public SkillManagerAX skill {  get; private set; }
 
@@ -116,8 +117,9 @@ public class PlayerAX : EntityAX
         waterBall = _newWaterBall;
     }
 
-    public void ClearTheWaterBall() 
+    public void CatchTheWaterBall() 
     { 
+        stateMachine.ChangeState(catchState);
         Destroy(waterBall);
     }
     public IEnumerator BusyFor(float _seconds)
