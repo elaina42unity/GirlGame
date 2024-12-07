@@ -27,7 +27,6 @@ public class MagicBallSkillController : MonoBehaviour
     private bool wasStopped;
     private bool isSpinning;
 
-
     private float hitTimer;
     private float hitCooldown;
 
@@ -35,7 +34,6 @@ public class MagicBallSkillController : MonoBehaviour
 
     [Header("FireBall(pierce) info")]
     private int fireBallAmount;
-
 
     private void DestroyMe()
     {
@@ -47,13 +45,13 @@ public class MagicBallSkillController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         cd = GetComponent<CircleCollider2D>();
-
     }
     private void Start()
     {
     }
 
-    public void SetupMagic(Vector2 _dir, float _gravityScale, PlayerAX _player,float _freezeTimeDuration,float _returnSpeed)
+    //create magic
+    public void SetupMagic(Vector2 _dir, float _gravityScale, PlayerAX _player, float _freezeTimeDuration, float _returnSpeed)
     {
         player = _player;
         rb.velocity = _dir;
@@ -67,10 +65,11 @@ public class MagicBallSkillController : MonoBehaviour
 
         spinDirection = Mathf.Clamp(rb.velocity.x, -1, 1);
 
+        //when the attack prefab is too long or too far destroy it
         Invoke("DestroyMe", 5);
     }
 
-    public void SetupWaterBall(bool _isBouncing, int _amountOfBounce,float _bounceSpeed)
+    public void SetupWaterBall(bool _isBouncing, int _amountOfBounce, float _bounceSpeed)
     {
         isBouncing = _isBouncing;
         amountOfBounce = _amountOfBounce;
@@ -84,7 +83,7 @@ public class MagicBallSkillController : MonoBehaviour
         fireBallAmount = _fireBallAmount;
     }
 
-    public void SetupFlashBall(bool _isSpinning,float _maxTravelDistance,float _spinDuration,float _hitCooldown)
+    public void SetupFlashBall(bool _isSpinning, float _maxTravelDistance, float _spinDuration, float _hitCooldown)
     {
         isSpinning = _isSpinning;
         maxTravelDistance = _maxTravelDistance;
@@ -114,6 +113,7 @@ public class MagicBallSkillController : MonoBehaviour
         }
 
         BounceLogic();
+
         SpinLogic();
     }
 
@@ -121,7 +121,7 @@ public class MagicBallSkillController : MonoBehaviour
     {
         if (isSpinning)
         {
-            if (Vector2.Distance(player.transform.position, transform.position) >= maxTravelDistance )
+            if (Vector2.Distance(player.transform.position, transform.position) >= maxTravelDistance)
             {
                 StopWhenSpinning();
             }
@@ -130,11 +130,9 @@ public class MagicBallSkillController : MonoBehaviour
             {
                 spinTimer -= Time.deltaTime;
 
-                //if(spinTimer>0)
-
                 if (spinTimer < 0)
                 {
-                    
+
                     isReturning = true;
                     isSpinning = false;
                     return;
@@ -198,13 +196,12 @@ public class MagicBallSkillController : MonoBehaviour
         if (isReturning)
             return;
 
-        if(collision.GetComponent<EnemyAX>() != null)
+        if (collision.GetComponent<EnemyAX>() != null)
         {
             EnemyAX enemy = collision.GetComponent<EnemyAX>();
             MagicDamage(enemy);
 
         }
-
 
         SetupTargetForBounce(collision);
 
@@ -214,9 +211,11 @@ public class MagicBallSkillController : MonoBehaviour
     private void MagicDamage(EnemyAX enemy)
     {
         enemy.Damage();
+
         enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
     }
 
+    //find the enemy to bounce to
     private void SetupTargetForBounce(Collider2D collision)
     {
         if (collision.GetComponent<EnemyAX>() != null)
@@ -245,8 +244,6 @@ public class MagicBallSkillController : MonoBehaviour
             return;
         }
 
-        
-
         if (isSpinning)
         {
             StopWhenSpinning();
@@ -258,10 +255,10 @@ public class MagicBallSkillController : MonoBehaviour
 
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        
+
         if (isBouncing && enemyTarget.Count > 0)
             return;
-    
+
         transform.parent = collision.transform;
     }
 }

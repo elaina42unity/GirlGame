@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//set up the background to infinite loop
 public class ParallaxBackgroundAX : MonoBehaviour
 {
     private GameObject cam;
@@ -25,13 +24,14 @@ public class ParallaxBackgroundAX : MonoBehaviour
     {
 
         float distanceMoved = cam.transform.position.x * (1 - parallaxEffect);
+
         float distanceToMove = cam.transform.position.x * parallaxEffect;
 
         transform.position = new Vector3(xPosition + distanceToMove, transform.position.y);
 
         if (distanceMoved > xPosition + length)
             xPosition = xPosition + length;
-        else if(distanceMoved < xPosition - length)
+        else if (distanceMoved < xPosition - length)
             xPosition = xPosition - length;
     }
 }

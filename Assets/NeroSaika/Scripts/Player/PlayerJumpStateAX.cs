@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpStateAX : PlayerStateAX
@@ -8,11 +6,12 @@ public class PlayerJumpStateAX : PlayerStateAX
     {
     }
 
+    //initiate
     public override void Enter()
     {
         base.Enter();
 
-        rb.velocity = new Vector2(rb.velocity.x,player.jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
     }
 
     public override void Exit()
@@ -24,7 +23,8 @@ public class PlayerJumpStateAX : PlayerStateAX
     {
         base.Update();
 
-        if(rb.velocity.y < 0)
+        //update state
+        if (rb.velocity.y < 0)
             stateMachine.ChangeState(player.airState);
     }
 }

@@ -56,7 +56,6 @@ public class Robot1BattleStateAX : EnemyStateAX
     {
         if(Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown)
         {
-            Debug.Log("133");
             enemy.lastTimeAttacked = Time.time;
             return true;
         }

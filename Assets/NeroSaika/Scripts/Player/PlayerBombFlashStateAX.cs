@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerBombFlashStateAX : PlayerStateAX
 {
     public PlayerBombFlashStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -12,9 +8,9 @@ public class PlayerBombFlashStateAX : PlayerStateAX
     {
         base.Enter();
 
-        player.skill.clone.CreateClone(player.transform, new Vector3(0, 0));
+        player.skill.clone.CreateCloneOnDodgeStart();           //make a clone skill when use bombflash
 
-        stateTimer = player.bombFlashDuration;
+        stateTimer = player.bombFlashDuration;                  //initiate the timer
     }
 
     public override void Exit()
@@ -23,16 +19,20 @@ public class PlayerBombFlashStateAX : PlayerStateAX
 
         player.Flip();
 
-        player.SetVelocity(0,rb.velocity.y);
+        player.skill.clone.CreateCloneOnDodgeOver();            //make a clone skill when finish bombflash
+
+        player.SetVelocity(0, rb.velocity.y);                   //reset the velocity
     }
 
     public override void Update()
     {
         base.Update();
 
-        player.SetVelocity(player.bombFlashSpeed * -player.bombFlashDir, 0);  
+        //the skill will move backwards to the facing direction
+        player.SetVelocity(player.bombFlashSpeed * -player.bombFlashDir, 0);
 
-        if ((stateTimer<0))
+        //update the state
+        if ((stateTimer < 0))
         {
             stateMachine.ChangeState(player.idleState);
         }

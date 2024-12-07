@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 
+//set the magic type
 public enum magicType
 {
     magicBall,
@@ -11,7 +11,7 @@ public enum magicType
 
 public class AimAttackAX : SkillAX
 {
-    public magicType magicType=magicType.waterBall;
+    public magicType magicType = magicType.waterBall;
 
     [Header("waterBall(bounce) info")]
     [SerializeField] private int bounceAmount;
@@ -44,9 +44,9 @@ public class AimAttackAX : SkillAX
     [SerializeField] private GameObject dotPrefab;
     [SerializeField] private Transform dotsParent;
 
-
     private GameObject[] dots;
 
+    //initiate
     protected override void Start()
     {
         base.Start();
@@ -56,6 +56,7 @@ public class AimAttackAX : SkillAX
         SetupGravity();
     }
 
+    //initiate the gravity
     private void SetupGravity()
     {
         switch (magicType)
@@ -74,6 +75,7 @@ public class AimAttackAX : SkillAX
         }
     }
 
+    //check input
     protected override void Update()
     {
         if (Input.GetKeyUp(KeyCode.Mouse1))
@@ -88,7 +90,8 @@ public class AimAttackAX : SkillAX
         }
     }
 
-    public void CreateWaterBall()
+    //initiate magic
+    public void CreateMagic()
     {
         GameObject newWaterBall = Instantiate(waterBallPrefab, player.transform.position, transform.rotation);
         MagicBallSkillController newMagicScript = newWaterBall.GetComponent<MagicBallSkillController>();
@@ -99,10 +102,10 @@ public class AimAttackAX : SkillAX
                 break;
             case magicType.waterBall:
                 magicGravity = waterBallGravity;
-                newMagicScript.SetupWaterBall(true, bounceAmount,bounceSpeed);
+                newMagicScript.SetupWaterBall(true, bounceAmount, bounceSpeed);
                 break;
             case magicType.flashBall:
-                newMagicScript.SetupFlashBall(true, maxTravelDistance, spinDuration,hitCooldown);
+                newMagicScript.SetupFlashBall(true, maxTravelDistance, spinDuration, hitCooldown);
                 break;
             case magicType.fireBall:
                 newMagicScript.SetupFireBall(fireBallAmount);
@@ -116,6 +119,7 @@ public class AimAttackAX : SkillAX
         DotsActive(false);
     }
 
+    //aim information
     #region Aim
     public Vector2 AimDirection()
     {

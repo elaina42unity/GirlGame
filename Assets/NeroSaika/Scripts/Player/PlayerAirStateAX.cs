@@ -17,17 +17,21 @@ public class PlayerAirStateAX : PlayerStateAX
     {
         base.Exit();
     }
+
     public override void Update()
     {
         base.Update();
 
+        //wallcheck
         if (player.IsWallDetected())
             stateMachine.ChangeState(player.wallSlide);
 
+        //Ground check
         if (player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);
 
-        if(xInput != 0)
-            player.SetVelocity(player.moveSpeed*.8f*xInput,rb.velocity.y);
+        //can move in the sky
+        if (xInput != 0)
+            player.SetVelocity(player.moveSpeed * .8f * xInput, rb.velocity.y);
     }
 }

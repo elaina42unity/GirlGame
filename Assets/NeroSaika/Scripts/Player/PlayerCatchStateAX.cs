@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCatchStateAX : PlayerStateAX
@@ -10,9 +8,11 @@ public class PlayerCatchStateAX : PlayerStateAX
     {
     }
 
+    //initiate the waterball skill
     public override void Enter()
     {
         base.Enter();
+
         waterBall = player.waterBall.transform;
 
         if (player.transform.position.x > waterBall.position.x && player.facingDir == 1)
@@ -23,6 +23,7 @@ public class PlayerCatchStateAX : PlayerStateAX
         rb.velocity = new Vector2(player.waterBallReturnImpact * -player.facingDir, rb.velocity.y);
     }
 
+    //Player will not be moving between the attack combo or aim attack
     public override void Exit()
     {
         base.Exit();
@@ -31,10 +32,12 @@ public class PlayerCatchStateAX : PlayerStateAX
 
     }
 
+    //when finish the animation update the state
     public override void Update()
     {
         base.Update();
-        if(triggerCalled) 
+
+        if (triggerCalled)
             stateMachine.ChangeState(player.idleState);
     }
 }

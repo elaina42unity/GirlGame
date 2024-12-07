@@ -6,14 +6,17 @@ public class BlackholeSkillControllerAX : MonoBehaviour
     [SerializeField] private GameObject hotKeyPrefab;
     [SerializeField] private List<KeyCode> keyCodeList;
 
-    public float maxSize;
-    public float growSpeed;
-    public float shrinkSpeed;
+    private float maxSize;
+    private float growSpeed;
+    private float shrinkSpeed;
+    private float blackholeTimer;
 
     private bool canGrow = true;
     private bool canShrink;
+    private bool isShrinking = false;
     private bool canCreatHotKeys = true;
     private bool cloneAttackReleased;
+    private bool playerCanDisapear = true;
 
     private int amountOfAttacks = 4;
     private float cloneAttackCooldown = .3f;
@@ -22,59 +25,103 @@ public class BlackholeSkillControllerAX : MonoBehaviour
     private List<Transform> targets = new List<Transform>();
     private List<GameObject> createdHotKey = new List<GameObject>();
 
-    public void SetupBlackhole(float _maxSize,float _growSpeed,float _shrinkSpeed,int _amountOfAttacks,float _cloneAttackCooldown)
+    public bool playerCanExitState { get; private set; }
+
+    public void SetupBlackhole(float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttacks, float _cloneAttackCooldown, float _blackholeDuration)
     {
         maxSize = _maxSize;
         growSpeed = _growSpeed;
         shrinkSpeed = _shrinkSpeed;
         amountOfAttacks = _amountOfAttacks;
         cloneAttackCooldown = _cloneAttackCooldown;
+        blackholeTimer = _blackholeDuration;
+
+        //when the skill is not use the clone 
+        if (SkillManagerAX.instance.clone.starInsteadOfClone)
+        {
+            playerCanDisapear = false;
+        }
+
     }
 
     private void Update()
     {
+        //timer update
         cloneAttackTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.R))
+        blackholeTimer -= Time.deltaTime;
+
+        //check the duration
+        if (blackholeTimer < 0)
         {
-            ReleaseCloneAttack();
+            blackholeTimer = Mathf.Infinity;
+
+            if (targets.Count > 0)
+                ReleaseCloneAttack();
+            else
+                FinishBlackholeAbility();
         }
 
-        if ((canGrow) && !canShrink)
+        CloneAttackLogic();
+
+        //black hole grow
+        if (canGrow && !canShrink)
         {
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(maxSize, maxSize), growSpeed * Time.deltaTime);
         }
 
+        //black hole shrink
         if (canShrink)
         {
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(-1, -1), shrinkSpeed * Time.deltaTime);
+
+            //check if is shrinking to fix transparent bug
+            if (transform.localScale.x < maxSize)
+                isShrinking = true;
 
             if (transform.localScale.x < 0)
                 Destroy(gameObject);
 
         }
 
-        CloneAttackLogic();
+        //attack check
+        if (Input.GetKeyDown(KeyCode.R) && !isShrinking)
+        {
+            ReleaseCloneAttack();
+        }
 
+        //[KnifeAttack]
+        //if(Input.GetKeyDown(KeyCode.K) && !isShrinking)
+        // {
+        //SkillManagerAX.instance.starMagic.CanUseSkill();
+        //collision.GetComponent<StarMagicControllerAX>().FreezeTime(true);
+
+        //  }
     }
 
+    //attack check
     private void ReleaseCloneAttack()
     {
+        if (targets.Count <= 0)
+            return;
+
+        if (playerCanDisapear)
+        {
+            playerCanDisapear = false;
+            PlayerManagerAX.instance.player.MakeTransparent(true);
+        }
+
         DestroyHotKeys();
         cloneAttackReleased = true;
         canCreatHotKeys = false;
+
     }
 
+    //set the maxamount of attack and find the enemy tranform
     private void CloneAttackLogic()
     {
-        if (cloneAttackTimer < 0 && cloneAttackReleased)
+        if (cloneAttackTimer < 0 && cloneAttackReleased && amountOfAttacks > 0)
         {
-            if (amountOfAttacks <= 0)
-            {
-                canShrink = true;
-                cloneAttackReleased = false;
-                return;
-            }
 
             cloneAttackTimer = cloneAttackCooldown;
 
@@ -87,11 +134,34 @@ public class BlackholeSkillControllerAX : MonoBehaviour
             else
                 xOffset = -2;
 
-            SkillManagerAX.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+            if (SkillManagerAX.instance.clone.starInsteadOfClone)
+            {
+                SkillManagerAX.instance.starMagic.CreateStar();
+
+                SkillManagerAX.instance.starMagic.CurrentStarChooseRandomTarget();
+            }
+            else
+            {
+                SkillManagerAX.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+
+            }
 
             amountOfAttacks--;
 
+            if (amountOfAttacks <= 0)
+            {
+                Invoke("FinishBlackholeAbility", .7f);
+                return;
+            }
         }
+    }
+
+    private void FinishBlackholeAbility()
+    {
+        DestroyHotKeys();
+        playerCanExitState = true;
+        canShrink = true;
+        cloneAttackReleased = false;
     }
 
     private void DestroyHotKeys()
@@ -105,13 +175,16 @@ public class BlackholeSkillControllerAX : MonoBehaviour
         }
     }
 
+    //freezing time reset
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.GetComponent<EnemyAX>() != null)
+        {
             collision.GetComponent<EnemyAX>().FreezeTime(false);
+        }
     }
 
-
+    //set freeze
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<EnemyAX>() != null)
@@ -119,7 +192,6 @@ public class BlackholeSkillControllerAX : MonoBehaviour
             collision.GetComponent<EnemyAX>().FreezeTime(true);
 
             CreateHotKey(collision);
-
         }
     }
 
@@ -143,4 +215,5 @@ public class BlackholeSkillControllerAX : MonoBehaviour
     }
 
     public void AddEnemyToList(Transform _enemyTransform) => targets.Add(_enemyTransform);
+
 }

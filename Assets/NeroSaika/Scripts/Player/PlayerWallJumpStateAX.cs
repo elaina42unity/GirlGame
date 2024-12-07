@@ -12,7 +12,10 @@ public class PlayerWallJumpStateAX : PlayerStateAX
     {
         base.Enter();
 
+        //reset the timer
         stateTimer = 1f;
+
+        //set jump
         player.SetVelocity(5 * -player.facingDir, player.jumpForce);
     }
 
@@ -25,11 +28,13 @@ public class PlayerWallJumpStateAX : PlayerStateAX
     {
         base.Update();
 
+        //check the time can be wallslied
         if(stateTimer < 0)
         {
             stateMachine.ChangeState(player.airState);  
         }
 
+        //updater to grounde state
         if(player.IsGroundDetected())
             stateMachine.ChangeState(player.idleState);
     }

@@ -8,6 +8,7 @@ public class PlayerIdleStateAX : PlayerGroundedStateAX
     {
     }
 
+    //intiate
     public override void Enter()
     {
         base.Enter();
@@ -25,9 +26,11 @@ public class PlayerIdleStateAX : PlayerGroundedStateAX
     {
         base.Update();
 
+        //stop when there is a wall
         if (xInput == player.facingDir && player.IsWallDetected())
             return;
 
+        //update state
         if(xInput!=0 && !player.isBusy)
             stateMachine.ChangeState(player.moveState);
 

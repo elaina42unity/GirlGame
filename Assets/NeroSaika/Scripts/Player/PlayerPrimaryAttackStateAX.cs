@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPrimaryAttackStateAX : PlayerStateAX
@@ -16,23 +14,25 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
     public override void Enter()
     {
         base.Enter();
-        xInput = 0;     //we need this to fix bug on attack direction
 
+        xInput = 0;     //reset the xinput to fix the attack direction
+
+        //set the different attack animation on the combo number
         if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow)
             comboCounter = 0;
-
-        //player.anim.speed = 1f;
 
         player.anim.SetInteger("ComboCounter", comboCounter);
 
         float attackDir = player.facingDir;
 
+        //set the direction of attack
         if (xInput != 0)
             attackDir = xInput;
 
+        //when attacking move a little bit
         player.SetVelocity(player.attackMovement[comboCounter].x * attackDir, player.attackMovement[comboCounter].y);
 
-        stateTimer = .1f;
+        stateTimer = .1f;       //reset the timer check the time between combo
     }
 
     public override void Exit()
@@ -40,11 +40,10 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
         base.Exit();
 
         player.StartCoroutine("BusyFor", .2f);
-         //player.anim.speed = 5.1f;
 
         comboCounter++;
         lastTimeAttacked = Time.time;
-        
+
     }
 
     public override void Update()
@@ -54,7 +53,7 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
         if (stateTimer < 0)
             player.SetZeroVelocity();
 
-        if(triggerCalled)
+        if (triggerCalled)
         {
             stateMachine.ChangeState(player.idleState);
         }

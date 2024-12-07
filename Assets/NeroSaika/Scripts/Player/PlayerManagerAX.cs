@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManagerAX : MonoBehaviour
 {
+    //set up the player to a static thing
     public static PlayerManagerAX instance;
     public PlayerAX player;
 
+    //initiate
     private void Awake()
     {
         if (instance != null)

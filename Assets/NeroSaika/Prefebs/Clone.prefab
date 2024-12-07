@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1405984200798407242}
   - component: {fileID: 1033038876700898324}
   - component: {fileID: 2242057972545855147}
-  - component: {fileID: -7854511421690906238}
+  - component: {fileID: 643491251496315406}
   m_Layer: 0
   m_Name: Clone
   m_TagString: Untagged
@@ -104,8 +104,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1477136307
-  m_SortingLayer: 4
+  m_SortingLayerID: 2096377915
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 1025845006, guid: 21b31072fdb2a0d47b11bda5e2215548, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -139,7 +139,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7854511421690906238
+--- !u!114 &643491251496315406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,10 +148,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8566152125488509566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1352caaa4b170fe4c97c038c682ef0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 95fe79a43e4b4a94bbcaff078bcf2a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colorLosingSpeed: 1
   attackCheck: {fileID: 2434638477456233498}
   attackCheckHeight: 2
   attackCheckWidth: 12
+  closestEnemy: {fileID: 0}

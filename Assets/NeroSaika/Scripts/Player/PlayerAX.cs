@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class PlayerAX : EntityAX
 {
+    //variables
     [Header("Attack details")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
@@ -31,6 +32,8 @@ public class PlayerAX : EntityAX
     public float chantUsageTimer;
     //public float dashSpeed;
     public float chantDuration;
+
+    //States
     public float chantDir { get; private set; } 
     public GameObject waterBall { get; private set; }
 
@@ -66,8 +69,11 @@ public class PlayerAX : EntityAX
     public PlayerAimStateAX aimState { get; private set; }
 
     public PlayerCatchStateAX catchState { get; private set; }
+
+    public PlayerBlackholeStateAX blackHole {  get; private set; }
     #endregion
 
+    //initialize states
     protected override void Awake()
     {
         base.Awake();
@@ -88,8 +94,11 @@ public class PlayerAX : EntityAX
         bombFlashState = new PlayerBombFlashStateAX(this, stateMachine, "BombFlash");
         aimState = new PlayerAimStateAX(this, stateMachine, "Aim");
         catchState = new PlayerCatchStateAX(this, stateMachine, "Catch");
+        blackHole = new PlayerBlackholeStateAX(this, stateMachine, "ChantAttack");
+
     }
 
+    //initialize the first states and skill
     protected override void Start()
     {
         base.Start();
@@ -99,29 +108,43 @@ public class PlayerAX : EntityAX
         stateMachine.Initialize(idleState);
     }
 
+    
     protected override void Update()
     {
         base.Update();
 
+        //Update the current state
         stateMachine.currentState.Update();
 
-        CheckforDashInput();
+        //Some normal skills
+        #region
+        CheckforDashInput();        
 
         CheckforBombFlashInput();
 
+        if (Input.GetKeyDown(KeyCode.G))            
+            skill.staffMagic.CanUseSkill();
+
+        if (Input.GetKeyDown(KeyCode.F))
+            skill.starMagic.CanUseSkill();
+        #endregion
     }
 
 
+    //skill setup
     public void AssignNewWaterBall(GameObject _newWaterBall)
     {
         waterBall = _newWaterBall;
     }
 
+    //skill setup
     public void CatchTheWaterBall() 
     { 
         stateMachine.ChangeState(catchState);
         Destroy(waterBall);
     }
+
+    //make player not to move between combo
     public IEnumerator BusyFor(float _seconds)
     {
         isBusy = true;
@@ -131,8 +154,10 @@ public class PlayerAX : EntityAX
         isBusy = false; 
     }
 
+    //Set the animation event to stop the animation
     public void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
+    //input check
     #region check
     private void CheckforDashInput()
     {

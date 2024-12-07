@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStateAX
@@ -18,7 +16,7 @@ public class PlayerStateAX
     protected bool triggerCalled;
 
     // Start is called before the first frame update
-    public PlayerStateAX(PlayerAX _player,PlayerStateMachineAX _stateMachine,string _animBoolName)
+    public PlayerStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName)
     {
         this.player = _player;
         this.stateMachine = _stateMachine;
@@ -36,13 +34,12 @@ public class PlayerStateAX
     // Update is called once per frame
     public virtual void Update()
     {
-        stateTimer -= Time.deltaTime; 
+        stateTimer -= Time.deltaTime;
 
-        xInput=Input.GetAxisRaw("Horizontal");
+        xInput = Input.GetAxisRaw("Horizontal");
         yInput = Input.GetAxisRaw("Vertical");
 
-
-        player.anim.SetFloat("yVelocity",rb.velocity.y);
+        player.anim.SetFloat("yVelocity", rb.velocity.y);
 
     }
     // Exit is called only once

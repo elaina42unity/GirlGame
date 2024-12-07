@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//set effect
 public class EntityFXAX : MonoBehaviour
 {
     private SpriteRenderer sr;

@@ -12,6 +12,7 @@ public class PlayerAimStateAX : PlayerStateAX
     {
         base.Enter();
 
+        //Make Dots to be Active to set the position
         player.skill.aimAttack.DotsActive(true);
     }
 
@@ -19,6 +20,7 @@ public class PlayerAimStateAX : PlayerStateAX
     {
         base.Exit();
 
+        //Player will not be moving between the attack combo or aim attack
         player.StartCoroutine("BusyFor", .2f);
     }
 
@@ -26,13 +28,16 @@ public class PlayerAimStateAX : PlayerStateAX
     {
         base.Update();
 
-        player.SetZeroVelocity();
+        player.SetZeroVelocity();           //In the aimstate player cannot move
 
+        //aim
         if (Input.GetKeyUp(KeyCode.Mouse1))
             stateMachine.ChangeState(player.idleState);
 
+        //get the mousePosition to aim 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        //if mouse is on the left playerwill turn left,if it is on the right player will turn right
         if (player.transform.position.x > mousePosition.x && player.facingDir == 1)
             player.Flip();
         else if(player.transform.position.x < mousePosition.x&&player.facingDir == -1)

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGroundedStateAX : PlayerStateAX
@@ -18,16 +16,20 @@ public class PlayerGroundedStateAX : PlayerStateAX
         base.Exit();
     }
 
+    //when is grounded check the input
     public override void Update()
     {
         base.Update();
+
+        if (Input.GetKeyDown(KeyCode.R) && SkillManagerAX.instance.blackhole.CanUseSkill())
+            stateMachine.ChangeState(player.blackHole);
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoWaterBall())
             stateMachine.ChangeState(player.aimState);
 
         player.chantUsageTimer -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
             stateMachine.ChangeState(player.counterAttack);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -44,6 +46,7 @@ public class PlayerGroundedStateAX : PlayerStateAX
 
     }
 
+    //check the waterball state
     private bool HasNoWaterBall()
     {
         if (!player.waterBall)

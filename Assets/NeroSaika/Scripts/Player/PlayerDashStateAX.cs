@@ -8,6 +8,7 @@ public class PlayerDashStateAX : PlayerStateAX
     {
     }
 
+    //initiate
     public override void Enter()
     {
         base.Enter();
@@ -15,6 +16,7 @@ public class PlayerDashStateAX : PlayerStateAX
         stateTimer = player.dashDuration;
     }
 
+    //set player velocity back
     public override void Exit()
     {
         base.Exit();
@@ -22,15 +24,19 @@ public class PlayerDashStateAX : PlayerStateAX
         player.SetVelocity(0,rb.velocity.y);
     }
 
+
     public override void Update()
     {
         base.Update();
 
+        //if during the dash get the wall detected update state
         if (!player.IsGroundDetected() && player.IsWallDetected())
             stateMachine.ChangeState(player.wallSlide);
 
+        //set the dash velocity
         player.SetVelocity(player.dashSpeed * player.dashDir, 0);  
 
+        //finish dash
         if ((stateTimer<0))
         {
             stateMachine.ChangeState(player.idleState);

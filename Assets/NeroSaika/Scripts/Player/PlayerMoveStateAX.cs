@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerMoveStateAX : PlayerGroundedStateAX
 {
     public PlayerMoveStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
@@ -22,11 +18,13 @@ public class PlayerMoveStateAX : PlayerGroundedStateAX
     {
         base.Update();
 
+        //set the velocity of moving
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
+        //stop when there is a wall
         if (xInput == 0 || player.IsWallDetected())
-        stateMachine.ChangeState(player.idleState);
+            stateMachine.ChangeState(player.idleState);
 
-        }
     }
+}
 

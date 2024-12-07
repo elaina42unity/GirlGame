@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillAX : MonoBehaviour
 {
     [SerializeField] protected float cooldown;
     protected float cooldownTimer;
+    Transform closestEnemy = null;
 
     protected PlayerAX player;
 
@@ -18,11 +17,12 @@ public class SkillAX : MonoBehaviour
     {
         cooldownTimer -= Time.deltaTime;
     }
+    //if can use skill then use it
     public virtual bool CanUseSkill()
     {
-        if(cooldownTimer < 0)
+        if (cooldownTimer < 0)
         {
-            //use skill
+            UseSkill();
             cooldownTimer = cooldown;
             return true;
         }
@@ -32,5 +32,31 @@ public class SkillAX : MonoBehaviour
     public virtual void UseSkill()
     {
 
+    }
+
+    //take the transform from target
+    protected virtual Transform FindClosestEnemy(Transform _checkTransform)
+    {
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 25);
+
+        float closestDistance = Mathf.Infinity;
+
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponent<EnemyAX>() != null)
+            {
+                float distanceToEnemy = Vector2.Distance(_checkTransform.position, hit.transform.position);
+
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = hit.transform;
+                }
+            }
+        }
+
+        return closestEnemy;
     }
 }
