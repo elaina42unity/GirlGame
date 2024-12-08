@@ -14,6 +14,8 @@ public class Player : Entity
     public PlayerMoveState MoveState { get; private set; }
     #endregion
 
+    IInteractable targetPortal;
+
 
     protected override void Awake()
     {
@@ -34,5 +36,14 @@ public class Player : Entity
         base.Update();
         StateMachine.CurrentState.Update();
     }
-  
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        //シーンの切り替え
+        if (other.CompareTag("SwitchRoom"))
+        {
+            targetPortal = other.GetComponent<IInteractable>();
+            targetPortal.ChangeRoom();
+        }
+    }
 }

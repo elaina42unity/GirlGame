@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Enemies_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: 43b9935a08c18d3459917d6a96f8f3ed, type: 3}
+  m_Name: TestRoom3
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 410572587ca9e9d49ab9d47a638e6e19, type: 2}
-  m_StaticContent: 0
+  sceneReference:
+    m_AssetGUID: b3a3455954a1aca41ab3f67c29326320
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

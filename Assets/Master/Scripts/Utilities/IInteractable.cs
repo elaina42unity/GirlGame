@@ -1,5 +1,6 @@
 ﻿
+
 public interface IInteractable
 {
-    void TriggerAction();
+    void ChangeRoom();
 }

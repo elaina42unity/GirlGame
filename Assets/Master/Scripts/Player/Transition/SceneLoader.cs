@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Header("Event Listen")]
+    [Header("イベントリスナー")]
     public SceneLoadEventSO loadEventSO;
     public GameSceneSO firstLoadScene;
 
-    private GameSceneSO currentLoadedScene;
-    private GameSceneSO sceneToLoad;
+    [SerializeField] private GameSceneSO currentLoadedScene;
+    [SerializeField] private GameSceneSO sceneToLoad;
     private Vector3 positionToGo;
     private bool fadeScreen;
 
@@ -25,37 +27,42 @@ public class SceneLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        loadEventSO.LoadRequestEvent += OnLoadRequistEvent;
-    }
-    private void OnDisable()
-    {
-        loadEventSO.LoadRequestEvent -= OnLoadRequistEvent;
+        loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
     }
 
-    private void OnLoadRequistEvent(GameSceneSO locationToLoad, Vector3 posToGo, bool fadeScreen)
+    private void OnDisable()
+    {
+        loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
+    }
+    private void OnLoadRequestEvent(GameSceneSO locationToLoad, Vector3 posToGo, bool fadeScreen)
     {
         sceneToLoad = locationToLoad;
         positionToGo = posToGo;
         this.fadeScreen = fadeScreen;
+
         if (currentLoadedScene != null)
         {
             StartCoroutine(UnLoadPreviousScene());
         }
     }
+
     private IEnumerator UnLoadPreviousScene()
     {
         if (fadeScreen)
         {
+            //fade効果を実現する
 
         }
 
         yield return new WaitForSeconds(fadeDuration);
+
         yield return currentLoadedScene.sceneReference.UnLoadScene();
+
         LoadNewScene();
     }
 
     private void LoadNewScene()
     {
-        sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true); ;
+        sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
     }
 }
