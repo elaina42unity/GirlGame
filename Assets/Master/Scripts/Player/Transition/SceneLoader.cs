@@ -10,10 +10,14 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public Transform playerTrans;
+    public Vector3 firstPosition;
 
-    [Header("イベントリスナー")]
+    [Header("Event listen")]
     public SceneLoadEventSO loadEventSO;
     public GameSceneSO firstLoadScene;
+
+    [Header("Brocast")]
+    public VoidEventSO afterSceneLoadedEvent;
 
     [SerializeField] private GameSceneSO currentLoadedScene;
     private GameSceneSO sceneToLoad;
@@ -26,10 +30,12 @@ public class SceneLoader : MonoBehaviour
     private void Awake()
     {
         //Addressables.LoadSceneAsync(firstLoadScene.sceneReference, LoadSceneMode.Additive);
-        currentLoadedScene = firstLoadScene;
-        currentLoadedScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
+        // currentLoadedScene = firstLoadScene;
+        // currentLoadedScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
     }
-
+    private void Start() {
+        NewGame();
+    }
     private void OnEnable()
     {
         //イベントを登録
@@ -41,6 +47,19 @@ public class SceneLoader : MonoBehaviour
         //イベントを取り消し
         loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
     }
+
+    private void NewGame()
+    {
+        sceneToLoad = firstLoadScene;
+        OnLoadRequestEvent(sceneToLoad, firstPosition ,true);
+    }
+
+    /// <summary>
+    /// シーンロードのリクエスト
+    /// </summary>
+    /// <param name="locationToLoad"></param>
+    /// <param name="posToGo"></param>
+    /// <param name="fadeScreen"></param>
     private void OnLoadRequestEvent(GameSceneSO locationToLoad, Vector3 posToGo, bool fadeScreen)
     {
         if (isLoading)
@@ -55,6 +74,10 @@ public class SceneLoader : MonoBehaviour
         if (currentLoadedScene != null)
         {
             StartCoroutine(UnLoadPreviousScene());
+        }
+        else
+        {
+            LoadNewScene();
         }
     }
 
@@ -98,5 +121,7 @@ public class SceneLoader : MonoBehaviour
         }
 
         isLoading = false;
+
+        afterSceneLoadedEvent.RaiseEvent();
     }
 }
