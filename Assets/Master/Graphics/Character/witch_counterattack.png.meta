@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d276f13db5742ed44bc14444afe9a3fc
+guid: 8e80f67c4ddc33a48b05b24502273c6e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch-idle_0
+      name: witch_counterattack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2db4fbe90b34ba4296cac572e5e7648
-      internalID: -1934033208
+      spriteID: d1f74021dbf4d5e4aae34ce34e108540
+      internalID: -181701982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_1
+      name: witch_counterattack_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 67
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cb0f6f0d37f0c945961dfce94c310d2
-      internalID: 243395999
+      spriteID: aa30952306570484fb442b6a619bada5
+      internalID: -1746344265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_2
+      name: witch_counterattack_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 134
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9ae868fb8cc79418a3014a1105fb7d
-      internalID: -442116869
+      spriteID: 07b30ee54ccc6da42b63afe2e8400693
+      internalID: -489823536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_3
+      name: witch_counterattack_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 201
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2062e04291d5924b9d63ecde4ab1e9e
-      internalID: 1756627706
+      spriteID: c7546a3607d7b4b4ca5cbbeeb5e26c9f
+      internalID: 1371871867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_4
+      name: witch_counterattack_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 268
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ae20c714cc305a40a49aa91e25fd0d2
-      internalID: -311697353
+      spriteID: 4431d1cdfa3a6ed48a6878084be66c9b
+      internalID: 2121240575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_5
+      name: witch_counterattack_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 335
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46f3d5e9dbf78154a9331d1cf0a04310
-      internalID: 1712867276
+      spriteID: 0b252edf3d495014cba4f2d7909c1204
+      internalID: -647636426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_6
+      name: witch_counterattack_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 402
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78dde8f40cc48f54d9a85d76e0a0d9d7
-      internalID: 577706708
+      spriteID: fc41ee9c2e9ef254a9817952f2f5e088
+      internalID: 1937827748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_7
+      name: witch_counterattack_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 469
         y: 0
-        width: 128
-        height: 128
+        width: 67
+        height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b5879fdf2e28ca4e9e4ee362f0c532b
-      internalID: 1304207690
+      spriteID: 02d902d844bda6c44aa7bb8f37164ee6
+      internalID: 303283971
       vertices: []
       indices: 
       edges: []
@@ -275,14 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch-idle_0: -1934033208
-      witch-idle_1: 243395999
-      witch-idle_2: -442116869
-      witch-idle_3: 1756627706
-      witch-idle_4: -311697353
-      witch-idle_5: 1712867276
-      witch-idle_6: 577706708
-      witch-idle_7: 1304207690
+      witch_counterattack_0: -181701982
+      witch_counterattack_1: -1746344265
+      witch_counterattack_2: -489823536
+      witch_counterattack_3: 1371871867
+      witch_counterattack_4: 2121240575
+      witch_counterattack_5: -647636426
+      witch_counterattack_6: 1937827748
+      witch_counterattack_7: 303283971
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

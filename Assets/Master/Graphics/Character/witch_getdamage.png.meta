@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21b31072fdb2a0d47b11bda5e2215548
+guid: 234af04ba50ac2049b49eb21f21fabd5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch-idle_0
+      name: witch_getdamage_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 86
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebb73814c0e99174391f2ab33f1b08ec
-      internalID: 1025845006
+      spriteID: 1f1834f4c87635843a3d0d550f79c1fb
+      internalID: 1166431030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_1
+      name: witch_getdamage_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 86
         y: 0
-        width: 128
-        height: 128
+        width: 86
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 379f6f2130d19b741814346dbccc142d
-      internalID: 1665777226
+      spriteID: 7d14b39724322f4489fd54bde79a4ec0
+      internalID: 1487436375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_2
+      name: witch_getdamage_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 172
         y: 0
-        width: 128
-        height: 128
+        width: 86
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5840403a7035e10459351ce5fba5b1ad
-      internalID: 1628103008
+      spriteID: 167d052eac055d542b4b6be6dab9e49a
+      internalID: -1760773224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_3
+      name: witch_getdamage_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 258
         y: 0
-        width: 128
-        height: 128
+        width: 86
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e2d955f31290e43b3fa241c7a5ecec
-      internalID: 1653527556
+      spriteID: 4668e3dc195225e41a663113b65325c9
+      internalID: -2054127093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch-idle_4
+      name: witch_getdamage_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 344
         y: 0
-        width: 128
-        height: 128
+        width: 86
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,71 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ce2b229869946445b11743dfcb46b1f
-      internalID: -1962497904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch-idle_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 041d54090ec58e940bbc6a70649cd645
-      internalID: 716524310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch-idle_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: abd731afabfd05a4ab3ede997277bada
-      internalID: 699009613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch-idle_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88cea1acf3508c442bd5d0faca3e3ec9
-      internalID: -979829207
+      spriteID: c88a2fd7ad908954eaae5a7de9226e6c
+      internalID: -2138048578
       vertices: []
       indices: 
       edges: []
@@ -288,14 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch-idle_0: 1025845006
-      witch-idle_1: 1665777226
-      witch-idle_2: 1628103008
-      witch-idle_3: 1653527556
-      witch-idle_4: -1962497904
-      witch-idle_5: 716524310
-      witch-idle_6: 699009613
-      witch-idle_7: -979829207
+      witch_getdamage_0: 1166431030
+      witch_getdamage_1: 1487436375
+      witch_getdamage_2: -1760773224
+      witch_getdamage_3: -2054127093
+      witch_getdamage_4: -2138048578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

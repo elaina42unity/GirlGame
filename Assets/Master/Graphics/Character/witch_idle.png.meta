@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc1afca283ef206488e481b3ae6854ba
+guid: 21b31072fdb2a0d47b11bda5e2215548
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -96,9 +96,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_jump_0
+      name: witch-idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8e579ae2ae08f4696c7839039c00b9
-      internalID: 2107215421
+      spriteID: ebb73814c0e99174391f2ab33f1b08ec
+      internalID: 1025845006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_1
+      name: witch-idle_1
       rect:
         serializedVersion: 2
         x: 128
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb54c57ef0361d94b8c09fd91c682443
-      internalID: 187135431
+      spriteID: 379f6f2130d19b741814346dbccc142d
+      internalID: 1665777226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_2
+      name: witch-idle_2
       rect:
         serializedVersion: 2
         x: 256
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a9e72089f192d14c948bd89fab85799
-      internalID: 1734753026
+      spriteID: 5840403a7035e10459351ce5fba5b1ad
+      internalID: 1628103008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_3
+      name: witch-idle_3
       rect:
         serializedVersion: 2
         x: 384
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6914fff019858c488d82102d65c3a79
-      internalID: 1015526916
+      spriteID: 80e2d955f31290e43b3fa241c7a5ecec
+      internalID: 1653527556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_4
+      name: witch-idle_4
       rect:
         serializedVersion: 2
         x: 512
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adf3cb9cf74a3bf46a8129ac1c766cee
-      internalID: -271031646
+      spriteID: 6ce2b229869946445b11743dfcb46b1f
+      internalID: -1962497904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_5
+      name: witch-idle_5
       rect:
         serializedVersion: 2
         x: 640
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c438bd72f3bbb40af4ea910fe836e7
-      internalID: 488081477
+      spriteID: 041d54090ec58e940bbc6a70649cd645
+      internalID: 716524310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_6
+      name: witch-idle_6
       rect:
         serializedVersion: 2
         x: 768
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7c1418411299e40bf624f556cd0ba4
-      internalID: -1434970999
+      spriteID: abd731afabfd05a4ab3ede997277bada
+      internalID: 699009613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_7
+      name: witch-idle_7
       rect:
         serializedVersion: 2
         x: 896
@@ -271,50 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80b2e58a2fca3bd4e82254f73a35bf21
-      internalID: 2074861071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_jump_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2207aa6eae5ad914d893ca58a32eab05
-      internalID: -1848688317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_jump_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1910b7e89b1117b41b4fe2499fdef2c1
-      internalID: -1727292648
+      spriteID: 88cea1acf3508c442bd5d0faca3e3ec9
+      internalID: -979829207
       vertices: []
       indices: 
       edges: []
@@ -330,16 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch_jump_0: 2107215421
-      witch_jump_1: 187135431
-      witch_jump_2: 1734753026
-      witch_jump_3: 1015526916
-      witch_jump_4: -271031646
-      witch_jump_5: 488081477
-      witch_jump_6: -1434970999
-      witch_jump_7: 2074861071
-      witch_jump_8: -1848688317
-      witch_jump_9: -1727292648
+      witch-idle_0: 1025845006
+      witch-idle_1: 1665777226
+      witch-idle_2: 1628103008
+      witch-idle_3: 1653527556
+      witch-idle_4: -1962497904
+      witch-idle_5: 716524310
+      witch-idle_6: 699009613
+      witch-idle_7: -979829207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
