@@ -3,39 +3,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Header("イベントリスナー")]
+    public Transform playerTrans;
+    public Vector3 firstPosition;
+
+    [Header("Event listen")]
     public SceneLoadEventSO loadEventSO;
     public GameSceneSO firstLoadScene;
 
-    [SerializeField] private GameSceneSO currentLoadedScene;
-    [SerializeField] private GameSceneSO sceneToLoad;
-    private Vector3 positionToGo;
-    private bool fadeScreen;
+    [Header("Brocast")]
+    public VoidEventSO afterSceneLoadedEvent;
 
+    [SerializeField] private GameSceneSO currentLoadedScene;
+    private GameSceneSO sceneToLoad;
+    private Vector3 positionToGo;
+
+    private bool fadeScreen;
+    private bool isLoading;
     public float fadeDuration;
 
     private void Awake()
     {
         //Addressables.LoadSceneAsync(firstLoadScene.sceneReference, LoadSceneMode.Additive);
-        currentLoadedScene = firstLoadScene;
-        currentLoadedScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
+        // currentLoadedScene = firstLoadScene;
+        // currentLoadedScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
     }
-
+    private void Start() {
+        NewGame();
+    }
     private void OnEnable()
     {
+        //イベントを登録
         loadEventSO.LoadRequestEvent += OnLoadRequestEvent;
     }
 
     private void OnDisable()
     {
+        //イベントを取り消し
         loadEventSO.LoadRequestEvent -= OnLoadRequestEvent;
     }
+
+    private void NewGame()
+    {
+        sceneToLoad = firstLoadScene;
+        OnLoadRequestEvent(sceneToLoad, firstPosition ,true);
+    }
+
+    /// <summary>
+    /// シーンロードのリクエスト
+    /// </summary>
+    /// <param name="locationToLoad"></param>
+    /// <param name="posToGo"></param>
+    /// <param name="fadeScreen"></param>
     private void OnLoadRequestEvent(GameSceneSO locationToLoad, Vector3 posToGo, bool fadeScreen)
     {
+        if (isLoading)
+        {
+            return;
+        }
+        isLoading = true;
         sceneToLoad = locationToLoad;
         positionToGo = posToGo;
         this.fadeScreen = fadeScreen;
@@ -43,6 +74,10 @@ public class SceneLoader : MonoBehaviour
         if (currentLoadedScene != null)
         {
             StartCoroutine(UnLoadPreviousScene());
+        }
+        else
+        {
+            LoadNewScene();
         }
     }
 
@@ -63,6 +98,30 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadNewScene()
     {
-        sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
+        var loadingOption = sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
+        loadingOption.Completed += OnLoadCompleted;
+    }
+
+    /// <summary>
+    /// シーンのロード完了後
+    /// </summary>
+    /// <param name="handle"></param>
+    /// <exception cref="NotImplementedException"></exception>
+    private void OnLoadCompleted(AsyncOperationHandle<SceneInstance> handle)
+    {
+        //currentシーンを次のシーンに遷移
+        currentLoadedScene = sceneToLoad;
+
+        //シーン遷移した後のplayerの移動
+        playerTrans.position = positionToGo;
+
+        if (fadeScreen)
+        {
+
+        }
+
+        isLoading = false;
+
+        afterSceneLoadedEvent.RaiseEvent();
     }
 }
