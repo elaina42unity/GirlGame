@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-[CreateAssetMenu(menuName = "Game Scene/SceneLoadEventSO")]
+[CreateAssetMenu(menuName = "GameScene/GameSceneSO")]
+
 public class GameSceneSO : ScriptableObject
 {
     public SceneType sceneType;

@@ -75,7 +75,13 @@ public class Player : Entity
     public PlayerDeadState deadState { get; private set; }
     #endregion
 
+<<<<<<< HEAD
     //initialize states
+=======
+    IInteractable targetPortal;
+
+
+>>>>>>> 9910a27f004a15ee7488f8eb587716bea96c9d98
     protected override void Awake()
     {
         base.Awake();
@@ -133,6 +139,7 @@ public class Player : Entity
         //#endregion
     }
 
+<<<<<<< HEAD
 
     ////skill setup
     //public void AssignNewWaterBall(GameObject _newWaterBall)
@@ -219,4 +226,15 @@ public class Player : Entity
 
 
 
+=======
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        //シーンの切り替え
+        if (other.CompareTag("SwitchRoom"))
+        {
+            targetPortal = other.GetComponent<IInteractable>();
+            targetPortal.ChangeRoom();
+        }
+    }
+>>>>>>> 9910a27f004a15ee7488f8eb587716bea96c9d98
 }
