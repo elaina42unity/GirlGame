@@ -56,6 +56,8 @@ public class CharacterStats : MonoBehaviour
         return totalDamage;
     }
 
+
+    //todo critcal damage posiblity by 12.8
     private bool TargetCanAvoidAttack(CharacterStats _targetStats)
     {
         int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();

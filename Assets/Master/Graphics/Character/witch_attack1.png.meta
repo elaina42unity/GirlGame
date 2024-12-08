@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79840062ffed5bb4c85236b78b1f6a7c
+guid: c1c92a83b873a9942a1e57bee1babed7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_dash_0
+      name: witch_attack1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 78
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95f4e5e4b86e14846a4c6b7bd7c1308c
-      internalID: -1702969811
+      spriteID: b2f30eefd2fc19b47a9d325d91056a40
+      internalID: 610994304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_dash_1
+      name: witch_attack1_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 78
         y: 0
-        width: 128
-        height: 128
+        width: 78
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4b16bb9c7e5ed44995e2c6d13261738
-      internalID: -32562066
+      spriteID: 43b3b48d849f15d4ebe3c13240b98100
+      internalID: -1341100962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_dash_2
+      name: witch_attack1_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 156
         y: 0
-        width: 128
-        height: 128
+        width: 78
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e93940fae50b39478aa4f45eecb1951
-      internalID: -918161033
+      spriteID: d2c0afeb4a4fc8441ae60c5b0fa20c94
+      internalID: -1095212424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_dash_3
+      name: witch_attack1_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 234
         y: 0
-        width: 128
-        height: 128
+        width: 78
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,113 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dff1aa29ee22f804682c789d65bf6815
-      internalID: 402303551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_dash_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a909859fbbc088440967106accf22330
-      internalID: -143863091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_dash_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70f2f72c088011a4c9ff476488c8dc41
-      internalID: -738794321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_dash_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83c6452c821bdc94ca4d82ce371f3576
-      internalID: -12966497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_dash_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60897b488e224ba4eb26c1ff0707db4c
-      internalID: -237120288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_dash_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b15de0262a60734487e44c8865e47c8
-      internalID: 348323322
+      spriteID: 263a1d7fa43a24c49a9f0a09747dda8f
+      internalID: -803140286
       vertices: []
       indices: 
       edges: []
@@ -296,15 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch_dash_0: -1702969811
-      witch_dash_1: -32562066
-      witch_dash_2: -918161033
-      witch_dash_3: 402303551
-      witch_dash_4: -143863091
-      witch_dash_5: -738794321
-      witch_dash_6: -12966497
-      witch_dash_7: -237120288
-      witch_dash_8: 348323322
+      witch_attack1_0: 610994304
+      witch_attack1_1: -1341100962
+      witch_attack1_2: -1095212424
+      witch_attack1_3: -803140286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

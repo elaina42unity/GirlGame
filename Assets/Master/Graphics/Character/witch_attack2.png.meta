@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc1afca283ef206488e481b3ae6854ba
+guid: 45e5ada6c6ecd4e419139fae8cc624b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: witch_jump_0
+      name: witch_attack2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8e579ae2ae08f4696c7839039c00b9
-      internalID: 2107215421
+      spriteID: a9b97f0d84060274bb868758d958a642
+      internalID: 213315656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_1
+      name: witch_attack2_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 118
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb54c57ef0361d94b8c09fd91c682443
-      internalID: 187135431
+      spriteID: ca450df33eed06e4183802d1edde6a3d
+      internalID: -1827485580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_2
+      name: witch_attack2_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 236
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a9e72089f192d14c948bd89fab85799
-      internalID: 1734753026
+      spriteID: 355a0202faeffec4d99467c7c0a3585b
+      internalID: -1002666259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_3
+      name: witch_attack2_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 354
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6914fff019858c488d82102d65c3a79
-      internalID: 1015526916
+      spriteID: 6d72f9fa024ea704ba41b11fa2e4f359
+      internalID: 1389440067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_4
+      name: witch_attack2_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 472
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adf3cb9cf74a3bf46a8129ac1c766cee
-      internalID: -271031646
+      spriteID: bcd66560bfc5d624c9099c61a5c39217
+      internalID: 328733058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_5
+      name: witch_attack2_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 590
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c438bd72f3bbb40af4ea910fe836e7
-      internalID: 488081477
+      spriteID: 1f1d93f98ed4022438db1b132c43f2b4
+      internalID: 400218856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_6
+      name: witch_attack2_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 708
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e7c1418411299e40bf624f556cd0ba4
-      internalID: -1434970999
+      spriteID: d01da21f807147a4abacf9432e6beb07
+      internalID: 912388041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: witch_jump_7
+      name: witch_attack2_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 826
         y: 0
-        width: 128
-        height: 128
+        width: 118
+        height: 113
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,50 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80b2e58a2fca3bd4e82254f73a35bf21
-      internalID: 2074861071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_jump_8
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2207aa6eae5ad914d893ca58a32eab05
-      internalID: -1848688317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: witch_jump_9
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1910b7e89b1117b41b4fe2499fdef2c1
-      internalID: -1727292648
+      spriteID: a9ce172814ec0304c99e757d47409851
+      internalID: 517697435
       vertices: []
       indices: 
       edges: []
@@ -330,16 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      witch_jump_0: 2107215421
-      witch_jump_1: 187135431
-      witch_jump_2: 1734753026
-      witch_jump_3: 1015526916
-      witch_jump_4: -271031646
-      witch_jump_5: 488081477
-      witch_jump_6: -1434970999
-      witch_jump_7: 2074861071
-      witch_jump_8: -1848688317
-      witch_jump_9: -1727292648
+      witch_attack2_0: 213315656
+      witch_attack2_1: -1827485580
+      witch_attack2_2: -1002666259
+      witch_attack2_3: 1389440067
+      witch_attack2_4: 328733058
+      witch_attack2_5: 400218856
+      witch_attack2_6: 912388041
+      witch_attack2_7: 517697435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRobot1AnimationTriggersAX : MonoBehaviour
+public class EnemyRobot1AnimationTriggers : MonoBehaviour
 {
     private EnemyRobot1 enemy => GetComponentInParent<EnemyRobot1>();
 
@@ -25,7 +25,7 @@ public class EnemyRobot1AnimationTriggersAX : MonoBehaviour
         }
     }
 
-    private void OpenCounterWindow() { }//=> enemy.OpenCounterAttackWindow();
-    private void CloseCounterWindow() { }//=> enemy.CloseCounterAttackWindow();
+    private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
+    private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
 
 }
