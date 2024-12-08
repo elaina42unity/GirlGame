@@ -35,6 +35,7 @@ public class EnemyStateAX
     public virtual void Exit()
     {
         enemyBase.anim.SetBool(animBoolName, false);
+        enemyBase.AssignLastAnimName(animBoolName);
     }
 
     public virtual void AnimationFinishTrigger()

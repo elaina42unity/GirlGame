@@ -71,6 +71,8 @@ public class PlayerAX : EntityAX
     public PlayerCatchStateAX catchState { get; private set; }
 
     public PlayerBlackholeStateAX blackHole {  get; private set; }
+
+    public PlayerDeadStateAX deadState { get; private set; }
     #endregion
 
     //initialize states
@@ -95,6 +97,7 @@ public class PlayerAX : EntityAX
         aimState = new PlayerAimStateAX(this, stateMachine, "Aim");
         catchState = new PlayerCatchStateAX(this, stateMachine, "Catch");
         blackHole = new PlayerBlackholeStateAX(this, stateMachine, "ChantAttack");
+        deadState = new PlayerDeadStateAX(this, stateMachine, "Die");
 
     }
 
@@ -206,9 +209,14 @@ public class PlayerAX : EntityAX
     }
     #endregion 
 
-    
+    public override void Die()
+    {
+        base.Die();
 
-    
+        stateMachine.ChangeState(deadState);
+    }
 
-    
+
+
+
 }

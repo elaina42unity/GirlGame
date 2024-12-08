@@ -85,7 +85,7 @@ public class CloneSkillControllerAsh : MonoBehaviour
         if (closestEnemy != null)
         {
             if (transform.position.x > closestEnemy.position.x)
-                transform.Rotate(0, 180, 0);
+               transform.Rotate(0, 180, 0);
         }
     }
 }

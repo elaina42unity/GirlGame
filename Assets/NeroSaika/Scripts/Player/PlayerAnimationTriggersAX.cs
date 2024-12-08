@@ -22,8 +22,8 @@ public class PlayerAnimationTriggersAX : MonoBehaviour
         {
             if (hit.GetComponent<EnemyAX>() != null)
             {
-                hit.GetComponent<EnemyAX>().Damage();
-                hit.GetComponent<CharacterStatsAX>().TakeDamage(player.stats.damage);
+                EnemyStatsAX _target = hit.GetComponent<EnemyStatsAX>();
+                player.stats.DoDamage(_target);        
             }
         }
     }

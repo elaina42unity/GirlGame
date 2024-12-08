@@ -18,7 +18,10 @@ public class EnemyRobot1AnimationTriggersAX : MonoBehaviour
         foreach (var hit in colliders)
         {
             if (hit.GetComponent<PlayerAX>() != null)
-                hit.GetComponent<PlayerAX>().Damage();
+            {
+                PlayerStatsAX target = hit.GetComponent<PlayerStatsAX>();
+                enemy.stats.DoDamage(target);
+            }
         }
     }
 
