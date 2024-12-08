@@ -122,7 +122,7 @@ public class Player : Entity
 
         //Some normal skills
         //#region
-        //CheckforDashInput();        
+        CheckforDashInput();        
 
         //CheckforBombFlashInput();
 
@@ -163,52 +163,52 @@ public class Player : Entity
 
     //input check
     //#region check
-    //private void CheckforDashInput()
-    //{
-    //    if (IsWallDetected())
-    //        return;
+    private void CheckforDashInput()
+    {
+        if (IsWallDetected())
+            return;
 
-    //    if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAX.instance.dash.CanUseSkill() )
-    //    {
-    //        dashDir = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
+        {
+            dashDir = Input.GetAxisRaw("Horizontal");
 
-    //        if (dashDir == 0)
-    //            dashDir = facingDir;
+            if (dashDir == 0)
+                dashDir = facingDir;
 
-    //        stateMachine.ChangeState(dashState);
-    //    }
-    //}
+            stateMachine.ChangeState(dashState);
+        }
+    }
 
-    //private void CheckforBombFlashInput()
-    //{
+        //private void CheckforBombFlashInput()
+        //{
 
-    //    if (Input.GetKeyDown(KeyCode.V) && SkillManagerAX.instance.dash.CanUseSkill())
-    //    {
-    //        bombFlashDir = Input.GetAxisRaw("Horizontal");
+        //    if (Input.GetKeyDown(KeyCode.V) && SkillManagerAX.instance.dash.CanUseSkill())
+        //    {
+        //        bombFlashDir = Input.GetAxisRaw("Horizontal");
 
-    //        if (bombFlashDir == 0)
-    //            bombFlashDir = facingDir;
+        //        if (bombFlashDir == 0)
+        //            bombFlashDir = facingDir;
 
-    //        stateMachine.ChangeState(bombFlashState);
-    //    }
-    //}
+        //        stateMachine.ChangeState(bombFlashState);
+        //    }
+        //}
 
-    //public void CheckforChantInput()
-    //{
+        //public void CheckforChantInput()
+        //{
 
 
-    //    if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
-    //    {
-    //        chantUsageTimer = chantCooldown;
-    //        chantDir = Input.GetAxisRaw("Horizontal");
+        //    if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
+        //    {
+        //        chantUsageTimer = chantCooldown;
+        //        chantDir = Input.GetAxisRaw("Horizontal");
 
-    //        if (chantDir == 0)
-    //            chantDir = facingDir;
+        //        if (chantDir == 0)
+        //            chantDir = facingDir;
 
-    //        stateMachine.ChangeState(chantState);
-    //    }
-    //}
-    //#endregion 
+        //        stateMachine.ChangeState(chantState);
+        //    }
+        //}
+        //#endregion 
 
     public override void Die()
     {
