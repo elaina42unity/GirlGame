@@ -1,36 +1,45 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyState : State
+public class EnemyState 
 {
-    public Enemy EnemyObject
+    protected EnemyStateMachine stateMachine;
+    protected Enemy enemyBase;
+    protected Rigidbody2D rb;
+
+    private string animBoolName;
+
+    protected float stateTimer;
+    protected bool triggerCalled;
+
+    public EnemyState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animBoolName)
     {
-        get { return base.Entity as Enemy; }
-        protected set { base.Entity = value; }
+        this.enemyBase = _enemyBase;
+        this.stateMachine = _stateMachine;
+        this.animBoolName = _animBoolName;
     }
 
-    public EnemyState(Entity entity, StateMachine stateMachine, string animBoolName) : base(entity, stateMachine, animBoolName)
+    public virtual void Update()
     {
+        stateTimer -= Time.deltaTime;
     }
 
-    public override void Enter()
+    public virtual void Enter()
     {
-        base.Enter();
+        triggerCalled = false;
+        rb = enemyBase.rb;
+        enemyBase.anim.SetBool(animBoolName,true);
     }
 
-    public override void Exit()
+    public virtual void Exit()
     {
-        base.Exit();
+        enemyBase.anim.SetBool(animBoolName, false);
+        enemyBase.AssignLastAnimName(animBoolName);
     }
 
-    public override void Update()
+    public virtual void AnimationFinishTrigger()
     {
-        base.Update();
-    }
-
-    public override void CopyInfoFromOtherState(State otherState)
-    {
-        
+        triggerCalled = true;
     }
 }

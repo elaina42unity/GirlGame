@@ -1,46 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlayerState : State
+public class PlayerState
 {
+    protected PlayerStateMachine stateMachine;
+    protected Player player;
 
-    protected float XInput { get; private set; }
-    protected float YInput { get; private set; }
+    protected Rigidbody2D rb;
 
-    public Player PlayerObject
+    protected float xInput;
+    protected float yInput;
+
+    private string animBoolName;
+
+    protected float stateTimer;
+    protected bool triggerCalled;
+
+    // Start is called before the first frame update
+    public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName)
     {
-        get { return base.Entity as Player; }
-        protected set { base.Entity = value; }
+        this.player = _player;
+        this.stateMachine = _stateMachine;
+        this.animBoolName = _animBoolName;
     }
 
-    public PlayerState(Entity entity, StateMachine stateMachine, string animBoolName) : base(entity, stateMachine, animBoolName)
+
+    // Enter is called only once 
+    public virtual void Enter()
     {
+        player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
+        triggerCalled = false;
+    }
+    // Update is called once per frame
+    public virtual void Update()
+    {
+        stateTimer -= Time.deltaTime;
+
+        xInput = Input.GetAxisRaw("Horizontal");
+        yInput = Input.GetAxisRaw("Vertical");
+
+        player.anim.SetFloat("yVelocity", rb.velocity.y);
+
+    }
+    // Exit is called only once
+    public virtual void Exit()
+    {
+        player.anim.SetBool(animBoolName, false);
     }
 
-    public override void Enter()
+    public virtual void AnimationFinishTrigger()
     {
-        base.Enter();
-    }
-    public override void Update()
-    {
-        base.Update();
-        XInput = Input.GetAxisRaw("Horizontal");
-    }
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void CopyInfoFromOtherState(State otherState)
-    {
-        if (null==otherState)
-            Debug.LogError("Other state is null");
-        else if(otherState is not PlayerState)
-            Debug.LogError("Other state is not PlayerState");
-
-        PlayerState otherPlayerState = otherState as PlayerState;
-        XInput = otherPlayerState.XInput;
+        triggerCalled = true;
     }
 }

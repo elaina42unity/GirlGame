@@ -1,32 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
-using UnityEngine;
-
-public class PlayerStateMachine : StateMachine
+public class PlayerStateMachine
 {
-    public new PlayerState CurrentState
+    public PlayerState currentState { get; private set; }
+
+    public void Initialize(PlayerState _startState)
     {
-        get { return base.CurrentState as PlayerState; }
-        protected set { base.CurrentState = value; }
+        currentState = _startState;
+        currentState.Enter();
     }
 
-    protected override void CopyDataFromOldStateToNewState(State oldState, State newState)
+    public void ChangeState(PlayerState _newState)
     {
-        if (null == oldState || null == newState)
-        {
-            Debug.LogError("Old or new state is null");
-            return;
-        }
-        else if(oldState is not PlayerState || newState is not PlayerState)
-        {
-            Debug.Log("Old or new state is not a player state");
-            return;
-        }
-        PlayerState oldPlayerState = oldState as PlayerState;
-        PlayerState newPlayerState = newState as PlayerState;
-        newPlayerState.CopyInfoFromOtherState(oldPlayerState);
+        currentState.Exit();
+        currentState = _newState;
+        currentState.Enter();
     }
 }

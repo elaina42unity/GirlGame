@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicBallSkillController : MonoBehaviour
+public class MagicBallSkillControllerAX : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;

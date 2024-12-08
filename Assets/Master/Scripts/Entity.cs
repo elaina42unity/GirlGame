@@ -1,22 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
     #region Components
-    public Animator Anim { get; private set; }
+    public Animator anim { get; private set; }
+    public Rigidbody2D rb { get; private set; }
 
-    public Rigidbody2D Rb { get; private set; }
+    public EntityFX fx { get; private set; }
+
+    public SpriteRenderer sr { get; private set; }
+
+    public CharacterStats stats { get; private set; }
+
+    public CapsuleCollider2D cd { get; private set; }
     #endregion
-    [Header("Collision info")]
-    [SerializeField] protected Transform groundCheck_;
-    [SerializeField] protected float groundCheckDistance_;
-    [SerializeField] protected Transform wallCheck_;
-    [SerializeField] protected float wallCheckDistance_;
-    [SerializeField] protected LayerMask whatIsGround_;
 
-    public int FacingDir { get; private set; } = 1;
+    [Header("Knockback info")]
+    [SerializeField] protected Vector2 knockbackDirection;
+    [SerializeField] protected float knockbackDuration;
+    private bool isKnocked;
+
+    [Header("Collision info")]
+    public Transform attackCheck;
+    public float attackCheckRadius;
+    public float attackCheckWidth;
+    public float attackCheckHeight;
+    [SerializeField] protected Transform groundCheck;
+    [SerializeField] protected float groundCheckDistance;
+    [SerializeField] protected Transform wallCheck;
+    [SerializeField] protected float wallCheckDistance;
+    [SerializeField] protected LayerMask whatIsGround;
+
+
+    public int facingDir { get; private set; } = 1;
+    protected bool facingRight = false;
 
     protected virtual void Awake()
     {
@@ -25,62 +43,96 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        Anim = GetComponentInChildren<Animator>();
-        Rb = GetComponent<Rigidbody2D>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        fx = GetComponentInChildren<EntityFX>();
+        stats = GetComponent<CharacterStats>();
+        cd=GetComponent<CapsuleCollider2D>();
     }
 
     protected virtual void Update()
     {
 
     }
-    #region Velocity
-    public void SetZeroVelocity() => Rb.velocity = new Vector2(0.0f, 0.0f);
-    public void SetVelocityWithFlipCheck(float xVelocity, float yVelocity)
+
+    public virtual void DamageEffect()
     {
-        Rb.velocity = new Vector2(xVelocity, yVelocity);
-        FlipController(xVelocity);
+
+        fx.StartCoroutine("FlashFX");
+        StartCoroutine("HitKnockback");
+
     }
-    public void SetVelocity(float xVelocity, float yVelocity)
+
+    protected virtual IEnumerator HitKnockback()
     {
-        Rb.velocity = new Vector2(xVelocity, yVelocity);
-        FlipController(xVelocity);
+        isKnocked = true;
+
+        rb.velocity = new Vector2(knockbackDirection.x * -facingDir, knockbackDirection.y);
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        isKnocked = false;
+    }
+
+    #region collision
+    public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
+    protected virtual void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
+        Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
+        Gizmos.DrawCube(attackCheck.position, new Vector3(attackCheckHeight, attackCheckWidth, 0));
     }
     #endregion
 
-    #region Collision
-    public bool IsGroundDetected() => Physics2D.Raycast(groundCheck_.position, Vector2.down, groundCheckDistance_, whatIsGround_);
-    public bool IsWallDetected() => Physics2D.Raycast(wallCheck_.position, Vector2.right * FacingDir, wallCheckDistance_, whatIsGround_);
-    protected void OnDrawGizmos()
+    #region flip
+    public virtual void Flip()
     {
-        Gizmos.DrawLine(groundCheck_.position, new Vector3(groundCheck_.position.x, groundCheck_.position.y - groundCheckDistance_));
-        Gizmos.DrawLine(wallCheck_.position, new Vector3(wallCheck_.position.x + wallCheckDistance_ * FacingDir, wallCheck_.position.y));
+        facingDir = facingDir * -1;
+        facingRight = !facingRight;
+        transform.Rotate(0, 180, 0);
+    }
 
+    public virtual void FlipController(float _x)
+    {
+        if (_x < 0 && !facingRight)
+            Flip();
+        else if (_x > 0 && facingRight)
+            Flip();
     }
     #endregion
 
-    #region Flip
-    private void Flip()
+    #region velocity
+    public void SetZeroVelocity()
     {
-        FacingDir = FacingDir * -1;
-        transform.Rotate(0, 180.0f, 0);
+        if (isKnocked)
+            return;
+
+        rb.velocity = new Vector2(0, 0);
     }
 
-    private void FlipController(float x)
+    public void SetVelocity(float _xVelocity, float _yVelocity)
     {
-        if (x > 0 && !IsFacingRight(FacingDir))
-            Flip();
-        else if (x < 0 && IsFacingRight(FacingDir))
-            Flip();
-    }
+        if (isKnocked)
+            return;
 
-    private bool IsFacingRight(float facingDir)
+        rb.velocity = new Vector2(_xVelocity, _yVelocity);
+        FlipController(rb.velocity.x);
+    }
+    #endregion
+
+    public void MakeTransparent(bool _transparent)
     {
-        if (facingDir >= 0)
-            return true;
+        if (_transparent)
+            sr.color = Color.clear;
         else
-            return false;
+            sr.color = Color.white;
     }
-    #endregion
 
+    public virtual void Die()
+    {
 
+    }
 }

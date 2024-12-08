@@ -94,7 +94,7 @@ public class AimAttackAX : SkillAX
     public void CreateMagic()
     {
         GameObject newWaterBall = Instantiate(waterBallPrefab, player.transform.position, transform.rotation);
-        MagicBallSkillController newMagicScript = newWaterBall.GetComponent<MagicBallSkillController>();
+        MagicBallSkillControllerAX newMagicScript = newWaterBall.GetComponent<MagicBallSkillControllerAX>();
 
         switch (magicType)
         {

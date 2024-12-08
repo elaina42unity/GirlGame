@@ -7,7 +7,7 @@ public class SwordSkillControllerAsh : MonoBehaviour
     private Animator anim_;
     private Rigidbody2D rb_;
     private CircleCollider2D cd_;
-    private Player player_;
+    private PlayerAsh player_;
 
     private void Start()
     {

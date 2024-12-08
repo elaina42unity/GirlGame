@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerMoveState : PlayerGroundedState
 {
-    public PlayerMoveState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
@@ -12,6 +8,7 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Enter();
     }
+
     public override void Exit()
     {
         base.Exit();
@@ -21,10 +18,13 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Update();
 
-        PlayerObject.SetVelocityWithFlipCheck(XInput * PlayerObject.moveSpeed_, rb_.velocity.y);
+        //set the velocity of moving
+        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 
-        // if player is not moving or player is touching wall then change the state to idle
-        if (XInput == 0 || PlayerObject.IsWallDetected()) 
-            stateMachine_.ChangeState(PlayerObject.IdleState);
+        //stop when there is a wall
+        if (xInput == 0 || player.IsWallDetected())
+            stateMachine.ChangeState(player.idleState);
+
     }
 }
+

@@ -1,18 +1,20 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class PlayerIdleState : PlayerGroundedState
 {
-       public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
 
+    //intiate
     public override void Enter()
     {
         base.Enter();
 
-        PlayerObject.SetZeroVelocity();
+        player.SetZeroVelocity();
+
     }
 
     public override void Exit()
@@ -24,10 +26,13 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
 
-        if (XInput == PlayerObject.FacingDir && PlayerObject.IsWallDetected()) // do nothing if the direction the player wants to move towards is a wall
+        //stop when there is a wall
+        if (xInput == player.facingDir && player.IsWallDetected())
             return;
-        else if (XInput != 0 ) // if the player wants to move, then change the state to move
-            stateMachine_.ChangeState(PlayerObject.MoveState);
-           
+
+        //update state
+        if(xInput!=0 && !player.isBusy)
+            stateMachine.ChangeState(player.moveState);
+
     }
 }
