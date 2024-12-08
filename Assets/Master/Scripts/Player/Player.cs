@@ -10,7 +10,7 @@ public class Player : Entity
     public Vector2[] attackMovement;
     //public float counterAttackDuration = .2f;
 
-    public bool isBusy {  get; private set; }
+    public bool isBusy { get; private set; }
     [Header("Move info")]
     public float moveSpeed = 12f;
     public float jumpForce;
@@ -34,13 +34,13 @@ public class Player : Entity
     public float chantDuration;
 
     //States
-    public float chantDir { get; private set; } 
+    public float chantDir { get; private set; }
     //public GameObject waterBall { get; private set; }
 
-    public SkillManager skill {  get; private set; }
+    public SkillManager skill { get; private set; }
 
     #region States
-    public PlayerStateMachine stateMachine {  get; private set; }
+    public PlayerStateMachine stateMachine { get; private set; }
 
     public PlayerIdleState idleState { get; private set; }
 
@@ -75,13 +75,8 @@ public class Player : Entity
     public PlayerDeadState deadState { get; private set; }
     #endregion
 
-<<<<<<< HEAD
-    //initialize states
-=======
     IInteractable targetPortal;
 
-
->>>>>>> 9910a27f004a15ee7488f8eb587716bea96c9d98
     protected override void Awake()
     {
         base.Awake();
@@ -117,7 +112,7 @@ public class Player : Entity
         stateMachine.Initialize(idleState);
     }
 
-    
+
     protected override void Update()
     {
         base.Update();
@@ -139,7 +134,6 @@ public class Player : Entity
         //#endregion
     }
 
-<<<<<<< HEAD
 
     ////skill setup
     //public void AssignNewWaterBall(GameObject _newWaterBall)
@@ -161,7 +155,7 @@ public class Player : Entity
 
         yield return new WaitForSeconds(_seconds);
 
-        isBusy = false; 
+        isBusy = false;
     }
 
     //Set the animation event to stop the animation
@@ -223,10 +217,6 @@ public class Player : Entity
         stateMachine.ChangeState(deadState);
     }
 
-
-
-
-=======
     private void OnTriggerStay2D(Collider2D other)
     {
         //シーンの切り替え
@@ -236,5 +226,4 @@ public class Player : Entity
             targetPortal.ChangeRoom();
         }
     }
->>>>>>> 9910a27f004a15ee7488f8eb587716bea96c9d98
 }
