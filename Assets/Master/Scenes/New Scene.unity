@@ -308,11 +308,7 @@ Transform:
   m_GameObject: {fileID: 76449676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 2.4504185, y: 8.016937, z: -9.994929}
-=======
-  m_LocalPosition: {x: 2.4544926, y: 8.016937, z: -9.994929}
->>>>>>> Stashed changes
+  m_LocalPosition: {x: 2.4600449, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -639,11 +635,7 @@ Transform:
   m_GameObject: {fileID: 438129900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< Updated upstream
-  m_LocalPosition: {x: 2.4504185, y: 8.016937, z: -9.994929}
-=======
-  m_LocalPosition: {x: 2.4544926, y: 8.016937, z: -9.994929}
->>>>>>> Stashed changes
+  m_LocalPosition: {x: 2.4600449, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5242,23 +5234,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &652036783 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7428133936322629259, guid: 3b73d935f2129fa4f92e10effc70a189, type: 3}
-  m_PrefabInstance: {fileID: 1193017573}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &652036788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652036783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc8c61732b804949b918c14f2210490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &818726508
 GameObject:
   m_ObjectHideFlags: 0
@@ -5755,18 +5730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Robot1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3839489666914756668, guid: 3b73d935f2129fa4f92e10effc70a189, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7428133936322629259, guid: 3b73d935f2129fa4f92e10effc70a189, type: 3}
-      insertIndex: -1
-<<<<<<< Updated upstream
-      addedObject: {fileID: 652036788}
-=======
-      addedObject: {fileID: 2095369558}
->>>>>>> Stashed changes
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b73d935f2129fa4f92e10effc70a189, type: 3}
 --- !u!1 &1494157320
 GameObject:
@@ -5917,23 +5884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1615649425}
---- !u!1 &2095369553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7428133936322629259, guid: 3b73d935f2129fa4f92e10effc70a189, type: 3}
-  m_PrefabInstance: {fileID: 1193017573}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2095369558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095369553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc8c61732b804949b918c14f2210490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2553462431417734187
 PrefabInstance:
   m_ObjectHideFlags: 0
