@@ -4,7 +4,7 @@ public class SkillAX : MonoBehaviour
 {
     [SerializeField] protected float cooldown;
     protected float cooldownTimer;
-    Transform closestEnemy = null;
+    
 
     protected PlayerAX player;
 
@@ -41,7 +41,7 @@ public class SkillAX : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 25);
 
         float closestDistance = Mathf.Infinity;
-
+        Transform closestEnemy = null;
 
         foreach (var hit in colliders)
         {

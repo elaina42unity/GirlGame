@@ -11,20 +11,28 @@ public class StarMagicControllerAX : MonoBehaviour
     private bool canMove;
     private float moveSpeed;
     private float defaultmoveSpeed;
+    private bool canSetAroundTarget;
 
     private bool canGrow;
     private float growSpeed = 5;
 
     private Transform closestTarget;
     [SerializeField] private LayerMask whatisEnemy;
+    
 
-    public void SetupStar(float _starDuration, bool _canExplode, bool _canMoveToEnemy, float _moveSpeed, Transform _closestTarget)
+    public void SetupStar(float _starDuration, bool _canExplode, bool _canMoveToEnemy, float _moveSpeed, Transform _closestTarget,bool _canSetAroundEnemy)
     {
         starExistTimer = _starDuration;
         canExplode = _canExplode;
         canMove = _canMoveToEnemy;
         moveSpeed = _moveSpeed;
         closestTarget = _closestTarget;
+        canSetAroundTarget = _canSetAroundEnemy;
+
+        if (closestTarget != null && canSetAroundTarget)
+        {
+            transform.position = new Vector3(closestTarget.position.x + Random.Range(-5, 5), closestTarget.position.y + 5 + Random.Range(-2, 5));
+        }
     }
 
     public void ChooseRandomEnemy()
@@ -49,7 +57,9 @@ public class StarMagicControllerAX : MonoBehaviour
         //when there is a target star will move to the target
         if (canMove && closestTarget != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
+
+            if (starExistTimer < 5 || !canSetAroundTarget)
+                transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, closestTarget.position) < 2)
             {
@@ -73,7 +83,7 @@ public class StarMagicControllerAX : MonoBehaviour
         {
             if (hit.GetComponent<EnemyAX>() != null)
             {
-                hit.GetComponent<EnemyAX>().Damage();
+                hit.GetComponent<EnemyAX>().DamageEffect();
             }
         }
     }

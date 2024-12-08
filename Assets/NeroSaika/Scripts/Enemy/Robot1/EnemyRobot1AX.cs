@@ -15,6 +15,8 @@ public class EnemyRobot1AX : EnemyAX
     public Robot1AttackStateAX attackState { get; private set; }
 
     public Robot1StunnedStateAX stunnedState { get; private set; }
+
+    public Robot1DeadStateAX deadState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -26,6 +28,7 @@ public class EnemyRobot1AX : EnemyAX
         battleState = new Robot1BattleStateAX(this, stateMachine, "Move", this);
         attackState = new Robot1AttackStateAX(this, stateMachine, "Attack", this);
         stunnedState = new Robot1StunnedStateAX(this, stateMachine, "Stunned", this);
+        deadState = new Robot1DeadStateAX(this, stateMachine, "Die", this);
     }
 
     protected override void Start()
@@ -52,5 +55,12 @@ public class EnemyRobot1AX : EnemyAX
             return true;    
         }
         return false;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        stateMachine.ChangeState(deadState);
     }
 }

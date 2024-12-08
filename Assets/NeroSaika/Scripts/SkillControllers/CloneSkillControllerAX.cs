@@ -42,14 +42,16 @@ public class CloneSkillControllerAX : MonoBehaviour
         if (_canAttack)
             anim.SetInteger("AttackNumber", Random.Range(1, 3));
 
-
         transform.position = _newTransform.position + _offset;
         cloneTimer = _cloneDuration;
         closestEnemy = _closestEnemy;
         canDuplicateClone = _canDuplicate;
         chanceToDuplicate = _chanceToDuplicate;
 
-        FaceClosestTarger();
+        //Debug.Log($"父级函数返回的敌人: {closestEnemy?.name}");
+        //Debug.Log($"子级函数中的敌人位置: {closestEnemy?.position}");
+
+        //FaceClosestTarger();
 
     }
 
@@ -67,7 +69,7 @@ public class CloneSkillControllerAX : MonoBehaviour
         {
             if (hit.GetComponent<EnemyAX>() != null)
             {
-                hit.GetComponent<EnemyAX>().Damage();
+                hit.GetComponent<EnemyAX>().DamageEffect();
 
                 if (canDuplicateClone)
                 {
@@ -82,6 +84,20 @@ public class CloneSkillControllerAX : MonoBehaviour
 
     //find the closest enemy and fix the skill's function cannot set back the tranform variable
     private void FaceClosestTarger()
+    {
+        GetClosestEnemyTransform();
+
+        if (closestEnemy != null)
+        {
+            if (transform.position.x > closestEnemy.position.x)
+            {
+                facingDir = -1;
+                transform.Rotate(0, 180, 0);
+            }
+        }
+    }
+
+    private void GetClosestEnemyTransform()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
 
@@ -98,15 +114,6 @@ public class CloneSkillControllerAX : MonoBehaviour
                     closestDistance = distanceToEnemy;
                     closestEnemy = hit.transform;
                 }
-            }
-        }
-
-        if (closestEnemy != null)
-        {
-            if (transform.position.x > closestEnemy.position.x)
-            {
-                facingDir = -1;
-                transform.Rotate(0, 180, 0);
             }
         }
     }
