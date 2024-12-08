@@ -377,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 76449676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4501534, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.4567757, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -480,7 +480,7 @@ SpriteRenderer:
   m_SortingLayerID: 1477136307
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1025845006, guid: 50af8713e8a34e94096aacef68ff99eb, type: 3}
+  m_Sprite: {fileID: -1934033208, guid: d276f13db5742ed44bc14444afe9a3fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -756,7 +756,7 @@ Transform:
   m_GameObject: {fileID: 438129900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4501534, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.4567757, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6164,32 +6164,11 @@ MonoBehaviour:
   strength:
     baseValue: 0
     modifiers: 
-  agility:
-    baseValue: 0
-    modifiers: 
-  inteligence:
-    baseValue: 0
-    modifiers: 
-  vitality:
-    baseValue: 0
-    modifiers: 
   damage:
     baseValue: 4
     modifiers: 02000000
-  critChance:
-    baseValue: 0
-    modifiers: 
-  critPower:
-    baseValue: 0
-    modifiers: 
   maxHealth:
     baseValue: 1000
-    modifiers: 
-  armor:
-    baseValue: 0
-    modifiers: 
-  evasion:
-    baseValue: 0
     modifiers: 
   currentHealth: 0
 --- !u!1 &1804386394
