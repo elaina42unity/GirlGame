@@ -6,7 +6,7 @@ public class StarMagicSkillAX : SkillAX
     [SerializeField] private GameObject starPrefab;
     [SerializeField] private float starDuration;
     private GameObject currentStar = null;
-    private Transform closestEnemy;
+    //private Transform closestEnemy;
 
     [Header("Explosive star")]
     [SerializeField] private bool canExplode;
@@ -14,6 +14,7 @@ public class StarMagicSkillAX : SkillAX
     [Header("Moving Star")]
     [SerializeField] private bool canMoveToEnemy;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private bool canSetAroundEnemy;
 
     [Header("Multi Stacking Star")]
     [SerializeField] private bool canUseMultiStacks;
@@ -53,8 +54,8 @@ public class StarMagicSkillAX : SkillAX
         currentStar = Instantiate(starPrefab, player.transform.position - new Vector3(0, 1), Quaternion.identity);
         StarMagicControllerAX currentStarScript = currentStar.GetComponent<StarMagicControllerAX>();
 
-        currentStarScript.SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentStar.transform));
-
+        currentStarScript.SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentStar.transform),canSetAroundEnemy);
+        
     }
 
     public void CurrentStarChooseRandomTarget() => currentStar.GetComponent<StarMagicControllerAX>().ChooseRandomEnemy();
@@ -79,7 +80,11 @@ public class StarMagicSkillAX : SkillAX
 
                 //set up the star
                 newStar.GetComponent<StarMagicControllerAX>().
-                    SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newStar.transform));
+                    SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newStar.transform), canSetAroundEnemy);
+
+                //closestEnemy = FindClosestEnemy(newStar.transform);
+                //Debug.Log($"父级函数返回的敌人: {closestEnemy?.name}");
+                //Debug.Log($"子级函数中的敌人位置: {closestEnemy?.position}");
 
                 //if stack all used set cooldown
                 if (starLeft.Count <= 0)

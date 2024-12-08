@@ -24,6 +24,7 @@ public class EnemyAX : EntityAX
     [HideInInspector] public float lastTimeAttacked;
 
     public EnemyStateMachineAX stateMachine { get; private set; }
+    public string lastAnimBoolName {  get; private set; }
     
     protected override void Awake()
     {
@@ -41,6 +42,11 @@ public class EnemyAX : EntityAX
 
         stateMachine.currentState.Update();
 
+    }
+
+    public virtual void AssignLastAnimName(string _animBoolName)
+    {
+        lastAnimBoolName = _animBoolName;
     }
 
     public virtual void FreezeTime(bool _timeFrozen)

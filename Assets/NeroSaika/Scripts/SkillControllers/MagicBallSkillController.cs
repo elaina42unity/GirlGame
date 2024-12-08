@@ -149,7 +149,7 @@ public class MagicBallSkillController : MonoBehaviour
                     foreach (var hit in colliders)
                     {
                         if (hit.GetComponent<EnemyAX>() != null)
-                            hit.GetComponent<EnemyAX>().Damage();
+                            hit.GetComponent<EnemyAX>().DamageEffect();
                     }
                 }
 
@@ -210,7 +210,7 @@ public class MagicBallSkillController : MonoBehaviour
 
     private void MagicDamage(EnemyAX enemy)
     {
-        enemy.Damage();
+        enemy.DamageEffect();
 
         enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
     }

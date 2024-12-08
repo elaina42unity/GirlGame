@@ -12,6 +12,8 @@ public class EntityAX : MonoBehaviour
     public SpriteRenderer sr { get; private set; }
 
     public CharacterStatsAX stats { get; private set; }
+
+    public CapsuleCollider2D cd { get; private set; }
     #endregion
 
     [Header("Knockback info")]
@@ -46,6 +48,7 @@ public class EntityAX : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponentInChildren<EntityFXAX>();
         stats = GetComponent<CharacterStatsAX>();
+        cd=GetComponent<CapsuleCollider2D>();
     }
 
     protected virtual void Update()
@@ -53,7 +56,7 @@ public class EntityAX : MonoBehaviour
 
     }
 
-    public virtual void Damage()
+    public virtual void DamageEffect()
     {
 
         fx.StartCoroutine("FlashFX");
@@ -126,5 +129,10 @@ public class EntityAX : MonoBehaviour
             sr.color = Color.clear;
         else
             sr.color = Color.white;
+    }
+
+    public virtual void Die()
+    {
+
     }
 }
