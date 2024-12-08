@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerIdleStateAX : PlayerGroundedStateAX
+{
+    public PlayerIdleStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    {
+    }
+
+    //intiate
+    public override void Enter()
+    {
+        base.Enter();
+
+        player.SetZeroVelocity();
+
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        //stop when there is a wall
+        if (xInput == player.facingDir && player.IsWallDetected())
+            return;
+
+        //update state
+        if(xInput!=0 && !player.isBusy)
+            stateMachine.ChangeState(player.moveState);
+
+    }
+}

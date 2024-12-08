@@ -1,0 +1,30 @@
+public class PlayerMoveStateAX : PlayerGroundedStateAX
+{
+    public PlayerMoveStateAX(PlayerAX _player, PlayerStateMachineAX _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        //set the velocity of moving
+        player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
+
+        //stop when there is a wall
+        if (xInput == 0 || player.IsWallDetected())
+            stateMachine.ChangeState(player.idleState);
+
+    }
+}
+

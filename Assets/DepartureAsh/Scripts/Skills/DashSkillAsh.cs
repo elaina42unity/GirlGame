@@ -7,7 +7,5 @@ public class DashSkillAsh : SkillAsh
     public override void UseSkill()
     {
         base.UseSkill();
-
-        Debug.Log("Created clone behind");
     }
 }
