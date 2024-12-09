@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: floor_tile_wood_carpet_transition_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 63899952d16801348a1883f8cb1fd45e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e65d78315196454e8a0454c8604b4ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
