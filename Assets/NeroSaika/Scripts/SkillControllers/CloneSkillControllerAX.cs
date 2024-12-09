@@ -11,6 +11,7 @@ public class CloneSkillControllerAX : MonoBehaviour
     [SerializeField] private Transform attackCheck;
     [SerializeField] private float attackCheckHeight;
     [SerializeField] private float attackCheckWidth;
+    [SerializeField] private int damage;
     private Transform closestEnemy;
     private bool canDuplicateClone;
     private int facingDir = 1;
@@ -48,10 +49,7 @@ public class CloneSkillControllerAX : MonoBehaviour
         canDuplicateClone = _canDuplicate;
         chanceToDuplicate = _chanceToDuplicate;
 
-        //Debug.Log($"父级函数返回的敌人: {closestEnemy?.name}");
-        //Debug.Log($"子级函数中的敌人位置: {closestEnemy?.position}");
-
-        //FaceClosestTarger();
+        FaceClosestTarger();
 
     }
 
@@ -69,7 +67,9 @@ public class CloneSkillControllerAX : MonoBehaviour
         {
             if (hit.GetComponent<EnemyAX>() != null)
             {
+                EnemyAX enemy = hit.GetComponent<EnemyAX>();
                 hit.GetComponent<EnemyAX>().DamageEffect();
+                enemy.stats.TakeDamage(damage);
 
                 if (canDuplicateClone)
                 {

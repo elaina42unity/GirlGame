@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRobot1AnimationTriggersAX : MonoBehaviour
 {
-    private EnemyRobot1 enemy => GetComponentInParent<EnemyRobot1>();
+    private EnemyRobot1AX enemy => GetComponentInParent<EnemyRobot1AX>();
 
     private void AnimationTrigger()
     {
@@ -17,15 +17,15 @@ public class EnemyRobot1AnimationTriggersAX : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Player>() != null)
+            if (hit.GetComponent<PlayerAX>() != null)
             {
-                PlayerStats target = hit.GetComponent<PlayerStats>();
+                PlayerStatsAX target = hit.GetComponent<PlayerStatsAX>();
                 enemy.stats.DoDamage(target);
             }
         }
     }
 
-    private void OpenCounterWindow() { }//=> enemy.OpenCounterAttackWindow();
-    private void CloseCounterWindow() { }//=> enemy.CloseCounterAttackWindow();
+    private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
+    private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
 
 }

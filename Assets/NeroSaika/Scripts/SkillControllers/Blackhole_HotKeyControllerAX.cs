@@ -24,11 +24,15 @@ public class Blackhole_HotKeyControllerAX : MonoBehaviour
 
     public void SetupHotKey(KeyCode _myNewHotKey)
     {
+        
         myText = GetComponentInChildren<TextMeshProUGUI>();
 
         myHotKey = _myNewHotKey;
 
+
         myText.text = _myNewHotKey.ToString();
+
+        myText.text = "B";
     }
 
     private void Update()

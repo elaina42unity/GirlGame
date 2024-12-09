@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerAX : EntityAX
 {
@@ -10,7 +8,7 @@ public class PlayerAX : EntityAX
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
 
-    public bool isBusy {  get; private set; }
+    public bool isBusy { get; private set; }
     [Header("Move info")]
     public float moveSpeed = 12f;
     public float jumpForce;
@@ -34,13 +32,13 @@ public class PlayerAX : EntityAX
     public float chantDuration;
 
     //States
-    public float chantDir { get; private set; } 
+    public float chantDir { get; private set; }
     public GameObject waterBall { get; private set; }
 
-    public SkillManagerAX skill {  get; private set; }
+    public SkillManagerAX skill { get; private set; }
 
     #region States
-    public PlayerStateMachineAX stateMachine {  get; private set; }
+    public PlayerStateMachineAX stateMachine { get; private set; }
 
     public PlayerIdleStateAX idleState { get; private set; }
 
@@ -60,7 +58,7 @@ public class PlayerAX : EntityAX
 
     public PlayerPrimaryAttackStateAX primaryAttack { get; private set; }
 
-    public PlayerEnchantStateAX enchant{ get; private set; }
+    public PlayerEnchantStateAX enchant { get; private set; }
 
     public PlayerCounterAttackStateAX counterAttack { get; private set; }
 
@@ -70,7 +68,7 @@ public class PlayerAX : EntityAX
 
     public PlayerCatchStateAX catchState { get; private set; }
 
-    public PlayerBlackholeStateAX blackHole {  get; private set; }
+    public PlayerBlackholeStateAX blackHole { get; private set; }
 
     public PlayerDeadStateAX deadState { get; private set; }
     #endregion
@@ -111,7 +109,7 @@ public class PlayerAX : EntityAX
         stateMachine.Initialize(idleState);
     }
 
-    
+
     protected override void Update()
     {
         base.Update();
@@ -121,16 +119,26 @@ public class PlayerAX : EntityAX
 
         //Some normal skills
         #region
-        CheckforDashInput();        
 
-        CheckforBombFlashInput();
+        if (!IsGroundDetected())
+            CheckforDashInput();
 
-        if (Input.GetKeyDown(KeyCode.G))            
-            skill.staffMagic.CanUseSkill();
+        if (IsGroundDetected())
+            CheckforBombFlashInput();
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && Input.GetAxisRaw("Vertical")>=0 )
             skill.starMagic.CanUseSkill();
         #endregion
+
+        for (int i = 0; i <= 19; i++)
+        {
+            KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Joystick1Button" + i);
+            if (Input.GetKeyDown(key))
+            {
+                Debug.Log("Joystick 1 Button " + i + " is pressed!");
+            }
+        }
+
     }
 
 
@@ -141,8 +149,8 @@ public class PlayerAX : EntityAX
     }
 
     //skill setup
-    public void CatchTheWaterBall() 
-    { 
+    public void CatchTheWaterBall()
+    {
         stateMachine.ChangeState(catchState);
         Destroy(waterBall);
     }
@@ -154,7 +162,7 @@ public class PlayerAX : EntityAX
 
         yield return new WaitForSeconds(_seconds);
 
-        isBusy = false; 
+        isBusy = false;
     }
 
     //Set the animation event to stop the animation
@@ -167,7 +175,8 @@ public class PlayerAX : EntityAX
         if (IsWallDetected())
             return;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAX.instance.dash.CanUseSkill() )
+        if ((Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAX.instance.dash.CanUseSkill())
+            || (Input.GetKeyDown(KeyCode.Joystick1Button5) && SkillManagerAX.instance.dash.CanUseSkill()))
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 
@@ -181,7 +190,8 @@ public class PlayerAX : EntityAX
     private void CheckforBombFlashInput()
     {
 
-        if (Input.GetKeyDown(KeyCode.V) && SkillManagerAX.instance.dash.CanUseSkill())
+        if ((Input.GetKeyDown(KeyCode.LeftShift) && SkillManagerAX.instance.dash.CanUseSkill())
+            || (Input.GetKeyDown(KeyCode.Joystick1Button5) && SkillManagerAX.instance.dash.CanUseSkill()))
         {
             bombFlashDir = Input.GetAxisRaw("Horizontal");
 
@@ -194,7 +204,7 @@ public class PlayerAX : EntityAX
 
     public void CheckforChantInput()
     {
-        
+
 
         if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
         {
@@ -216,7 +226,10 @@ public class PlayerAX : EntityAX
         stateMachine.ChangeState(deadState);
     }
 
+    public virtual void getEnemyDamage()
+    {
 
+    }
 
 
 }

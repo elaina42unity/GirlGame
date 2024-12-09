@@ -85,7 +85,7 @@ public class BlackholeSkillControllerAX : MonoBehaviour
         }
 
         //attack check
-        if (Input.GetKeyDown(KeyCode.R) && !isShrinking)
+        if ((Input.GetKeyDown(KeyCode.R) && !isShrinking)||(Input.GetKeyDown(KeyCode.Joystick1Button0) && !isShrinking))
         {
             ReleaseCloneAttack();
         }

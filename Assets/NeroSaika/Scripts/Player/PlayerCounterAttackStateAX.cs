@@ -30,6 +30,7 @@ public class PlayerCounterAttackStateAX : PlayerStateAX
     {
         base.Update();
 
+        player.SetZeroVelocity(); 
         //set the attack range
         Collider2D[] colliders = Physics2D.OverlapBoxAll(player.attackCheck.position, new Vector2(player.attackCheckHeight, player.attackCheckWidth), 0);
 

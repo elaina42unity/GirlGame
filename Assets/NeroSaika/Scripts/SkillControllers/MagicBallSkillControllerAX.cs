@@ -227,10 +227,9 @@ public class MagicBallSkillControllerAX : MonoBehaviour
                 foreach (var hit in colliders)
                 {
                     if (hit.GetComponent<EnemyAX>() != null)
-                        MagicDamage(hit.GetComponent<EnemyAX>());
+                     enemyTarget.Add(hit.GetComponent<EnemyAX>().transform);
                 }
             }
-
         }
     }
 

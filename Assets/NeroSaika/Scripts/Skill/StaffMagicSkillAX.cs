@@ -34,7 +34,7 @@ public class StaffMagicSkillAX : SkillAX
             //{
             //    currentStaff.GetComponent<StaffMagicControllerAX>?.FinishStaff();
             //}
-
+            Destroy(currentStaff);
         }
 
     }
