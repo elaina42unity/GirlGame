@@ -155,4 +155,4 @@ MonoBehaviour:
   attackCheck: {fileID: 2434638477456233498}
   attackCheckHeight: 2
   attackCheckWidth: 12
-  closestEnemy: {fileID: 0}
+  damage: 4

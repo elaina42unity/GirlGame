@@ -26,7 +26,7 @@ public class CloneSkillAX : SkillAX
     {
 
         //check if can set the clone skill to stars
-        if (starInsteadOfClone)
+        if (starInsteadOfClone && Input.GetAxisRaw("Vertical")<0)
         {
             SkillManagerAX.instance.starMagic.CreateStar();
             SkillManagerAX.instance.starMagic.CurrentStarChooseRandomTarget();
@@ -37,9 +37,7 @@ public class CloneSkillAX : SkillAX
 
         newClone.GetComponent<CloneSkillControllerAX>().
             SetupClone(_clonePosition, cloneDuration, canAttack, _offset, FindClosestEnemy(newClone.transform), canDuplicateClone, chanceToDuplicate);
-        //closestEnemy = FindClosestEnemy(newClone.transform);
-        //Debug.Log($"1212父级函数返回的敌人: {closestEnemy?.name}");
-        //Debug.Log($"1212子级函数中的敌人位置: {closestEnemy?.position}");     
+            
     }
 
     //when use the skill create clone

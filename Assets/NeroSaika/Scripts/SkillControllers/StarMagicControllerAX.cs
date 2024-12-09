@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StarMagicControllerAX : MonoBehaviour
 {
+
     private Animator anim => GetComponent<Animator>();
     private CircleCollider2D cd => GetComponent<CircleCollider2D>();
 
@@ -18,6 +19,7 @@ public class StarMagicControllerAX : MonoBehaviour
 
     private Transform closestTarget;
     [SerializeField] private LayerMask whatisEnemy;
+    [SerializeField] private int damage;
     
 
     public void SetupStar(float _starDuration, bool _canExplode, bool _canMoveToEnemy, float _moveSpeed, Transform _closestTarget,bool _canSetAroundEnemy)
@@ -83,7 +85,9 @@ public class StarMagicControllerAX : MonoBehaviour
         {
             if (hit.GetComponent<EnemyAX>() != null)
             {
+                EnemyAX enemy=hit.GetComponent<EnemyAX>();
                 hit.GetComponent<EnemyAX>().DamageEffect();
+                enemy.stats.TakeDamage(4);
             }
         }
     }
