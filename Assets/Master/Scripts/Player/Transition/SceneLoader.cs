@@ -18,6 +18,7 @@ public class SceneLoader : MonoBehaviour
 
     [Header("Brocast")]
     public VoidEventSO afterSceneLoadedEvent;
+    public FadeEventSO fadeEvent;
 
     [SerializeField] private GameSceneSO currentLoadedScene;
     private GameSceneSO sceneToLoad;
@@ -86,7 +87,7 @@ public class SceneLoader : MonoBehaviour
         if (fadeScreen)
         {
             //fade効果を実現する
-
+            fadeEvent.FadeIn(fadeDuration);
         }
 
         yield return new WaitForSeconds(fadeDuration);
@@ -117,7 +118,8 @@ public class SceneLoader : MonoBehaviour
 
         if (fadeScreen)
         {
-
+            //fade透明化する
+            fadeEvent.FadeOut(fadeDuration);
         }
 
         isLoading = false;
