@@ -17,7 +17,8 @@ public class PlayerStatsAX : CharacterStatsAX
     {
         base.TakeDamage(_damage);
 
-        player.DamageEffect();
+        if (!player.isdodging)
+            player.DamageEffect();
     }
 
     protected override void Die()

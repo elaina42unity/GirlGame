@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 76449676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4573326, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.458376, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -687,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 438129900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4573326, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.458376, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5824,7 +5824,7 @@ Transform:
   m_GameObject: {fileID: 1326423607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.5, y: 0.2, z: 0}
+  m_LocalPosition: {x: 4.15, y: 0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6013,12 +6013,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0886fef696efe14daec62dc05a2d742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 10, y: 0}
-  knockbackDuration: 0.7
+  knockbackDirection: {x: 5, y: 0}
+  knockbackDuration: 0.4
   attackCheck: {fileID: 1326423608}
   attackCheckRadius: 0
-  attackCheckWidth: 2
-  attackCheckHeight: 12
+  attackCheckWidth: 5
+  attackCheckHeight: 5
   groundCheck: {fileID: 884668653}
   groundCheckDistance: 0.1
   wallCheck: {fileID: 1587920994}
@@ -6038,6 +6038,7 @@ MonoBehaviour:
   dashDuration: 0.5
   bombFlashSpeed: 40
   bombFlashDuration: 0.5
+  isdodging: 0
   chantCooldown: 1
   chantUsageTimer: 0
   chantDuration: 0.5
@@ -6333,11 +6334,11 @@ MonoBehaviour:
   clonePrefab: {fileID: 8566152125488509566, guid: 16dea3b56d220a844bc2222f60795489, type: 3}
   cloneDuration: 3
   canAttack: 1
-  createCloneOnDodgeStart: 0
+  createCloneOnDodgeStart: 1
   createCloneOnDodgeOver: 0
   canCreateCloneOnCounterAttack: 1
   canDuplicateClone: 1
-  chanceToDuplicate: 100
+  chanceToDuplicate: 35
   starInsteadOfClone: 1
 --- !u!114 &1804386399
 MonoBehaviour:
@@ -6352,16 +6353,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
-  magicType: 1
+  magicType: 0
   bounceAmount: 5
   waterBallGravity: 1
   bounceSpeed: 50
-  fireBallAmount: 2
+  fireBallAmount: 8
   FireBallGravity: 1
-  waterBallPrefab: {fileID: 2659755531885309046, guid: 02861ceaa1759db4b804f6a71036b45f, type: 3}
+  magicBallPrefab: {fileID: 1613105154894191383, guid: d417ecc17de0f0748a193c74236d9f85, type: 3}
+  MeteorMagicPrefab: {fileID: 0}
+  fireBallPrefab: {fileID: 1272585218001396790, guid: 9125ca0e133c1034cab3355c0287fc11, type: 3}
+  flashBallPrefab: {fileID: 2154359517035737232, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+  waterBallPrefab: {fileID: 3908491424235326751, guid: db42a5471a01fb24f9a6ad972edf68fd, type: 3}
   launchForce: {x: 30, y: 40}
   magicGravity: 0
-  freezeTimeDuration: 1.5
+  freezeTimeDuration: 0.1
   returnSpeed: 50
   hitCooldown: 0.7
   maxTravelDistance: 40
@@ -6500,67 +6505,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
---- !u!1001 &8409523837096555233
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 547006616204915371, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4993066450000581165, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: m_Name
-      value: star
-      objectReference: {fileID: 0}
-    - target: {fileID: 6140055721427567678, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
-      propertyPath: damage
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5495ab6accdf474aac48e34a0258fd2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6575,4 +6519,3 @@ SceneRoots:
   - {fileID: 1821055311}
   - {fileID: 1657666614}
   - {fileID: 811756089}
-  - {fileID: 8409523837096555233}

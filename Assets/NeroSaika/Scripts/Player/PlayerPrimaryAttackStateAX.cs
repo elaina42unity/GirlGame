@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerPrimaryAttackStateAX : PlayerStateAX
 {
     private int comboCounter;
+    private bool skillused;
 
     private float lastTimeAttacked;
     private float comboWindow = 2;
@@ -44,6 +45,7 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
         comboCounter++;
         lastTimeAttacked = Time.time;
 
+        skillused = true;
     }
 
     public override void Update()
@@ -52,6 +54,11 @@ public class PlayerPrimaryAttackStateAX : PlayerStateAX
 
         if (stateTimer < 0)
             player.SetZeroVelocity();
+        if (skillused)
+        {
+        player.skill.aimAttack.CreateMagic(player.facingDir);
+            skillused = false;
+        }
 
         if (triggerCalled)
         {

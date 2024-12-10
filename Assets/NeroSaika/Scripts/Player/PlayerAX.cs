@@ -22,6 +22,7 @@ public class PlayerAX : EntityAX
     [Header("BombFlash info")]
     public float bombFlashSpeed;
     public float bombFlashDuration;
+    public bool isdodging;
     public float bombFlashDir { get; private set; }
 
 
@@ -120,10 +121,10 @@ public class PlayerAX : EntityAX
         //Some normal skills
         #region
 
-        if (!IsGroundDetected())
+        if (Input.GetAxisRaw("Horizontal")!=0)
             CheckforDashInput();
 
-        if (IsGroundDetected())
+        if (Input.GetAxisRaw("Horizontal") == 0)
             CheckforBombFlashInput();
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && Input.GetAxisRaw("Vertical")>=0 )

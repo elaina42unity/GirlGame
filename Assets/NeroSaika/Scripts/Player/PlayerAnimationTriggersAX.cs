@@ -31,6 +31,6 @@ public class PlayerAnimationTriggersAX : MonoBehaviour
     //set the animation event when the AimAttack is over
     private void AimAttackSuccess()
     {
-        SkillManagerAX.instance.aimAttack.CreateMagic();
+        SkillManagerAX.instance.aimAttack.CreateMagic(player.facingDir);
     }
 }

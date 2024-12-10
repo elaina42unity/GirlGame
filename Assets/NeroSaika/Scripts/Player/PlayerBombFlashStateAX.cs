@@ -8,6 +8,8 @@ public class PlayerBombFlashStateAX : PlayerStateAX
     {
         base.Enter();
 
+        player.isdodging = true;
+
         player.skill.clone.CreateCloneOnDodgeStart();           //make a clone skill when use bombflash
 
         stateTimer = player.bombFlashDuration;                  //initiate the timer
@@ -16,6 +18,8 @@ public class PlayerBombFlashStateAX : PlayerStateAX
     public override void Exit()
     {
         base.Exit();
+
+        player.isdodging = false;
 
         player.Flip();
 

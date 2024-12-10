@@ -66,7 +66,7 @@ public class MagicBallSkillControllerAX : MonoBehaviour
         spinDirection = Mathf.Clamp(rb.velocity.x, -1, 1);
 
         //when the attack prefab is too long or too far destroy it
-        Invoke("DestroyMe", 5);
+        Invoke("DestroyMe", 3);
     }
 
     public void SetupWaterBall(bool _isBouncing, int _amountOfBounce, float _bounceSpeed)
@@ -97,7 +97,7 @@ public class MagicBallSkillControllerAX : MonoBehaviour
 
         rb.isKinematic = false;
         transform.parent = null;
-        isReturning = true;
+        //isReturning = true;
     }
 
     private void Update()
@@ -105,12 +105,13 @@ public class MagicBallSkillControllerAX : MonoBehaviour
         if (canAttack)
             transform.right = rb.velocity;
 
-        if (isReturning)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, player.transform.position) < 2)
-                player.CatchTheWaterBall();
-        }
+        //if (isReturning)
+        //{
+        //    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
+        //    if (Vector2.Distance(transform.position, player.transform.position) < 2)
+        //        player.CatchTheWaterBall();
+        //}
+
 
         BounceLogic();
 
@@ -153,7 +154,7 @@ public class MagicBallSkillControllerAX : MonoBehaviour
                     }
                 }
 
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirection, transform.position.y), .3f * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirection, transform.position.y), 1f * Time.deltaTime);
             }
         }
     }

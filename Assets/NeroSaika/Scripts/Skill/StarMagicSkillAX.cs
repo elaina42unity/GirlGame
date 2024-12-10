@@ -32,7 +32,7 @@ public class StarMagicSkillAX : SkillAX
 
         if (currentStar == null)
         {
-            CreateStar();
+            CreateStar(false);
         }
         else
         {
@@ -49,12 +49,12 @@ public class StarMagicSkillAX : SkillAX
         }
     }
 
-    public void CreateStar()
+    public void CreateStar(bool isBlackHoleSkill)
     {
         currentStar = Instantiate(starPrefab, player.transform.position - new Vector3(0, 1), Quaternion.identity);
         StarMagicControllerAX currentStarScript = currentStar.GetComponent<StarMagicControllerAX>();
 
-        currentStarScript.SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentStar.transform),canSetAroundEnemy);
+        currentStarScript.SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentStar.transform),canSetAroundEnemy, isBlackHoleSkill);
         
     }
 
@@ -80,7 +80,7 @@ public class StarMagicSkillAX : SkillAX
 
                 //set up the star
                 newStar.GetComponent<StarMagicControllerAX>().
-                    SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newStar.transform), canSetAroundEnemy);
+                    SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newStar.transform), canSetAroundEnemy,false);
 
                 //closestEnemy = FindClosestEnemy(newStar.transform);
                 //Debug.Log($"父级函数返回的敌人: {closestEnemy?.name}");

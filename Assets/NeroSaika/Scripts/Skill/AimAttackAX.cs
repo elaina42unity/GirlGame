@@ -24,7 +24,12 @@ public class AimAttackAX : SkillAX
     [SerializeField] private float FireBallGravity;
 
     [Header("Skill info")]
+    [SerializeField] private GameObject magicBallPrefab;
+    [SerializeField] private GameObject MeteorMagicPrefab;
+    [SerializeField] private GameObject fireBallPrefab;
+    [SerializeField] private GameObject flashBallPrefab;
     [SerializeField] private GameObject waterBallPrefab;
+
     [SerializeField] private Vector2 launchForce;
     [SerializeField] private float magicGravity;
     [SerializeField] private float freezeTimeDuration;
@@ -62,6 +67,7 @@ public class AimAttackAX : SkillAX
         switch (magicType)
         {
             case magicType.magicBall:
+                magicGravity = waterBallGravity;
                 break;
             case magicType.waterBall:
                 magicGravity = waterBallGravity;
@@ -91,9 +97,43 @@ public class AimAttackAX : SkillAX
     }
 
     //initiate magic
-    public void CreateMagic()
+    public void CreateMagic(int facingDir)
     {
-        GameObject newWaterBall = Instantiate(waterBallPrefab, player.transform.position, transform.rotation);
+       
+        switch (Random.Range(0,4))
+        {
+            case 0:
+                magicType = magicType.magicBall;
+                MeteorMagicPrefab = magicBallPrefab;
+                break;
+            case 1:
+                magicType = magicType.waterBall;
+                MeteorMagicPrefab = waterBallPrefab;
+                break;
+            case 2:
+                magicType = magicType.flashBall;
+                MeteorMagicPrefab = flashBallPrefab;
+                break;
+            case 3:
+                magicType = magicType.fireBall;
+                MeteorMagicPrefab = fireBallPrefab;
+                break;
+        }
+
+        Vector2 playerPosition = player.transform.position;
+        Vector2 mousePosition;
+        if (facingDir == 1)
+        {
+            mousePosition = player.transform.position + new Vector3(30, 5);
+            finalDir = mousePosition - playerPosition;
+        }
+        if (facingDir == -1)
+        {
+            mousePosition = player.transform.position + new Vector3(-30, 5);
+            finalDir = mousePosition - playerPosition;
+        }
+
+        GameObject newWaterBall = Instantiate(MeteorMagicPrefab, player.transform.position, transform.rotation);
         MagicBallSkillControllerAX newMagicScript = newWaterBall.GetComponent<MagicBallSkillControllerAX>();
 
         switch (magicType)
@@ -124,7 +164,7 @@ public class AimAttackAX : SkillAX
     public Vector2 AimDirection()
     {
         Vector2 playerPosition = player.transform.position;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = player.transform.position + new Vector3(5, 0);
         Vector2 direction = mousePosition - playerPosition;
 
         return direction;

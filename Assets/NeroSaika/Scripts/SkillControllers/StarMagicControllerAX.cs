@@ -12,7 +12,7 @@ public class StarMagicControllerAX : MonoBehaviour
     private bool canMove;
     private float moveSpeed;
     private float defaultmoveSpeed;
-    private bool canSetAroundTarget;
+    private bool isBlackholeSkill=false;
 
     private bool canGrow;
     private float growSpeed = 5;
@@ -22,16 +22,16 @@ public class StarMagicControllerAX : MonoBehaviour
     [SerializeField] private int damage;
     
 
-    public void SetupStar(float _starDuration, bool _canExplode, bool _canMoveToEnemy, float _moveSpeed, Transform _closestTarget,bool _canSetAroundEnemy)
+    public void SetupStar(float _starDuration, bool _canExplode, bool _canMoveToEnemy, float _moveSpeed, Transform _closestTarget,bool _canSetAroundEnemy,bool _isBlackholeSkill)
     {
         starExistTimer = _starDuration;
         canExplode = _canExplode;
         canMove = _canMoveToEnemy;
         moveSpeed = _moveSpeed;
         closestTarget = _closestTarget;
-        canSetAroundTarget = _canSetAroundEnemy;
+        isBlackholeSkill = _isBlackholeSkill;
 
-        if (closestTarget != null && canSetAroundTarget)
+        if (closestTarget != null && isBlackholeSkill)
         {
             transform.position = new Vector3(closestTarget.position.x + Random.Range(-5, 5), closestTarget.position.y + 5 + Random.Range(-2, 5));
         }
@@ -60,7 +60,7 @@ public class StarMagicControllerAX : MonoBehaviour
         if (canMove && closestTarget != null)
         {
 
-            if (starExistTimer < 5 || !canSetAroundTarget)
+            if (starExistTimer < 5 || !isBlackholeSkill)
                 transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, closestTarget.position) < 2)

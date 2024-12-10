@@ -136,9 +136,12 @@ public class BlackholeSkillControllerAX : MonoBehaviour
 
             if (SkillManagerAX.instance.clone.starInsteadOfClone)
             {
-                SkillManagerAX.instance.starMagic.CreateStar();
+                SkillManagerAX.instance.starMagic.CreateStar(true);
 
                 SkillManagerAX.instance.starMagic.CurrentStarChooseRandomTarget();
+
+                SkillManagerAX.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+
             }
             else
             {
