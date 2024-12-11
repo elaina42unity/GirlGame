@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6453537388751775600}
   - component: {fileID: 7329513456391230469}
-  - component: {fileID: 2098411426404536615}
   - component: {fileID: 6292931653182543916}
+  - component: {fileID: 5669089270120605495}
   m_Layer: 0
   m_Name: BlackHole
   m_TagString: Untagged
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2098411426404536615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215838188000521834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 759abf8b1817f534bb7ccac8305ce690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotKeyPrefab: {fileID: 7042872179329664567, guid: a2eddd3ef3212a44f9c9c89ee6cdaef2, type: 3}
-  keyCodeList: 7100000074000000
 --- !u!58 &6292931653182543916
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,3 +121,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5669089270120605495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215838188000521834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0d1bb7420b32640b33c9dd6310a39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKeyPrefab: {fileID: 7042872179329664567, guid: cde4de759f4fb5144b3f6fceb96479d8, type: 3}
+  keyCodeList: 4a0100004a0100004a0100004a0100004a0100004a0100004a0100004a010000

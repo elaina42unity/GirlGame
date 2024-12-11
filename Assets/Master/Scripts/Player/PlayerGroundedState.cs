@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
@@ -21,40 +22,48 @@ public class PlayerGroundedState : PlayerState
     {
         base.Update();
 
-        //if (Input.GetKeyDown(KeyCode.R) && SkillManager.instance.blackhole.CanUseSkill())
-        //    stateMachine.ChangeState(player.blackHole);
+        if ((Input.GetKeyDown(KeyCode.R) && SkillManager.instance.blackhole.CanUseSkill())
+            || (Input.GetKeyDown(KeyCode.Joystick1Button4) && SkillManager.instance.blackhole.CanUseSkill()))
+            stateMachine.ChangeState(player.blackHole);
 
         //if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoWaterBall())
-        //    stateMachine.ChangeState(player.aimState);
+            //stateMachine.ChangeState(player.aimState);
 
         //player.chantUsageTimer -= Time.deltaTime;
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //    stateMachine.ChangeState(player.counterAttack);
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+            stateMachine.ChangeState(player.counterAttack);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             stateMachine.ChangeState(player.primaryAttack);
 
         if (!player.IsGroundDetected())
             stateMachine.ChangeState(player.airState);
 
-        if (Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
+        if ((Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
+            || (Input.GetKeyDown(KeyCode.Joystick1Button1) && player.IsGroundDetected()))
             stateMachine.ChangeState(player.jumpState);
 
-        //if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
-        //    player.CheckforChantInput();
+        if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
+            player.CheckforChantInput();
+
+        if (Input.GetKeyDown(KeyCode.G) && player.IsGroundDetected()
+            || Input.GetKeyDown(KeyCode.Joystick1Button2) && player.IsGroundDetected() && yInput < 0)
+            player.skill.staffMagic.CanUseSkill();
 
     }
 
     //check the waterball state
-    //private bool HasNoWaterBall()
-    //{
-    //    if (!player.waterBall)
-    //    {
-    //        return true;
-    //    }
+    private bool HasNoWaterBall()
+    {
+        if (!player.waterBall)
+        {
+            return true;
+        }
 
-    //    player.waterBall.GetComponent<MagicBallSkillControllerAX>().ReturnWaterBall();
-    //    return false;
-    //}
+        player.waterBall.GetComponent<MagicBallSkillController>().ReturnWaterBall();
+        return false;
+    }
+
+
 }

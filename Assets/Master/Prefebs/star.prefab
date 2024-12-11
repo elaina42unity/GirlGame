@@ -3,16 +3,16 @@
 --- !u!1 &4993066450000581165
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8920040730702906186, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 547006616204915371}
   - component: {fileID: 1877339082280991076}
   - component: {fileID: 6892201895983636398}
-  - component: {fileID: 6140055721427567678}
   - component: {fileID: 1733170620267180773}
+  - component: {fileID: 3693641121530345791}
   m_Layer: 0
   m_Name: star
   m_TagString: Untagged
@@ -23,8 +23,8 @@ GameObject:
 --- !u!4 &547006616204915371
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993066450000581165}
   serializedVersion: 2
@@ -38,8 +38,8 @@ Transform:
 --- !u!212 &1877339082280991076
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2633782527008204803, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993066450000581165}
   m_Enabled: 1
@@ -91,8 +91,8 @@ SpriteRenderer:
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7000480206033276617, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993066450000581165}
   m_Enabled: 1
@@ -108,26 +108,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6140055721427567678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7761226726720345433, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4993066450000581165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 380d0062ab07b7e40a5cb611145ffbbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatisEnemy:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!58 &1733170620267180773
 CircleCollider2D:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2471904296537408233, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-  m_PrefabInstance: {fileID: 8304098563550862219}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4993066450000581165}
   m_Enabled: 1
@@ -158,64 +143,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.48
---- !u!1001 &8304098563550862219
-PrefabInstance:
+--- !u!114 &3693641121530345791
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4114017563951375308, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7761226726720345433, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: whatisEnemy.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 8920040730702906186, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
-      propertyPath: m_Name
-      value: star
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0bf32663bb9f5894eb90976a1c86827e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993066450000581165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fa575277553f04a9d302bd1c30008a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatisEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  damage: 4

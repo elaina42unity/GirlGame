@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 117828622136181987}
   - component: {fileID: 6458498401329690708}
   - component: {fileID: 4971112470833798676}
-  - component: {fileID: 1328999492392086141}
+  - component: {fileID: 7674590515006868856}
   m_Layer: 0
   m_Name: StaffMagic
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1328999492392086141
+--- !u!114 &7674590515006868856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8834294840242812772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e430fae3f9da4aa44b39f00378f5b983, type: 3}
+  m_Script: {fileID: 11500000, guid: c13e55b9be58ef546a13e3f18c289701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

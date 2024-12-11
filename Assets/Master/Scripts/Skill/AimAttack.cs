@@ -1,15 +1,15 @@
 using UnityEngine;
 
 //set the magic type
-//public enum magicType
-//{
-//    magicBall,
-//    waterBall,
-//    flashBall,
-//    fireBall
-//}
+public enum magicType
+{
+    magicBall,
+    waterBall,
+    flashBall,
+    fireBall
+}
 
-public class AimAttackAX : SkillAX
+public class AimAttack : Skill
 {
     public magicType magicType = magicType.waterBall;
 
@@ -134,7 +134,7 @@ public class AimAttackAX : SkillAX
         }
 
         GameObject newWaterBall = Instantiate(MeteorMagicPrefab, player.transform.position, transform.rotation);
-        MagicBallSkillControllerAX newMagicScript = newWaterBall.GetComponent<MagicBallSkillControllerAX>();
+        MagicBallSkillController newMagicScript = newWaterBall.GetComponent<MagicBallSkillController>();
 
         switch (magicType)
         {
