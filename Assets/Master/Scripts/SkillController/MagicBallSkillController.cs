@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MagicBallSkillController : MonoBehaviour
@@ -32,6 +33,10 @@ public class MagicBallSkillController : MonoBehaviour
 
     private float spinDirection;
 
+    [SerializeField] protected Transform groundCheck;
+    [SerializeField] protected float groundCheckDistance;
+    [SerializeField] protected LayerMask whatIsGround;
+
     [Header("FireBall(pierce) info")]
     private int fireBallAmount;
 
@@ -45,9 +50,11 @@ public class MagicBallSkillController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         cd = GetComponent<CircleCollider2D>();
+       
     }
     private void Start()
     {
+        
     }
 
     //create magic
@@ -59,6 +66,9 @@ public class MagicBallSkillController : MonoBehaviour
         freezeTimeDuration = _freezeTimeDuration;
         returnSpeed = _returnSpeed;
         anim.SetBool("Attack", true);
+        if (rb.velocity.x < 0)
+            transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, transform.localScale.z);
+
 
         if (fireBallAmount < 0)
             anim.SetBool("Attack", true);
@@ -129,6 +139,7 @@ public class MagicBallSkillController : MonoBehaviour
 
             if (wasStopped)
             {
+                canAttack = false;
                 spinTimer -= Time.deltaTime;
 
                 if (spinTimer < 0)
@@ -149,8 +160,8 @@ public class MagicBallSkillController : MonoBehaviour
 
                     foreach (var hit in colliders)
                     {
-                        if (hit.GetComponent<EnemyAX>() != null)
-                            hit.GetComponent<EnemyAX>().DamageEffect();
+                        if (hit.GetComponent<Enemy>() != null)
+                            hit.GetComponent<Enemy>().DamageEffect();
                     }
                 }
 
@@ -175,7 +186,7 @@ public class MagicBallSkillController : MonoBehaviour
             if (Vector2.Distance(transform.position, enemyTarget[targetIndex].position) < .1f)
             {
 
-                MagicDamage(enemyTarget[targetIndex].GetComponent<EnemyAX>());
+                MagicDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
 
                 targetIndex++;
                 amountOfBounce--;
@@ -197,9 +208,9 @@ public class MagicBallSkillController : MonoBehaviour
         if (isReturning)
             return;
 
-        if (collision.GetComponent<EnemyAX>() != null)
+        if (collision.GetComponent<Enemy>() != null)
         {
-            EnemyAX enemy = collision.GetComponent<EnemyAX>();
+            Enemy enemy = collision.GetComponent<Enemy>();
             MagicDamage(enemy);
 
         }
@@ -209,7 +220,7 @@ public class MagicBallSkillController : MonoBehaviour
         StuckInto(collision);
     }
 
-    private void MagicDamage(EnemyAX enemy)
+    private void MagicDamage(Enemy enemy)
     {
         enemy.DamageEffect();
 
@@ -219,7 +230,7 @@ public class MagicBallSkillController : MonoBehaviour
     //find the enemy to bounce to
     private void SetupTargetForBounce(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyAX>() != null)
+        if (collision.GetComponent<Enemy>() != null)
         {
             if (isBouncing && enemyTarget.Count <= 0)
             {
@@ -227,8 +238,8 @@ public class MagicBallSkillController : MonoBehaviour
 
                 foreach (var hit in colliders)
                 {
-                    if (hit.GetComponent<EnemyAX>() != null)
-                     enemyTarget.Add(hit.GetComponent<EnemyAX>().transform);
+                    if (hit.GetComponent<Enemy>() != null)
+                        enemyTarget.Add(hit.GetComponent<Enemy>().transform);
                 }
             }
         }
@@ -238,7 +249,15 @@ public class MagicBallSkillController : MonoBehaviour
     {
 
         anim.SetBool("Attack", false);
-        if (fireBallAmount > 0 && collision.GetComponent<EnemyAX>() != null)
+
+        if (IsGroundDetected())
+        {
+            fireBallAmount = 0;
+            canAttack = false;
+        }
+
+
+        if (fireBallAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             fireBallAmount--;
             return;
@@ -261,4 +280,7 @@ public class MagicBallSkillController : MonoBehaviour
 
         transform.parent = collision.transform;
     }
+
+    public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
 }
+    

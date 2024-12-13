@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
+    private float jumpSpeed;
     public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
     }
@@ -11,7 +12,10 @@ public class PlayerJumpState : PlayerState
     {
         base.Enter();
 
-        rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
+        stateTimer = 1f;
+
+        jumpSpeed = player.jumpForce;
+
     }
 
     public override void Exit()
@@ -22,6 +26,14 @@ public class PlayerJumpState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        stateTimer -= Time.deltaTime;
+
+        jumpSpeed -= .05f;
+        player.FlipController(player.facingDir);
+
+        if (stateTimer >= 0f)
+            player.SetVelocity(xInput * player.moveSpeed, 4 * jumpSpeed);
 
         //update state
         if (rb.velocity.y < 0)

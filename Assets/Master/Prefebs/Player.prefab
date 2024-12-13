@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 5722128530408382623}
   - component: {fileID: 2704962502084790972}
   - component: {fileID: 6097047102064426022}
-  - component: {fileID: -2613378400418279031}
+  - component: {fileID: 5693705535208570567}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -332,10 +332,10 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   damage:
-    baseValue: 3
+    baseValue: 1000
     modifiers: 
-  currentHealth: 3
---- !u!114 &-2613378400418279031
+  currentHealth: 1000
+--- !u!114 &5693705535208570567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,36 +344,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 6001269201680306541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb84142c861d2e45a19fde0b41d71f9, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf4f07cdb874194581b6583e71dca48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 10, y: 0}
-  knockbackDuration: 0.7
+  knockbackDirection: {x: 5, y: 0}
+  knockbackDuration: 0.2
   attackCheck: {fileID: 3517028134295400046}
   attackCheckRadius: 0
-  attackCheckWidth: 2
-  attackCheckHeight: 12
+  attackCheckWidth: 5
+  attackCheckHeight: 5
   groundCheck: {fileID: 3416320309927904105}
-  groundCheckDistance: 0.1
+  groundCheckDistance: 0.5
   wallCheck: {fileID: 5039499525947132417}
-  wallCheckDistance: 0.3
+  wallCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   attackMovement:
-  - {x: 0, y: 0}
+  - {x: 1, y: 2}
   - {x: 2, y: 2}
-  - {x: 1, y: 1}
-  moveSpeed: 20
-  jumpForce: 80
+  - {x: 3, y: 1}
+  counterAttackDuration: 0.2
+  moveSpeed: 12
+  jumpForce: 8
+  waterBallReturnImpact: 0
   dashSpeed: 30
   dashDuration: 0.5
   bombFlashSpeed: 40
   bombFlashDuration: 0.5
-  chantCooldown: 1
+  isdodging: 0
+  chantCooldown: 0
   chantUsageTimer: 0
-  chantSpeed: 0
-  chantDuration: 0.5
+  chantDuration: 0
 --- !u!1 &7069131134579890106
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,6 @@ public class PlayerPrimaryAttackState : PlayerState
             player.SetZeroVelocity();
         if (skillused)
         {
-            Debug.Log("2");
             player.skill.aimAttack.CreateMagic(player.facingDir);
             skillused = false;
         }

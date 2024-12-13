@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9032284903222488387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7218958776475382699}
+  m_Layer: 12
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7218958776475382699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032284903222488387}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11678501, y: -0.7384516, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7627503618126875153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1649727508528460264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +41,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2154359517035737232, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
       propertyPath: m_Name
-      value: Meteor_lightning Variant
+      value: Meteor_lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154359517035737232, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207190664402380789, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965242342258125026, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965242342258125026, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8965242342258125026, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9169140057304660985, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,7 +106,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8711451594021075271, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9169140057304660985, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7218958776475382699}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2154359517035737232, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
       insertIndex: -1
@@ -79,3 +133,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTarget: []
+  groundCheck: {fileID: 7218958776475382699}
+  groundCheckDistance: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!4 &7627503618126875153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9169140057304660985, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
+  m_PrefabInstance: {fileID: 1649727508528460264}
+  m_PrefabAsset: {fileID: 0}

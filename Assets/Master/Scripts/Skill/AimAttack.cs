@@ -131,8 +131,8 @@ public class AimAttack : Skill
         {
             mousePosition = player.transform.position + new Vector3(-30, 5);
             finalDir = mousePosition - playerPosition;
+            //transform.rotation = Quaternion.Euler(0, 180f, 0f);
         }
-
         GameObject newWaterBall = Instantiate(MeteorMagicPrefab, player.transform.position, transform.rotation);
         MagicBallSkillController newMagicScript = newWaterBall.GetComponent<MagicBallSkillController>();
 
