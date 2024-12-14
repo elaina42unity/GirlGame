@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2977148478336760073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1696683372181236308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141228889927154833}
+  m_Layer: 6
+  m_Name: ColliderDmageCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141228889927154833
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696683372181236308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2977148478336760073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3473337934386181283
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +252,7 @@ Transform:
   - {fileID: 3517028134295400046}
   - {fileID: 2594156908492527878}
   - {fileID: 3203791913434604423}
+  - {fileID: 141228889927154833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1621048719405301711
@@ -283,7 +315,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.45, y: 7.08}
+  m_Size: {x: 2.5, y: 7}
   m_Direction: 0
 --- !u!114 &2704962502084790972
 MonoBehaviour:
@@ -348,8 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf4f07cdb874194581b6583e71dca48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 5, y: 0}
-  knockbackDuration: 0.2
+  knockbackDirection: {x: 30, y: 0}
+  knockbackDuration: 0.5
   attackCheck: {fileID: 3517028134295400046}
   attackCheckRadius: 0
   attackCheckWidth: 5
@@ -361,6 +393,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  colliderDamageCheck: {fileID: 141228889927154833}
+  cdDamageCheckWidth: 2.5
+  cdDamageCheckHeight: 7
   attackMovement:
   - {x: 1, y: 2}
   - {x: 2, y: 2}
@@ -369,8 +404,8 @@ MonoBehaviour:
   counterAttackCheckWidth: 10
   counterAttackCheckHeight: 25
   counterAttackCheck: {fileID: 3203791913434604423}
-  moveSpeed: 12
-  jumpForce: 8
+  moveSpeed: 15
+  jumpForce: 12
   waterBallReturnImpact: 0
   dashSpeed: 30
   dashDuration: 0.5

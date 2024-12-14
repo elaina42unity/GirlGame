@@ -130,13 +130,13 @@ public class Player : Entity
         //Some normal skills
         #region
 
-        if (Input.GetAxisRaw("Horizontal")!=0)
+        if (Input.GetAxisRaw("Horizontal") != 0)
             CheckforDashInput();
 
         if (Input.GetAxisRaw("Horizontal") == 0)
             CheckforBombFlashInput();
 
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && Input.GetAxisRaw("Vertical")>=0 )
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2) && Input.GetAxisRaw("Vertical") >= 0)
             skill.starMagic.CanUseSkill();
         #endregion
 
@@ -241,7 +241,7 @@ public class Player : Entity
         Collider2D[] colliders = Physics2D.OverlapBoxAll(colliderDamageCheck.position, new Vector2(cdDamageCheckWidth, cdDamageCheckHeight), 0);
         foreach (var hit in colliders)
         {
-                Debug.Log("2");
+            Debug.Log("2");
             if (hit.GetComponent<Enemy>() != null)
             {
                 stats.TakeDamage(4);
@@ -255,7 +255,7 @@ public class Player : Entity
 
         Gizmos.DrawCube(counterAttackCheck.position, new Vector3(counterAttackCheckHeight, counterAttackCheckWidth, 0));
         Gizmos.DrawCube(colliderDamageCheck.position, new Vector3(cdDamageCheckWidth, cdDamageCheckHeight, 0));
-        
+
     }
 
     protected override IEnumerator HitKnockback()
