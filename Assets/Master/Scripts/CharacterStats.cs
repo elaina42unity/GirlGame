@@ -17,6 +17,7 @@ public class CharacterStats : MonoBehaviour
 
     [SerializeField] private int currentHealth;
 
+
     protected virtual void Start()
     {
         currentHealth = maxHealth.GetValue();

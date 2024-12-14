@@ -4,9 +4,18 @@ using UnityEngine;
 public class Player : Entity
 {
     //variables
+
+    [Header("Collider Damage")]
+    public Transform colliderDamageCheck;
+    public float cdDamageCheckWidth;
+    public float cdDamageCheckHeight;
+
     [Header("Attack details")]
     public Vector2[] attackMovement;
     public float counterAttackDuration = .2f;
+    public float counterAttackCheckWidth;
+    public float counterAttackCheckHeight;
+    public Transform counterAttackCheck;
 
     public bool isBusy { get; private set; }
     [Header("Move info")]
@@ -227,10 +236,30 @@ public class Player : Entity
         stateMachine.ChangeState(deadState);
     }
 
-    public virtual void getEnemyDamage()
+    public virtual void getEnemyColliderDamage()
     {
-
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(colliderDamageCheck.position, new Vector2(cdDamageCheckWidth, cdDamageCheckHeight), 0);
+        foreach (var hit in colliders)
+        {
+                Debug.Log("2");
+            if (hit.GetComponent<Enemy>() != null)
+            {
+                stats.TakeDamage(4);
+            }
+        }
     }
 
+    protected override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
 
+        Gizmos.DrawCube(counterAttackCheck.position, new Vector3(counterAttackCheckHeight, counterAttackCheckWidth, 0));
+        Gizmos.DrawCube(colliderDamageCheck.position, new Vector3(cdDamageCheckWidth, cdDamageCheckHeight, 0));
+        
+    }
+
+    protected override IEnumerator HitKnockback()
+    {
+        return base.HitKnockback();
+    }
 }

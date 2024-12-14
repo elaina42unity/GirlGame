@@ -60,10 +60,19 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8066380450023596138, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066380450023596138, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6950631918430857905, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
     - {fileID: 6577232843841003490, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
     - {fileID: 3750507373943878205, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
+    - {fileID: 3829923954807865407, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -76,6 +85,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6381107186854432687, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4000109854863433703}
+    - targetCorrespondingSourceObject: {fileID: 7455722911750514312, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8341892094238616157}
   m_SourcePrefab: {fileID: 100100000, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
 --- !u!4 &2808772817561749473 stripped
 Transform:
@@ -104,12 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9704fd6226e15a94e8c18a5e5d62e308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackDirection: {x: 10, y: 15}
-  knockbackDuration: 0.05
+  knockbackDirection: {x: 5, y: 5}
+  knockbackDuration: 0.02
   attackCheck: {fileID: 8043303873003538537}
   attackCheckRadius: 0
   attackCheckWidth: 2
-  attackCheckHeight: 20
+  attackCheckHeight: 25
   groundCheck: {fileID: 2808772817561749473}
   groundCheckDistance: 2
   wallCheck: {fileID: 6593174122870139995}
@@ -129,6 +141,7 @@ MonoBehaviour:
   attackDistance: 20
   attackCooldown: 4
   lastTimeAttacked: 0
+  isDead: 0
 --- !u!114 &4268212426575597260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +181,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 1
+    baseValue: 10
     modifiers: 
   armor:
     baseValue: 0
@@ -185,6 +198,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6562216241397843032, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
   m_PrefabInstance: {fileID: 30966688302868483}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7428133936322629259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7455722911750514312, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}
+  m_PrefabInstance: {fileID: 30966688302868483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8341892094238616157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428133936322629259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc8c61732b804949b918c14f2210490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8043303873003538537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8066380450023596138, guid: bbc5c8ce000e545489a96454fd1ca967, type: 3}

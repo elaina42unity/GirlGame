@@ -16,7 +16,8 @@ public class EnemyStats : CharacterStats
     {
         base.TakeDamage(_damage);
 
-        enemy.DamageEffect();
+        if (!enemy.isDead)
+            enemy.DamageEffect();
     }
 
     protected override void Die()

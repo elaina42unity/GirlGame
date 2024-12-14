@@ -65,17 +65,17 @@ public class CloneSkillController : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<EnemyAX>() != null)
+            if (hit.GetComponent<Enemy>() != null)
             {
-                EnemyAX enemy = hit.GetComponent<EnemyAX>();
-                hit.GetComponent<EnemyAX>().DamageEffect();
+                Enemy enemy = hit.GetComponent<Enemy>();
+                hit.GetComponent<Enemy>().DamageEffect();
                 enemy.stats.TakeDamage(damage);
 
                 if (canDuplicateClone)
                 {
                     if (Random.Range(0, 100) < chanceToDuplicate)
                     {
-                        SkillManagerAX.instance.clone.CreateClone(hit.transform, new Vector3(5f * facingDir, 0));
+                        SkillManager.instance.clone.CreateClone(hit.transform, new Vector3(5f * facingDir, 0));
                     }
                 }
             }
@@ -105,7 +105,7 @@ public class CloneSkillController : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<EnemyAX>() != null)
+            if (hit.GetComponent<Enemy>() != null)
             {
                 float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
 

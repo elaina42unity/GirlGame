@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    [Header("Collider damage")]
+    public Transform cdDamageCheck;
+    public float cdDamageWidth;
+    public float cdDamageHeight;
+    public float cdDamageCooldown;
+    public float cdDamageCooldownTimer;
+
     [SerializeField] protected LayerMask whatIsPlayer;
 
     [Header("Stunned info")]
@@ -23,6 +30,8 @@ public class Enemy : Entity
     public float attackCooldown;
     [HideInInspector] public float lastTimeAttacked;
 
+    public bool isDead = false;
+
     public EnemyStateMachine stateMachine { get; private set; }
     public string lastAnimBoolName {  get; private set; }
     
@@ -34,13 +43,27 @@ public class Enemy : Entity
 
         defaultMoveSpeed = movespeed;
 
+        counterImage.SetActive(false);
+
     }
 
     protected override void Update()
     {
         base.Update();
 
+        cdDamageCooldownTimer -= Time.deltaTime;
+
         stateMachine.currentState.Update();
+
+        if (isDead)
+        {
+            float timer = 4f;
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 
     }
 
@@ -105,5 +128,8 @@ public class Enemy : Entity
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
+        Gizmos.DrawCube(transform.position, new Vector3(cdDamageWidth, cdDamageHeight, 0));
     }
+
+
 }

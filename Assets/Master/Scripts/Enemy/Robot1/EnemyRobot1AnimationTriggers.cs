@@ -25,6 +25,24 @@ public class EnemyRobot1AnimationTriggers : MonoBehaviour
         }
     }
 
+    private  void ColliderDamageTrigger()
+    {
+        
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(enemy.transform.position, new Vector2(enemy.cdDamageWidth, enemy.cdDamageHeight), 0);
+        if (enemy.cdDamageCooldownTimer < 0)
+        {
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Player>() != null)
+                {
+                    PlayerStats target = hit.GetComponent<PlayerStats>();
+                    enemy.stats.DoDamage(target);
+                }
+            }
+            enemy.cdDamageCooldownTimer = enemy.cdDamageCooldown;
+        }
+    }
+
     private void OpenCounterWindow() => enemy.OpenCounterAttackWindow();
     private void CloseCounterWindow() => enemy.CloseCounterAttackWindow();
 

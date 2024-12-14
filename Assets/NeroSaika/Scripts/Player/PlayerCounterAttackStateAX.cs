@@ -32,13 +32,12 @@ public class PlayerCounterAttackStateAX : PlayerStateAX
 
         player.SetZeroVelocity(); 
         //set the attack range
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(player.attackCheck.position, new Vector2(player.attackCheckHeight, player.attackCheckWidth), 0);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(player.attackCheck.position, new Vector2(player.attackCheckHeight, player.attackCheckWidth+50), 0);
 
         //get if the counter attack box has appeared
         foreach (var hit in colliders)
         {
             if (hit.GetComponent<EnemyAX>() != null)
-
                 if (hit.GetComponent<EnemyAX>().CanBeStunned())
                 {
                     stateTimer = 10;//any value bigger than 1

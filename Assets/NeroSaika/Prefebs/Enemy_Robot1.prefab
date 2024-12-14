@@ -350,10 +350,12 @@ MonoBehaviour:
   linghtningDamage:
     baseValue: 0
     modifiers: 
+  igniteDamge: 0
   isIgnited: 0
   isChilled: 0
   isShocked: 0
   currentHealth: 0
+  ismagicdamage: 0
 --- !u!70 &6819670621798064826
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -15,7 +15,9 @@ public class Robot1DeadState : EnemyState
     {
         base.Enter();
 
-        enemy.anim.SetBool(enemy.lastAnimBoolName, true);
+        stateTimer = 3f;
+
+        enemy.anim.SetBool("Die", true);
         enemy.anim.speed = 0;
         enemy.cd.enabled = false;
 
@@ -26,7 +28,12 @@ public class Robot1DeadState : EnemyState
     {
         base.Update();
 
+        stateTimer -= Time.deltaTime;
+
         if (stateTimer > 0)
             rb.velocity = new Vector2(0, 10);
+
+        enemy.isDead = true;
     }
+
 }

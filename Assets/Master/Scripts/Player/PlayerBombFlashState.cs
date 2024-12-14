@@ -8,7 +8,7 @@ public class PlayerBombFlashState : PlayerState
     {
         base.Enter();
 
-        //player.isdodging = true;
+        player.isdodging = true;
 
         player.skill.clone.CreateCloneOnDodgeStart();           //make a clone skill when use bombflash
 
@@ -19,7 +19,7 @@ public class PlayerBombFlashState : PlayerState
     {
         base.Exit();
 
-        //player.isdodging = false;
+        player.isdodging = false;
 
         player.Flip();
 

@@ -17,7 +17,9 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamage(_damage);
 
-        player.DamageEffect();
+        //when player is dodging she will not get damage
+        if (!player.isdodging)
+            player.DamageEffect();
     }
 
     protected override void Die()
