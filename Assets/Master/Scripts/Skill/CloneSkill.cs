@@ -28,8 +28,8 @@ public class CloneSkill : Skill
         //check if can set the clone skill to stars
         if (starInsteadOfClone && Input.GetAxisRaw("Vertical")<0)
         {
-            SkillManagerAX.instance.starMagic.CreateStar(false);
-            SkillManagerAX.instance.starMagic.CurrentStarChooseRandomTarget();
+            SkillManager.instance.starMagic.CreateStar(false);
+            SkillManager.instance.starMagic.CurrentStarChooseRandomTarget();
             return;
         }
 

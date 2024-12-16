@@ -21,7 +21,7 @@ public class Robot1DeadState : EnemyState
         enemy.anim.speed = 0;
         enemy.cd.enabled = false;
 
-        stateTimer = -.1f;
+        //stateTimer = -.1f;
     }
 
     public override void Update()
