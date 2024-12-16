@@ -27,7 +27,12 @@ public class StaffMagicSkill : Skill
 
             if (cloneInsdeadOfStaff)
             {
-                SkillManagerAX.instance.clone.CreateClone(currentStaff.transform, Vector3.zero);
+                SkillManager
+                    
+                    
+                    
+                    
+                    .instance.clone.CreateClone(currentStaff.transform, Vector3.zero);
                 Destroy(currentStaff);
             }
             //else

@@ -32,13 +32,30 @@ public class PlayerCounterAttackState : PlayerState
 
         player.SetZeroVelocity();
         //set the attack range
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(player.counterAttackCheck.position, new Vector2(player.counterAttackCheckHeight, player.counterAttackCheckWidth), 0);
+        Collider2D[] colliders1 = Physics2D.OverlapBoxAll(player.counterAttackCheck.position, new Vector2(player.counterAttackCheckHeight, player.counterAttackCheckWidth), 0);
 
         //get if the counter attack box has appeared
-        foreach (var hit in colliders)
+        foreach (var hit in colliders1)
         {
-            if (hit.GetComponent<Enemy>() != null)
-                if (hit.GetComponent<Enemy>().CanBeStunned())
+            if (hit.GetComponent<EnemyRobot1>() != null)
+                if (hit.GetComponent<EnemyRobot1>().CanBeStunned())
+                {
+                    stateTimer = 10;//any value bigger than 1
+                    player.anim.SetBool("SuccessfulCounterAttack", true);
+                    if (canCreateClone)
+                    {
+                        canCreateClone = false;
+                        player.skill.clone.CanCreateCloneOnCounterAttack(hit.transform);
+                    }
+                }
+        }
+
+        Collider2D[] colliders2 = Physics2D.OverlapBoxAll(player.attackCheck.position, new Vector2(player.attackCheckHeight, player.attackCheckWidth), 0);
+        //get if the counter attack box has appeared
+        foreach (var hit in colliders2)
+        {
+            if (hit.GetComponent<EnemyMonster1>() != null)
+                if (hit.GetComponent<EnemyMonster1>().CanBeStunned())
                 {
                     stateTimer = 10;//any value bigger than 1
                     player.anim.SetBool("SuccessfulCounterAttack", true);

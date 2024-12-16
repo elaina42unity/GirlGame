@@ -140,7 +140,7 @@ public class BlackholeSkillController : MonoBehaviour
 
                 SkillManager.instance.starMagic.CurrentStarChooseRandomTarget();
 
-                SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
+                //SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffset, 0));
 
                 
 
