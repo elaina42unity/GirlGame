@@ -15,7 +15,7 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
 
-    [SerializeField] private int currentHealth;
+    public int currentHealth;
 
 
     protected virtual void Start()
@@ -39,9 +39,7 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth -= _damage;
 
-
-
-        if (currentHealth < 0)
+        if (currentHealth <= 0 )
             Die();
     }
 

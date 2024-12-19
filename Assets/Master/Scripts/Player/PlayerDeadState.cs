@@ -10,6 +10,8 @@ public class PlayerDeadState : PlayerState
 
     public override void Enter()
     {
+        stateTimer = 8f;
+
         base.Enter();
     }
 
@@ -22,6 +24,19 @@ public class PlayerDeadState : PlayerState
     {
         base.Update();
 
+        player.isdead = true;
+
+        stateTimer -= Time.deltaTime;
+
         player.SetZeroVelocity();
+
+        if (stateTimer < 0)
+        {
+
+            player.isdead = false;
+            stateMachine.ChangeState(player.idleState);
+            player.stats.currentHealth = player.stats.maxHealth.GetValue();
+
+        }
     }
 }
