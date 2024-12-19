@@ -262,4 +262,15 @@ public class Player : Entity
     {
         return base.HitKnockback();
     }
+
+     private void OnTriggerStay2D(Collider2D other)
+    {
+        //シーンの切り替え
+        if (other.CompareTag("SwitchRoom"))
+        {
+            IInteractable targetPortal;
+            targetPortal = other.GetComponent<IInteractable>();
+            targetPortal.ChangeRoom();
+        }
+    }
 }
