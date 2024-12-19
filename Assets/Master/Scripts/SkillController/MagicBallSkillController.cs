@@ -36,6 +36,7 @@ public class MagicBallSkillController : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsHalfGround;
 
     [Header("FireBall(pierce) info")]
     private int fireBallAmount;
@@ -250,7 +251,7 @@ public class MagicBallSkillController : MonoBehaviour
 
         anim.SetBool("Attack", false);
 
-        if (IsGroundDetected())
+        if (IsGroundDetected() || player.IsHalfGroundDetected())
         {
             fireBallAmount = 0;
             canAttack = false;
@@ -282,5 +283,6 @@ public class MagicBallSkillController : MonoBehaviour
     }
 
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public virtual bool IsHalfGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsHalfGround);
 }
     

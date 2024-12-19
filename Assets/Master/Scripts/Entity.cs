@@ -28,9 +28,11 @@ public class Entity : MonoBehaviour
     public float attackCheckHeight;
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected float groundCheckDistance;
+    [SerializeField] protected float HalfGroundCheckDistance;
     [SerializeField] protected Transform wallCheck;
     [SerializeField] protected float wallCheckDistance;
     [SerializeField] protected LayerMask whatIsGround;
+    [SerializeField] protected LayerMask whatIsHalfGround;
 
 
     public int facingDir { get; private set; } = 1;
@@ -77,6 +79,7 @@ public class Entity : MonoBehaviour
 
     #region collision
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
+    public virtual bool IsHalfGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsHalfGround);
     public virtual bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
     protected virtual void OnDrawGizmos()
     {

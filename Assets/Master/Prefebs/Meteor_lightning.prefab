@@ -138,6 +138,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  whatIsHalfGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &7627503618126875153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9169140057304660985, guid: 0b111f3ac429f8e4d8a94bd25026df74, type: 3}
