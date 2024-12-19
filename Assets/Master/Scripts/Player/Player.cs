@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    public bool isdead = false;
     //variables
 
     [Header("Collider Damage")]
@@ -233,7 +234,8 @@ public class Player : Entity
     {
         base.Die();
 
-        stateMachine.ChangeState(deadState);
+        if (!isdead)
+            stateMachine.ChangeState(deadState);
     }
 
     public virtual void getEnemyColliderDamage()

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerPrimaryAttackState : PlayerState
 {
     private int comboCounter;
-    private bool skillused;
+    private bool skillused = true;
 
     private float lastTimeAttacked;
     private float comboWindow = 2;
@@ -45,6 +45,12 @@ public class PlayerPrimaryAttackState : PlayerState
         comboCounter++;
         lastTimeAttacked = Time.time;
 
+        if (skillused)
+        {
+            player.skill.aimAttack.CreateMagic(player.facingDir);
+            skillused = false;
+        }
+
         skillused = true;
     }
 
@@ -54,11 +60,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         if (stateTimer < 0)
             player.SetZeroVelocity();
-        if (skillused)
-        {
-            player.skill.aimAttack.CreateMagic(player.facingDir);
-            skillused = false;
-        }
+        
 
         if (triggerCalled)
         {
