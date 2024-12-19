@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadEventSO: {fileID: 11400000, guid: 022c5bf7326541642be06aa6471a4707, type: 2}
   sceneToGo: {fileID: 11400000, guid: 7112b53913e7b3843bdcdb840b355eb4, type: 2}
-  PositionToGo: {x: -7, y: 0.5, z: 0}
+  PositionToGo: {x: -7, y: -0.4950221, z: 0}
 --- !u!61 &902128040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadEventSO: {fileID: 11400000, guid: 022c5bf7326541642be06aa6471a4707, type: 2}
   sceneToGo: {fileID: 11400000, guid: fc63c3f9a4f00f14ca00c66d2a9337ab, type: 2}
-  PositionToGo: {x: 18.84, y: -0.5, z: 0}
+  PositionToGo: {x: 18.84, y: -0.4950221, z: 0}
 --- !u!61 &1733353774
 BoxCollider2D:
   m_ObjectHideFlags: 0
