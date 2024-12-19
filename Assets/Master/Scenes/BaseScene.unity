@@ -395,6 +395,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2977148478336760073, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
   m_PrefabInstance: {fileID: 1110735770}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &688416455 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5722128530408382623, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+  m_PrefabInstance: {fileID: 1110735770}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &951733833
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,10 +565,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: whatIsHalfGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6001269201680306541, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6001269201680306541, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930567144387526676, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: PlayerCollider
+      value: 
+      objectReference: {fileID: 688416455}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

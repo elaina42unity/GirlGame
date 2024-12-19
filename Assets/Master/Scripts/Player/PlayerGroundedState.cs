@@ -37,18 +37,18 @@ public class PlayerGroundedState : PlayerState
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
             stateMachine.ChangeState(player.primaryAttack);
 
-        if (!player.IsGroundDetected())
+        if (!player.IsGroundDetected() && !player.IsHalfGroundDetected())
             stateMachine.ChangeState(player.airState);
 
-        if ((Input.GetKeyDown(KeyCode.Space) && player.IsGroundDetected())
-            || (Input.GetKeyDown(KeyCode.Joystick1Button1) && player.IsGroundDetected()))
+        if ((Input.GetKeyDown(KeyCode.Space) && !(Input.GetKey(KeyCode.DownArrow)) && (player.IsGroundDetected() || player.IsHalfGroundDetected()))
+            || (Input.GetKeyDown(KeyCode.Joystick1Button1) && (Input.GetAxisRaw("Vertical") >= 0) && (player.IsGroundDetected() || player.IsHalfGroundDetected())))
             stateMachine.ChangeState(player.jumpState);
 
-        if (Input.GetKeyDown(KeyCode.Z) && player.IsGroundDetected())
+        if (Input.GetKeyDown(KeyCode.Z) && (player.IsGroundDetected() || player.IsHalfGroundDetected()))
             player.CheckforChantInput();
 
-        if (Input.GetKeyDown(KeyCode.G) && player.IsGroundDetected()
-            || Input.GetKeyDown(KeyCode.Joystick1Button2) && player.IsGroundDetected() && yInput < 0)
+        if (Input.GetKeyDown(KeyCode.G) && (player.IsGroundDetected() || player.IsHalfGroundDetected())
+            || Input.GetKeyDown(KeyCode.Joystick1Button2) && (player.IsGroundDetected() || player.IsHalfGroundDetected()) && yInput < 0)
             player.skill.staffMagic.CanUseSkill();
 
     }

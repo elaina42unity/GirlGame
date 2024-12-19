@@ -27,7 +27,7 @@ public class PlayerAirState : PlayerState
         //    stateMachine.ChangeState(player.wallSlide);
 
         //Ground check
-        if (player.IsGroundDetected())
+        if (player.IsGroundDetected() || player.IsHalfGroundDetected())
             stateMachine.ChangeState(player.idleState);
 
         //can move in the sky
