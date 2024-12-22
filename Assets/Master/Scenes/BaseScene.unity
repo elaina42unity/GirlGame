@@ -185,7 +185,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20.66
+  orthographic size: 14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 22629725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -10}
+  m_LocalPosition: {x: 77, y: -5.24, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Follow: {fileID: 676980153}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 20.66
+    OrthographicSize: 14
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -346,8 +346,8 @@ Transform:
   m_GameObject: {fileID: 201850348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 77, y: -5.24, z: -10}
+  m_LocalScale: {x: 1.45, y: 2.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1808499775}
@@ -525,13 +525,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1621048719405301711, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: m_GravityScale
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 2977148478336760073, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 2977148478336760073, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 2977148478336760073, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -564,6 +568,14 @@ PrefabInstance:
     - target: {fileID: 2977148478336760073, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: jumpForce
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: moveSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: whatIsHalfGround.m_Bits
@@ -841,14 +853,14 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.57
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneHeight: 1.369
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
