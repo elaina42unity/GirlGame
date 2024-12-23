@@ -571,11 +571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: jumpForce
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: moveSpeed
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5693705535208570567, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
       propertyPath: whatIsHalfGround.m_Bits
