@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 76449676}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4516735, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.453537, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -331,7 +331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &192349171
 Transform:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ Transform:
   m_GameObject: {fileID: 438129900}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4516735, y: 8.016937, z: -9.994929}
+  m_LocalPosition: {x: 2.453537, y: 8.016937, z: -9.994929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6163,6 +6163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6001269201680306541, guid: 8a09c8fdfc6da0c4593f8abfeda775e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6266,13 +6270,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6480483178508340932, guid: fc15772d30f41174093697b85a56701a, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 5804125560463430038, guid: fc15772d30f41174093697b85a56701a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6480483178508340932, guid: fc15772d30f41174093697b85a56701a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480483178508340932, guid: fc15772d30f41174093697b85a56701a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9123651340723894546, guid: fc15772d30f41174093697b85a56701a, type: 3}
       propertyPath: player

@@ -60,5 +60,13 @@ public class EnemyMonster1 : Enemy
         base.Die();
 
         stateMachine.ChangeState(deadState);
+
+        var obj = GameObject.FindGameObjectWithTag("Player");
+        if (obj == null)
+            return;
+
+        Player player = obj.GetComponent<Player>();
+        player.ChangeSpecialRoom();
+
     }
 }

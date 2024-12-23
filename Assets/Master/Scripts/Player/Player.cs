@@ -1,9 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
+using UnityEngine.UIElements;
+using System;
 
 public class Player : Entity
 {
     public bool isdead = false;
+
+    [SerializeField]private bool turnCamera = false;
+    [SerializeField]private bool turnCameraBack = false;
+    [SerializeField]private float cameraBackTimer;
     //variables
 
     [Header("Collider Damage")]
@@ -150,8 +157,27 @@ public class Player : Entity
             }
         }
 
-    }
+        //カメラ逆転する
+        if (turnCamera)
+        {
+            TurnCamera();
+        }
+        //カメラ、重力を元に戻す
+        if (turnCameraBack)
+        {
+            cameraBackTimer -= Time.deltaTime;
+            if (cameraBackTimer <= 0f)
+            {
+                TurnCameraBack();
+            }
+        }
 
+        if (Input.GetKeyDown(KeyCode.P) )
+        {
+            ChangeSpecialRoom();
+        }
+
+    }
 
     //skill setup
     public void AssignNewWaterBall(GameObject _newWaterBall)
@@ -274,5 +300,47 @@ public class Player : Entity
             targetPortal = other.GetComponent<IInteractable>();
             targetPortal.ChangeRoom();
         }
+    }
+
+    public void ChangeSpecialRoom()
+    {
+        //カメラの逆転を開始する
+        turnCamera = true;
+    }
+
+    //カメラを逆転する
+    public void TurnCamera()
+    {
+        var camObj = GameObject.Find("Virtual Camera");
+        CinemachineVirtualCamera cinemachine = camObj.GetComponent<CinemachineVirtualCamera>();
+        //カメラlensを-14まで減る
+        if (cinemachine.m_Lens.OrthographicSize <= -14)
+        {
+            turnCamera = false;
+            //重力を逆転する
+            Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+            rigidbody2D.gravityScale = -2;
+            transform.localScale = new Vector3(1,-1,0);
+
+            //重力戻すタイマーを起動
+            turnCameraBack = true;
+
+            return;
+        }
+        cinemachine.m_Lens.OrthographicSize -= Time.deltaTime * 5;
+    }
+
+    //カメラ、重力、Scaleを元へ戻す
+    private void TurnCameraBack()
+    {
+        turnCameraBack = false;
+
+        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2D.gravityScale = 22;
+        transform.localScale = new Vector3(1,1,0);
+
+        var camObj = GameObject.Find("Virtual Camera");
+        CinemachineVirtualCamera cinemachine = camObj.GetComponent<CinemachineVirtualCamera>();
+        cinemachine.m_Lens.OrthographicSize = 22;
     }
 }

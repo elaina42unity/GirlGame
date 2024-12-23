@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadEventSO: {fileID: 11400000, guid: 022c5bf7326541642be06aa6471a4707, type: 2}
-  sceneToGo: {fileID: 11400000, guid: fdec07e03916b5b4d99283d2b61ab675, type: 2}
+  sceneToGo: {fileID: 11400000, guid: c342f86a88ba6474cb5d2ec23cdf586f, type: 2}
   PositionToGo: {x: -4.1, y: 26.1, z: 0}
 --- !u!61 &1733353774
 BoxCollider2D:
@@ -1912,7 +1912,7 @@ Transform:
   m_GameObject: {fileID: 1733353772}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.8, y: -1.49, z: 0}
+  m_LocalPosition: {x: -7.4, y: -1.49, z: 0}
   m_LocalScale: {x: 0.85, y: 5.525, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
