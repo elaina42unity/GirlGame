@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Player : Entity
 {
-    public bool isdead = false;
+
     //variables
+    [Header("IsActive info")]
+    public bool isdead = false;
 
     [Header("Collider Damage")]
     public Transform colliderDamageCheck;
@@ -36,14 +38,13 @@ public class Player : Entity
     public float bombFlashDir { get; private set; }
 
 
-    [Header("Dash info")]
+    [Header("Chant info")]
     [SerializeField] private float chantCooldown;
     public float chantUsageTimer;
     //public float dashSpeed;
     public float chantDuration;
-
-    //States
     public float chantDir { get; private set; }
+
     public GameObject waterBall { get; private set; }
 
     public SkillManager skill { get; private set; }
@@ -91,6 +92,7 @@ public class Player : Entity
 
         stateMachine = new PlayerStateMachine();
 
+        //states
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
@@ -141,6 +143,7 @@ public class Player : Entity
             skill.starMagic.CanUseSkill();
         #endregion
 
+        //debug the controller
         for (int i = 0; i <= 19; i++)
         {
             KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Joystick1Button" + i);
