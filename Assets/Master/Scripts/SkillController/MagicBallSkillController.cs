@@ -282,6 +282,21 @@ public class MagicBallSkillController : MonoBehaviour
         transform.parent = collision.transform;
     }
 
+    private void AnimationExplodeEvent()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, cd.radius);
+
+        foreach (var hit in colliders)
+        {
+            if (hit.GetComponent<Enemy>() != null)
+            {
+                Enemy enemy = hit.GetComponent<Enemy>();
+                hit.GetComponent<Enemy>().DamageEffect();
+                enemy.stats.TakeDamage(4);
+            }
+        }
+    }
+
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public virtual bool IsHalfGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsHalfGround);
 }

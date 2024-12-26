@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class HealthBar_UI : MonoBehaviour
 {
+    //variables
     private CharacterStats myStats;
     [SerializeField] private Player player;
 
     private Slider slider;
     private void Start()
     {
+        //get the components
         slider = GetComponentInChildren<Slider>();
         myStats = player.GetComponent<CharacterStats>();
     }
@@ -22,6 +24,7 @@ public class HealthBar_UI : MonoBehaviour
 
     private void UpdateHealthUI()
     {
+        //get the value from character's stats
         slider.maxValue = myStats.maxHealth.GetValue();
         slider.value = myStats.currentHealth;
     }
