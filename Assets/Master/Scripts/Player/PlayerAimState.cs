@@ -11,9 +11,6 @@ public class PlayerAimState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-        //Make Dots to be Active to set the position
-        player.skill.aimAttack.DotsActive(true);
     }
 
     public override void Exit()

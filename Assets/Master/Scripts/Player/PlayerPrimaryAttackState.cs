@@ -47,11 +47,8 @@ public class PlayerPrimaryAttackState : PlayerState
 
         if (skillused)
         {
-            player.skill.aimAttack.CreateMagic(player.facingDir);
-            skillused = false;
+            player.skill.PAMagic.CreateMagic(player.facingDir);
         }
-
-        skillused = true;
     }
 
     public override void Update()

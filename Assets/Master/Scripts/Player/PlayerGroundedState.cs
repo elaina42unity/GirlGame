@@ -51,18 +51,4 @@ public class PlayerGroundedState : PlayerState
             player.skill.staffMagic.CanUseSkill();
 
     }
-
-    //check the waterball state
-    private bool HasNoWaterBall()
-    {
-        if (!player.waterBall)
-        {
-            return true;
-        }
-
-        player.waterBall.GetComponent<MagicBallSkillController>().ReturnWaterBall();
-        return false;
-    }
-
-
 }

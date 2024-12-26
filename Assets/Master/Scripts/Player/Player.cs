@@ -48,10 +48,10 @@ public class Player : Entity
     public float chantUsageTimer;
     //public float dashSpeed;
     public float chantDuration;
+    public GameObject magicball { get; private set; }
 
     //States
     public float chantDir { get; private set; }
-    public GameObject waterBall { get; private set; }
 
     public SkillManager skill { get; private set; }
 
@@ -82,7 +82,7 @@ public class Player : Entity
 
     public PlayerBombFlashState bombFlashState { get; private set; }
 
-    public PlayerAimState aimState { get; private set; }
+    //public PlayerAimState aimState { get; private set; }
 
     //public PlayerCatchState catchState { get; private set; }
 
@@ -110,7 +110,7 @@ public class Player : Entity
         //enchant = new PlayerEnchantState(this, stateMachine, "ChantAttack");
         counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         bombFlashState = new PlayerBombFlashState(this, stateMachine, "BombFlash");
-        aimState = new PlayerAimState(this, stateMachine, "Aim");
+        //aimState = new PlayerAimState(this, stateMachine, "Aim");
         //catchState = new PlayerCatchState(this, stateMachine, "Catch");
         blackHole = new PlayerBlackholeState(this, stateMachine, "ChantAttack");
         deadState = new PlayerDeadState(this, stateMachine, "Die");
@@ -180,16 +180,9 @@ public class Player : Entity
     }
 
     //skill setup
-    public void AssignNewWaterBall(GameObject _newWaterBall)
+    public void AssignNewMagicBall(GameObject _newMagicBall)
     {
-        waterBall = _newWaterBall;
-    }
-
-    //skill setup
-    public void CatchTheWaterBall()
-    {
-        //stateMachine.ChangeState(catchState);
-        Destroy(waterBall);
+        magicball = _newMagicBall;
     }
 
     //make player not to move between combo
@@ -242,7 +235,6 @@ public class Player : Entity
     public void CheckforChantInput()
     {
 
-
         if (Input.GetKeyDown(KeyCode.Z) && chantUsageTimer < 0 && groundCheck)
         {
             chantUsageTimer = chantCooldown;
@@ -262,19 +254,6 @@ public class Player : Entity
 
         if (!isdead)
             stateMachine.ChangeState(deadState);
-    }
-
-    public virtual void getEnemyColliderDamage()
-    {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(colliderDamageCheck.position, new Vector2(cdDamageCheckWidth, cdDamageCheckHeight), 0);
-        foreach (var hit in colliders)
-        {
-            Debug.Log("2");
-            if (hit.GetComponent<Enemy>() != null)
-            {
-                stats.TakeDamage(4);
-            }
-        }
     }
 
     protected override void OnDrawGizmos()

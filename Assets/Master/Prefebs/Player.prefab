@@ -458,6 +458,10 @@ MonoBehaviour:
   whatIsHalfGround:
     serializedVersion: 2
     m_Bits: 256
+  isdead: 0
+  turnCamera: 0
+  turnCameraBack: 0
+  cameraBackTimer: 0
   colliderDamageCheck: {fileID: 141228889927154833}
   cdDamageCheckWidth: 2.5
   cdDamageCheckHeight: 7
@@ -491,12 +495,12 @@ GameObject:
   - component: {fileID: 6561010365035869842}
   - component: {fileID: 465348108784469138}
   - component: {fileID: 64047184692467451}
-  - component: {fileID: 1392455549605716765}
   - component: {fileID: 4895022901406390636}
   - component: {fileID: 5844282929423850665}
   - component: {fileID: 1153661020991941187}
   - component: {fileID: 1936549496512217888}
   - component: {fileID: 4076182160831399223}
+  - component: {fileID: 520350306235605449}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -544,42 +548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
---- !u!114 &1392455549605716765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6247585737509128056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef57917e0e9503b43b0e53783b23ec91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 2
-  magicType: 1
-  bounceAmount: 5
-  waterBallGravity: 1
-  bounceSpeed: 10
-  fireBallAmount: 10
-  FireBallGravity: 1
-  magicBallPrefab: {fileID: 4081311264360108914, guid: 73434f8cc84af4e448880c271544874f, type: 3}
-  MeteorMagicPrefab: {fileID: 0}
-  fireBallPrefab: {fileID: 5925513798401093252, guid: 54fb04fb23d1089439c2d8cd0dccd87a, type: 3}
-  flashBallPrefab: {fileID: 792863318009364856, guid: afddff97cab692045a5d4ba2bdf34269, type: 3}
-  waterBallPrefab: {fileID: 6681711864914690929, guid: 0119fc35c81fba14f861a052338ba669, type: 3}
-  launchForce: {x: 8, y: 1}
-  magicGravity: 1
-  freezeTimeDuration: 0.001
-  returnSpeed: 0
-  hitCooldown: 0.8
-  maxTravelDistance: 15
-  spinDuration: 2
-  flashBallGravity: 1
-  numberOfDots: 0
-  spaceBetweenDots: 0
-  dotPrefab: {fileID: 4274139525621272766, guid: c505d97f0d131fc4085859f1d80d8970, type: 3}
-  dotsParent: {fileID: 0}
 --- !u!114 &4895022901406390636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +658,42 @@ MonoBehaviour:
   - {fileID: 4993066450000581165, guid: 3ee19894191cfb24395a49eca21735f7, type: 3}
   - {fileID: 4993066450000581165, guid: 3ee19894191cfb24395a49eca21735f7, type: 3}
   - {fileID: 4993066450000581165, guid: 3ee19894191cfb24395a49eca21735f7, type: 3}
+--- !u!114 &520350306235605449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6247585737509128056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f73b4dd2555b34fb178437d5ff7ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  magicType: 1
+  bounceAmount: 5
+  waterBallGravity: 1
+  bounceSpeed: 10
+  fireBallAmount: 8
+  FireBallGravity: 1
+  magicBallPrefab: {fileID: 4081311264360108914, guid: 73434f8cc84af4e448880c271544874f, type: 3}
+  MeteorMagicPrefab: {fileID: 0}
+  fireBallPrefab: {fileID: 5925513798401093252, guid: 54fb04fb23d1089439c2d8cd0dccd87a, type: 3}
+  flashBallPrefab: {fileID: 792863318009364856, guid: afddff97cab692045a5d4ba2bdf34269, type: 3}
+  waterBallPrefab: {fileID: 6681711864914690929, guid: 0119fc35c81fba14f861a052338ba669, type: 3}
+  launchForce: {x: 10, y: 2}
+  magicGravity: 1
+  freezeTimeDuration: 0.02
+  returnSpeed: 0
+  hitCooldown: 0.35
+  maxTravelDistance: 7
+  spinDuration: 2
+  flashBallGravity: 1
+  numberOfDots: 0
+  spaceBetweenDots: 0
+  dotPrefab: {fileID: 4274139525621272766, guid: c505d97f0d131fc4085859f1d80d8970, type: 3}
+  dotsParent: {fileID: 2594156908492527878}
 --- !u!1 &7069131134579890106
 GameObject:
   m_ObjectHideFlags: 0

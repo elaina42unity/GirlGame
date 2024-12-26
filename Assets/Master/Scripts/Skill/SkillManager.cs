@@ -8,7 +8,7 @@ public class SkillManager : MonoBehaviour
 
     public CloneSkill clone { get; private set; }
 
-    public AimAttack aimAttack { get; private set; }
+    public PrimaryAttackMagic PAMagic { get; private set; }
 
     public BlackholeSkill blackhole { get; private set; }
 
@@ -27,7 +27,7 @@ public class SkillManager : MonoBehaviour
     {
         dash = GetComponent<DashSkill>();
         clone = GetComponent<CloneSkill>();
-        aimAttack = GetComponent<AimAttack>();
+        PAMagic = GetComponent<PrimaryAttackMagic>();
         blackhole = GetComponent<BlackholeSkill>();
         staffMagic = GetComponent<StaffMagicSkill>();
         starMagic = GetComponent<StarMagicSkill>();
