@@ -27,18 +27,9 @@ public class StaffMagicSkill : Skill
 
             if (cloneInsdeadOfStaff)
             {
-                SkillManager
-                    
-                    
-                    
-                    
-                    .instance.clone.CreateClone(currentStaff.transform, Vector3.zero);
+                SkillManager.instance.clone.CreateClone(currentStaff.transform, Vector3.zero);
                 Destroy(currentStaff);
             }
-            //else
-            //{
-            //    currentStaff.GetComponent<StaffMagicControllerAX>?.FinishStaff();
-            //}
             Destroy(currentStaff);
         }
 

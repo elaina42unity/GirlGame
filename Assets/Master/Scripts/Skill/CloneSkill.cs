@@ -40,14 +40,14 @@ public class CloneSkill : Skill
             
     }
 
-    //when use the skill create clone
+    //when use the dodge create clone
     public void CreateCloneOnDodgeStart()
     {
         if (createCloneOnDodgeStart)
             CreateClone(player.transform, Vector3.zero);
     }
 
-    //when finish the skill create clone
+    //when finish the dodge create clone
     public void CreateCloneOnDodgeOver()
     {
         if (createCloneOnDodgeOver)

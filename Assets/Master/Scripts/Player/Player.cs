@@ -20,14 +20,14 @@ public class Player : Entity
 
     [Header("Attack details")]
     public Vector2[] attackMovement;
-    public float counterAttackDuration = .2f;
+    public float counterAttackDuration;
     public float counterAttackCheckWidth;
     public float counterAttackCheckHeight;
     public Transform counterAttackCheck;
 
     public bool isBusy { get; private set; }
     [Header("Move info")]
-    public float moveSpeed = 12f;
+    public float moveSpeed;
     public float jumpForce;
     public float waterBallReturnImpact;
 
@@ -66,10 +66,6 @@ public class Player : Entity
 
     public PlayerAirState airState { get; private set; }
 
-    //public PlayerWallSlideState wallSlide { get; private set; }
-
-    //public PlayerWallJumpState wallJump { get; private set; }
-
     public PlayerDashState dashState { get; private set; }
 
     //public PlayerChantState chantState { get; private set; }
@@ -81,10 +77,6 @@ public class Player : Entity
     public PlayerCounterAttackState counterAttack { get; private set; }
 
     public PlayerBombFlashState bombFlashState { get; private set; }
-
-    //public PlayerAimState aimState { get; private set; }
-
-    //public PlayerCatchState catchState { get; private set; }
 
     public PlayerBlackholeState blackHole { get; private set; }
 
@@ -103,15 +95,11 @@ public class Player : Entity
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
-        //wallSlide = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         //chantState = new PlayerChantState(this, stateMachine, "ChantAttack");
-        //wallJump = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         //enchant = new PlayerEnchantState(this, stateMachine, "ChantAttack");
         counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         bombFlashState = new PlayerBombFlashState(this, stateMachine, "BombFlash");
-        //aimState = new PlayerAimState(this, stateMachine, "Aim");
-        //catchState = new PlayerCatchState(this, stateMachine, "Catch");
         blackHole = new PlayerBlackholeState(this, stateMachine, "ChantAttack");
         deadState = new PlayerDeadState(this, stateMachine, "Die");
 
@@ -148,6 +136,7 @@ public class Player : Entity
             skill.starMagic.CanUseSkill();
         #endregion
 
+        //controller test
         for (int i = 0; i <= 19; i++)
         {
             KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Joystick1Button" + i);
@@ -177,12 +166,6 @@ public class Player : Entity
             ChangeSpecialRoom();
         }
 
-    }
-
-    //skill setup
-    public void AssignNewMagicBall(GameObject _newMagicBall)
-    {
-        magicball = _newMagicBall;
     }
 
     //make player not to move between combo
@@ -248,6 +231,7 @@ public class Player : Entity
     }
     #endregion 
 
+    //set the dead state
     public override void Die()
     {
         base.Die();
@@ -256,15 +240,16 @@ public class Player : Entity
             stateMachine.ChangeState(deadState);
     }
 
+    //get the line and cube of attack
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
 
         Gizmos.DrawCube(counterAttackCheck.position, new Vector3(counterAttackCheckHeight, counterAttackCheckWidth, 0));
-        Gizmos.DrawCube(colliderDamageCheck.position, new Vector3(cdDamageCheckWidth, cdDamageCheckHeight, 0));
 
     }
 
+    //set the knockback effect
     protected override IEnumerator HitKnockback()
     {
         return base.HitKnockback();

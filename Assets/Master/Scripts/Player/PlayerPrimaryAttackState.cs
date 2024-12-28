@@ -40,17 +40,20 @@ public class PlayerPrimaryAttackState : PlayerState
     {
         base.Exit();
 
+        //set a delay to the player make her unmovable
         player.StartCoroutine("BusyFor", .2f);
 
         comboCounter++;
         lastTimeAttacked = Time.time;
 
+        //when exit the state create a magic ball
         if (skillused)
         {
             player.skill.PAMagic.CreateMagic(player.facingDir);
         }
     }
 
+    //when she attack she cannnot move
     public override void Update()
     {
         base.Update();
@@ -58,7 +61,7 @@ public class PlayerPrimaryAttackState : PlayerState
         if (stateTimer < 0)
             player.SetZeroVelocity();
         
-
+        //when the trigger is false set state back to idle
         if (triggerCalled)
         {
             stateMachine.ChangeState(player.idleState);

@@ -13,13 +13,16 @@ public class PrimaryAttackMagic : Skill
 {
     public magicType magicType = magicType.waterBall;
 
+    //bounce information
     [Header("WaterBall info")]
     [SerializeField] private int bounceAmount;
     [SerializeField] private float bounceSpeed;
 
+    //how many enemy can the fire ball attack through
     [Header("FireBall info")]
     [SerializeField] private int fireBallAmount;
 
+    //different magic prefab to set up
     [Header("Prefab info")]
     [SerializeField] private GameObject MeteorMagicPrefab;
     [SerializeField] private GameObject magicBallPrefab;
@@ -30,17 +33,16 @@ public class PrimaryAttackMagic : Skill
     [Header("Magicball info")]
     [SerializeField] private Vector2 launchForce;
     [SerializeField] private float freezeTimeDuration;
-    [SerializeField] private float returnSpeed;
 
     [Header("FlashBall info")]
-    [SerializeField] private float hitCooldown;
-    [SerializeField] private float maxTravelDistance;
-    [SerializeField] private float spinDuration;
+    [SerializeField] private float hitCooldown;         //the time between each spinning damage
+    [SerializeField] private float maxTravelDistance;   //the length the magic ball will travel
+    [SerializeField] private float spinDuration;        //the time of spin
 
     [Header("Basic info")]
-    public int damage;
-    [SerializeField] private float magicGravity;
-    private Vector2 attackDir;
+    public int damage;                                  //the damage one time 
+    [SerializeField] private float magicGravity;        //the gravity of the magic
+    private Vector2 attackDir;                          //the magic direction
     
 
     //initiate
@@ -54,7 +56,7 @@ public class PrimaryAttackMagic : Skill
     public void CreateMagic(int facingDir)
     {
        
-        //set the random to get the magic
+        //set the random to get the magic's number
         switch (Random.Range(0,4))
         {
             case 0:
@@ -75,18 +77,23 @@ public class PrimaryAttackMagic : Skill
                 break;
         }
 
+        //set the velocity due to the direction
         if (facingDir == 1)
         {
             attackDir = new Vector3(30, 5);
-        }
+        }else 
         if (facingDir == -1)
         {
             attackDir = new Vector3(-30, 5);
         }
 
+        //initiate the magicball to player's positoin
         GameObject newMagicBall = Instantiate(MeteorMagicPrefab, player.transform.position, transform.rotation);
+        
+        //get the script on the magicball
         MagicBallSkillController newMagicScript = newMagicBall.GetComponent<MagicBallSkillController>();
 
+        //give the magic prefab their own magic code
         switch (magicType)
         {
             case magicType.magicBall:
@@ -102,6 +109,7 @@ public class PrimaryAttackMagic : Skill
                 break;
         }
 
+        //set up the magic basic information
         newMagicScript.SetupMagic(attackDir, magicGravity, player, freezeTimeDuration, damage);
 
     }

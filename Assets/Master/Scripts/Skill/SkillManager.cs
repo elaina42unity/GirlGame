@@ -15,6 +15,7 @@ public class SkillManager : MonoBehaviour
     public StaffMagicSkill staffMagic { get; private set; }
 
     public StarMagicSkill starMagic { get; private set; }
+
     private void Awake()
     {
         if (instance != null)

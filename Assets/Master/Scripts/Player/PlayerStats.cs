@@ -22,6 +22,7 @@ public class PlayerStats : CharacterStats
             player.DamageEffect();
     }
 
+    //set death on the stats
     protected override void Die()
     {
         base.Die();

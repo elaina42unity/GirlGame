@@ -18,6 +18,10 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Update();
 
+        //when detected the wall
+        if (player.IsWallDetected())
+            player.SetZeroVelocity();
+
         //set the velocity of moving
         player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
 

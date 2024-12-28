@@ -198,18 +198,13 @@ public class MagicBallSkillController : MonoBehaviour
 
         }
 
+        //find the target to bounce
         SetupTargetForBounce(collision);
 
+        //magic will stuck in the enemy's collision
         StuckInto(collision);
     }
 
-    //take damage
-    private void MagicDamage(Enemy enemy)
-    {
-        enemy.DamageEffect();
-        enemy.stats.TakeDamage(damage);
-        enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
-    }
 
     //find the enemy to bounce to
     private void SetupTargetForBounce(Collider2D collision)
@@ -218,6 +213,7 @@ public class MagicBallSkillController : MonoBehaviour
         {
             if (isBouncing && enemyTarget.Count <= 0)
             {
+                //use a bigger collider to get the enemy who is overlapped in it 
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 40);
 
                 foreach (var hit in colliders)
@@ -241,19 +237,24 @@ public class MagicBallSkillController : MonoBehaviour
             canAttack = false;
         }
 
+        //when overlapped one time release one fireAttackAmount
         if (fireBallAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             fireBallAmount--;
             return;
         }
 
+        //make the flash ball stop
         if (isSpinning)
         {
             StopWhenSpinning();
             return;
         }
 
+        //make the ball explode
         canAttack = false;
+
+        //make the collision unennabled
         cd.enabled = false;
 
         rb.isKinematic = true;
@@ -265,6 +266,15 @@ public class MagicBallSkillController : MonoBehaviour
         transform.parent = collision.transform;
     }
 
+    //take damage
+    private void MagicDamage(Enemy enemy)
+    {
+        enemy.DamageEffect();
+        enemy.stats.TakeDamage(damage);
+
+        //enemy will be frozened by a few time
+        enemy.StartCoroutine("FreezeTimeFor", freezeTimeDuration);
+    }
     public virtual bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public virtual bool IsHalfGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsHalfGround);
 }

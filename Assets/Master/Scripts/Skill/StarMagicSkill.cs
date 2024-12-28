@@ -27,39 +27,37 @@ public class StarMagicSkill : Skill
     {
         base.UseSkill();
 
+        //if the "CanUseMultiStar" skill is on
         if (CanUseMultiStar())
             return;
 
+        //if there is no star
         if (currentStar == null)
         {
             CreateStar(false);
         }
-        else
-        {
-            if (canMoveToEnemy)
-                return;
-
-            Vector2 playerPos = player.transform.position;
-
-            player.transform.position = currentStar.transform.position;
-
-            player.transform.position = currentStar.transform.position;
-
-            currentStar.GetComponent<StarMagicController>()?.FinishStar();
-        }
+        
     }
 
+    //create a star
     public void CreateStar(bool isBlackHoleSkill)
     {
+        //set the basic informatiion of star
         currentStar = Instantiate(starPrefab, player.transform.position - new Vector3(0, 1), Quaternion.identity);
+        
+        //get script
         StarMagicController currentStarScript = currentStar.GetComponent<StarMagicController>();
 
+        //set up
+        //if the creat star is called in the blackhole skill state it will be set around enemies
         currentStarScript.SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(currentStar.transform),canSetAroundEnemy, isBlackHoleSkill);
         
     }
 
+    //find the random target
     public void CurrentStarChooseRandomTarget() => currentStar.GetComponent<StarMagicController>().ChooseRandomEnemy();
 
+    //the skill "useMultiStar"
     private bool CanUseMultiStar()
     {
         if (canUseMultiStacks)
@@ -81,10 +79,6 @@ public class StarMagicSkill : Skill
                 //set up the star
                 newStar.GetComponent<StarMagicController>().
                     SetupStar(starDuration, canExplode, canMoveToEnemy, moveSpeed, FindClosestEnemy(newStar.transform), canSetAroundEnemy,false);
-
-                //closestEnemy = FindClosestEnemy(newStar.transform);
-                //Debug.Log($"父级函数返回的敌人: {closestEnemy?.name}");
-                //Debug.Log($"子级函数中的敌人位置: {closestEnemy?.position}");
 
                 //if stack all used set cooldown
                 if (starLeft.Count <= 0)
